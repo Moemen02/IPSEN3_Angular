@@ -22,6 +22,8 @@ import { HomeComponent } from './pages/home/home.component';
  */
 import {MatCardModule} from "@angular/material/card";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './login/login.component';
+import { AuthService } from './auth.service';
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     NavigationbarComponent,
     HomeComponent,
-    WastePageComponent
+    WastePageComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     MatCardModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
