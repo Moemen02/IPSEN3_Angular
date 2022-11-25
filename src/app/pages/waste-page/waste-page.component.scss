@@ -3,4 +3,26 @@
 .waste-page{
   background-color: $primaryBackgroundColor;
   height: 100%;
+
+
+  .waste-container{
+    padding: 3% 5% 3% 5%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 10% 1fr;
+
+    .waste-header{
+      .header-card{
+        background-color: white;
+      }
+    }
+
+    .waste-content{
+      .content-card{
+        height: 100%;
+        background-color: white;
+      }
+    }
+  }
 }
