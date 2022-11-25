@@ -10,6 +10,9 @@ const routes: Routes = [
   { path: '', component: LoginComponent},
   { path: 'home', component: HomeComponent, canActivate:[AuthService] },
   { path: 'afvalstoffen', component: WastePageComponent, canActivate:[AuthService] },
+
+
+  { path: '**', redirectTo: "/" },
 ];
 
 @NgModule({
