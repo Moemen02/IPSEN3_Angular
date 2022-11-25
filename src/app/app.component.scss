@@ -1,4 +1,11 @@
-* {
-  margin: 0;
-  padding: 0;
+.app-container{
+  height: 100vh;
+
+  .nav-container{
+    height: 5vh;
+  }
+
+  .route-container{
+    height: 95vh;
+  }
 }
