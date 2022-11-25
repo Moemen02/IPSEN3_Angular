@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +12,7 @@ export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) {
     this.authService.isLoggedIn.subscribe((loggedIn:boolean) => {
       if (loggedIn) router.navigate(["/home"])
-    })    
+    })
   }
 
 

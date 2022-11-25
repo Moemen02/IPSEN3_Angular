@@ -22,7 +22,7 @@ import { HomeComponent } from './pages/home/home.component';
  */
 import {MatCardModule} from "@angular/material/card";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './pages/login/login.component';
 import { AuthService } from './auth.service';
 
 
