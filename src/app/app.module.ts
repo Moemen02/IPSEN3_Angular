@@ -24,6 +24,7 @@ import {MatCardModule} from "@angular/material/card";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthService } from './auth.service';
+import {MatTableModule} from "@angular/material/table";
 
 
 @NgModule({
