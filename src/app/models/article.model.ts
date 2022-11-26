@@ -9,18 +9,6 @@ export class Article {
   private _articleId!: number;
 
 
-  // constructor(id: number, priceid: number, eancode: string, color: string, layout: string, washsymbol: string, composition: string, articleId: number) {
-  //   this._id = id;
-  //   this._priceid = priceid;
-  //   this._eancode = eancode;
-  //   this._color = color;
-  //   this._layout = layout;
-  //   this._washsymbol = washsymbol;
-  //   this._composition = composition;
-  //   this._articleId = articleId;
-  // }
-
-
   get id(): number {
     return this._id;
   }

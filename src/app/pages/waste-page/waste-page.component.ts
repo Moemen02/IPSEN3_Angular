@@ -10,19 +10,17 @@ import {Article} from "../../models/article.model";
 export class WastePageComponent implements OnInit{
 
   ngOnInit() {
-    this.getApi();
+    this.getArticles();
   }
 
   constructor(private httpService: HttpService) {}
-  articles: Article[] = [
-    new Article()
-  ]
-  newArticles: Object[] = []
+  articles: Article[] = []
 
 
-  public getApi(){
-    this.httpService.getData("api/article", this.articles)
-    this.newArticles = this.httpService.data
-    // console.log(this.newArticles)
+  public getArticles(): void{
+    this.httpService.getData<Article>("api/article")
+      .subscribe((_aricles)=>{
+        this.articles = _aricles
+      })
   }
 }

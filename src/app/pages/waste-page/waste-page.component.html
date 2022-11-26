@@ -8,8 +8,8 @@
     <div class="waste-content">
       <mat-card class="content-card">
         <mat-card-content>
-          <button (click)="getApi()">klik me</button>
-          <p *ngFor="let article of newArticles">{{articles}}</p>
+          <button (click)="getArticles()">klik me</button>
+          <p *ngFor="let article of articles">{{article.color}}</p>
         </mat-card-content>
       </mat-card>
     </div>
