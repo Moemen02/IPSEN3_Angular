@@ -8,7 +8,10 @@ import {ArticleDetailModel} from "../../models/article-detail.model";
   templateUrl: './waste-page.component.html',
   styleUrls: ['./waste-page.component.scss']
 })
+
 export class WastePageComponent implements OnInit{
+
+  displayedColumns: string[] = ['eancode', 'description', 'color', 'vPrice', 'aPrice', 'actions'];
 
   ngOnInit() {
     this.getArticles();
@@ -17,7 +20,7 @@ export class WastePageComponent implements OnInit{
 
   constructor(private httpService: HttpService) {}
   articles: Article[] = []
-  article: Article | undefined
+  singleArticle: Article | undefined
 
 
   public getArticles(): void{
@@ -30,7 +33,7 @@ export class WastePageComponent implements OnInit{
   getArticle(): void{
     this.httpService.getSingleData<Article>("api/article/1")
       .subscribe((_aricle)=>{
-        this.article = _aricle
+        this.singleArticle = _aricle
       })
   }
 }
