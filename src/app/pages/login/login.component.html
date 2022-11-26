@@ -2,28 +2,30 @@
 
     <div class="loginBox">
         <div class="logoHolder">
-            <img class="logo" src="https://livetorchlight.com/wp-content/uploads/2015/10/placeholder-circle.png" alt="">
+            <img class="logo" src="../../../assets/logo.png" alt="">
         </div>
 
-        <h2>LOGIN</h2>
+        <h1 class="loginText">LOGIN</h1>
 
         <div class="formHolder">
 
             <div>
 
-                <div class="inputHolder emailHolder">
+                <div class="inputHolder emailHolder inputSpacing">
                     <h3 class="inputText">Email</h3>
-                    <input class="input " type="text" placeholder="email">
+                    <input class="input" [ngClass]="{invalid : !isEmailValid }" type="text" placeholder="email" [(ngModel)]="email">
                 </div>
-                
+
                 <div class="inputHolder passHolder">
                     <h3 class="inputText">Wachtwoord</h3>
-                    <input class="input " type="password" name="" id="" placeholder="wachtwoord">
+                    <input class="input "  [ngClass]="{invalid : !isPassValid }"  type="password" name="" id="" placeholder="wachtwoord" [(ngModel)]="password">
+                    <p class="errorText">{{errorText}}</p>
                 </div>
             </div>
         </div>
 
-        <button class="btn btn-primary" (click)="login()">INLOGGEN</button>
+
+        <button class="loginButton" (click)="login()">INLOGGEN</button>
 
     </div>
 </div>

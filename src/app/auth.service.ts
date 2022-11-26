@@ -28,7 +28,7 @@ export class AuthService implements CanActivate, CanActivateChild {
         this.router.navigate(["/home"])
         res(true)
       } 
-      rej(false)
+      res(false)
 		})
 		return promise
   }
