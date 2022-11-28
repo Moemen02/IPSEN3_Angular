@@ -5,27 +5,47 @@
             <img class="logo" src="../../../assets/logo.png" alt="">
         </div>
 
-        <h1 class="loginText">LOGIN</h1>
+        <h1 class="loginText">{{needNewPassword ? "Update Uw wachtwoord" : "Login"}}</h1>
 
         <div class="formHolder">
 
-            <div>
+            <div *ngIf="!needNewPassword">
 
                 <div class="inputHolder emailHolder inputSpacing">
                     <h3 class="inputText">Email</h3>
-                    <input class="input" [ngClass]="{invalid : !isEmailValid }" type="text" placeholder="email" [(ngModel)]="email">
+                    <input class="input" [ngClass]="{invalid : !isEmailValid }" type="email" placeholder="email" required [(ngModel)]="email">
                 </div>
 
                 <div class="inputHolder passHolder">
                     <h3 class="inputText">Wachtwoord</h3>
-                    <input class="input "  [ngClass]="{invalid : !isPassValid }"  type="password" name="" id="" placeholder="wachtwoord" [(ngModel)]="password">
+                    <input class="input "  [ngClass]="{invalid : !isPassValid }"  type="password" placeholder="wachtwoord" required [(ngModel)]="password">
                     <p class="errorText">{{errorText}}</p>
                 </div>
+
+                <button class="loginButton" (click)="login()">INLOGGEN</button>
             </div>
+
+
+            <div *ngIf="needNewPassword">
+                <div class="inputHolder emailHolder inputSpacing">
+                    <h3 class="inputText">Wachtwoord</h3>
+                    <input class="input" [ngClass]="{invalid : !isNewPasswordValid }" type="password" placeholder="wachtwoord" required [minLength]="6" [(ngModel)]="newPassword">
+                </div>
+
+                <div class="inputHolder passHolder">
+                    <h3 class="inputText">Herhaal wachtwoord</h3>
+                    <input class="input "  [ngClass]="{invalid : !isNewPasswordValid }"  type="password" placeholder="herhaal uw wachtwoord" required [minLength]="6" [(ngModel)]="newPassword2">
+                    <p class="errorText">{{errorText}}</p>
+                </div>
+
+                <button class="loginButton" (click)="updatePassword()">UPDATE</button>
+
+            </div>
+
         </div>
 
 
-        <button class="loginButton" (click)="login()">INLOGGEN</button>
+        
 
     </div>
 </div>
