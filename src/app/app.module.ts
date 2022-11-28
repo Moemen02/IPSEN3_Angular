@@ -23,6 +23,7 @@ import { HomeComponent } from './pages/home/home.component';
 import {MatCardModule} from "@angular/material/card";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTableModule} from "@angular/material/table";
+import { WasteTableComponent } from './pages/waste-page/waste-components/waste-table/waste-table.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import {MatTableModule} from "@angular/material/table";
     AppComponent,
     NavigationbarComponent,
     HomeComponent,
-    WastePageComponent
+    WastePageComponent,
+    WasteTableComponent
   ],
   imports: [
     BrowserModule,

@@ -9,31 +9,6 @@ import {ArticleDetailModel} from "../../models/article-detail.model";
   styleUrls: ['./waste-page.component.scss']
 })
 
-export class WastePageComponent implements OnInit{
+export class WastePageComponent{
 
-  displayedColumns: string[] = ['eancode', 'description', 'color', 'vPrice', 'aPrice', 'actions'];
-
-  ngOnInit() {
-    this.getArticles();
-    this.getArticle();
-  }
-
-  constructor(private httpService: HttpService) {}
-  articles: Article[] = []
-  singleArticle: Article | undefined
-
-
-  public getArticles(): void{
-    this.httpService.getData<Article>("api/article")
-      .subscribe((_aricles)=>{
-        this.articles = _aricles
-      })
-  }
-
-  getArticle(): void{
-    this.httpService.getSingleData<Article>("api/article/1")
-      .subscribe((_aricle)=>{
-        this.singleArticle = _aricle
-      })
-  }
 }
