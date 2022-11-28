@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthResponse } from 'src/app/model/AuthResponse.model';
+import { AuthResponse } from 'src/app/models/AuthResponse.model';
 import { AuthService } from '../../auth.service';
 
 @Component({
@@ -86,10 +86,3 @@ export class LoginComponent {
     }
   }
 }
-
-
-// iemand2@test.com
-// Medewerker@
-
-// admin@admin.com
-// adminn

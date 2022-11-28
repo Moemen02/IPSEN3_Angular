@@ -2,8 +2,8 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, Router, RouterStateSnapshot, UrlTree } from "@angular/router";
 import { BehaviorSubject, Observable, tap, Subject } from "rxjs";
-import { AuthResponse } from "./model/AuthResponse.model";
-import { JwtToken } from "./model/jwtToken.model";
+import { AuthResponse } from "./models/AuthResponse.model";
+import { JwtToken } from "./models/jwtToken.model";
 
 const BASE_URL = "http://localhost:8080/api"
 
