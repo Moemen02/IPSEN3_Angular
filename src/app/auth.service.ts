@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, Router, RouterStateSnapshot, UrlTree } from "@angular/router";
 import { BehaviorSubject, Observable, tap, Subject } from "rxjs";
@@ -15,6 +15,7 @@ export class AuthService implements CanActivate, CanActivateChild {
   private _changePassword = new BehaviorSubject<boolean>(false)
   changePassword = this._changePassword.asObservable()
 
+  token = ""
 
   constructor(private router: Router, private http: HttpClient) {
     const token = this.checkForKey()
@@ -37,6 +38,7 @@ export class AuthService implements CanActivate, CanActivateChild {
       const token = this.decodeJWTToken(data.jwtToken)
       if (token.defaultPass) {
         this._changePassword.next(true)
+        this.token = data.jwtToken
       } else {
         localStorage.setItem("auth_key", data.jwtToken)
         this._isLoggedIn.next(true)
@@ -50,11 +52,12 @@ export class AuthService implements CanActivate, CanActivateChild {
   }
 
 
-  updatePassword(email:string, password: string) {
-    return this.http.post<AuthResponse>(BASE_URL + "/auth/changepassword", {
+  updatePassword(email:string, oldPassword: string, newPassword:string) {
+     return this.http.post<AuthResponse>(BASE_URL + "/auth/changepassword", {
       email:email,
-      password: password
-    }).pipe(tap(data => {
+      oldPassword: oldPassword,
+      newPassword: newPassword
+    }, {headers: new HttpHeaders().set("Authorization", "Bearer " + this.token)}).pipe(tap(data => {
       if (!data.success) return
       const token = this.decodeJWTToken(data.jwtToken)
       if (token.defaultPass) {

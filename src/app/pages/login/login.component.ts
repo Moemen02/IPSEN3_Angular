@@ -9,8 +9,8 @@ import { AuthService } from '../../auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  email = "iemand2@test.com"
-  password = "Medewerker@"
+  email = ""
+  password = ""
 
   errorText = ""
 
@@ -78,9 +78,11 @@ export class LoginComponent {
     
 
     if (this.isNewPasswordValid) {
+      this.authService.updatePassword(this.email, this.password, this.newPassword).subscribe((data) => {
+
+      })
       this.errorText = ""
       this.needNewPassword = false
-      // this.authService.
     }
   }
 }
