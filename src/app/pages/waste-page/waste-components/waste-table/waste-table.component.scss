@@ -1,0 +1,18 @@
+@import "src/styles";
+
+.waste-table{
+  background-color: $primaryBackgroundColor;
+  padding-bottom: 1em;
+
+  th, td{
+    color: black;
+  }
+
+  .waste-table-row{
+    padding-bottom: 1em;
+  }
+
+  .mat-mdc-row:hover .mat-mdc-cell {
+    border-color: black;
+  }
+}

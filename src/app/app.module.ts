@@ -24,6 +24,8 @@ import {MatCardModule} from "@angular/material/card";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthService } from './auth.service';
+import {MatTableModule} from "@angular/material/table";
+import { WasteTableComponent } from './pages/waste-page/waste-components/waste-table/waste-table.component';
 import { FormsModule } from '@angular/forms';
 
 
@@ -33,6 +35,7 @@ import { FormsModule } from '@angular/forms';
     NavigationbarComponent,
     HomeComponent,
     WastePageComponent,
+    WasteTableComponent,
     LoginComponent
   ],
   imports: [
@@ -42,6 +45,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     MatCardModule,
     HttpClientModule,
+    MatTableModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
