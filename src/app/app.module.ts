@@ -33,6 +33,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
 import {MatMenuModule} from "@angular/material/menu";
+import {MatSelectModule} from "@angular/material/select";
 
 
 @NgModule({
@@ -45,20 +46,21 @@ import {MatMenuModule} from "@angular/material/menu";
     LoginComponent,
     WasteAddComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    MatCardModule,
-    HttpClientModule,
-    MatTableModule,
-    MatGridListModule,
-    MatDialogModule,
-    MatButtonModule,
-    MatInputModule,
-    MatMenuModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        MatCardModule,
+        HttpClientModule,
+        MatTableModule,
+        MatGridListModule,
+        MatDialogModule,
+        MatButtonModule,
+        MatInputModule,
+        MatMenuModule,
+        MatSelectModule,
+    ],
   providers: [AuthService],
   bootstrap: [AppComponent]
 })

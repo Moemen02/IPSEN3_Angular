@@ -65,12 +65,14 @@
       </mat-form-field>
     </mat-grid-tile>
     <mat-grid-tile>
-      <button mat-button [mat-menu-trigger-for]="menu">Klant</button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>Henk</button>
-        <button mat-menu-item>Leo</button>
-        <button mat-menu-item>Stacey</button>
-      </mat-menu>
+      <mat-form-field appearance="fill">
+        <mat-label>Klant</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let customer of customers" [value]="customer">
+            {{ customer }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </mat-grid-tile>
     <mat-grid-tile>
       <mat-form-field>

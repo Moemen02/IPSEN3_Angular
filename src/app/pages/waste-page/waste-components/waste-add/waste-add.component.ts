@@ -8,7 +8,11 @@ import {Component} from '@angular/core';
 })
 export class WasteAddComponent {
 
-
+  customers: string[] = [
+    'Henk',
+    'Lorens',
+    'Stacey'
+  ];
 
   addArticle(){
 
