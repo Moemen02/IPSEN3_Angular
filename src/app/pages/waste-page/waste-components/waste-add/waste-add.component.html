@@ -1,0 +1,90 @@
+<h2 mat-dialog-title>Afval Toevoegen</h2>
+<mat-dialog-content>
+  <mat-grid-list cols="3" rowHeight="75px">
+    <mat-grid-tile colspan="1">
+      <mat-form-field>
+        <input matInput placeholder="Kleur">
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1">
+      <mat-form-field>
+        <input matInput placeholder="Productgroep">
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1">
+      <mat-form-field>
+        <input matInput placeholder="Breedte">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field>
+        <input matInput placeholder="Layout">
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field>
+        <input matInput placeholder="Leverancier">
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field>
+        <input matInput placeholder="ptr width">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field>
+        <input matInput placeholder="Wassymbool">
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field>
+        <input matInput placeholder="Soort">
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field>
+        <input matInput placeholder="ptr length">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field>
+        <input matInput placeholder="Compositie">
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <button mat-button [mat-menu-trigger-for]="menu">Klant</button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Henk</button>
+        <button mat-menu-item>Leo</button>
+        <button mat-menu-item>Stacey</button>
+      </mat-menu>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field>
+        <input matInput placeholder="v price">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="2"></mat-grid-tile>
+    <mat-grid-tile colspan="1">
+      <mat-form-field>
+        <input matInput placeholder="a price">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="2"></mat-grid-tile>
+    <mat-grid-tile colspan="1">
+      <mat-form-field>
+        <input matInput placeholder="Beschrijving">
+      </mat-form-field>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close>Cancel</button>
+  <button mat-raised-button (click)="addArticle()">Confirm</button>
+</mat-dialog-actions>

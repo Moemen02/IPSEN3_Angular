@@ -31,6 +31,8 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import { WasteAddComponent } from './pages/waste-page/waste-components/waste-add/waste-add.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
+import {MatInputModule} from "@angular/material/input";
+import {MatMenuModule} from "@angular/material/menu";
 
 
 @NgModule({
@@ -54,6 +56,8 @@ import {MatButtonModule} from "@angular/material/button";
     MatGridListModule,
     MatDialogModule,
     MatButtonModule,
+    MatInputModule,
+    MatMenuModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
