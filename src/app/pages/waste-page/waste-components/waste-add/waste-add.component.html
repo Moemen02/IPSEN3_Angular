@@ -100,6 +100,6 @@
 
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
-  <button mat-raised-button color="primary" mat-dialog-close (click)="addArticle()">Confirm</button>
+  <button mat-raised-button color="warn" mat-dialog-close="false">Cancel</button>
+  <button mat-raised-button color="primary" mat-dialog-close="true" (click)="addArticle()">Confirm</button>
 </mat-dialog-actions>
