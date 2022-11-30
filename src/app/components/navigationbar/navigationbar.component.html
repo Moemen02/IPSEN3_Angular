@@ -1,2 +1,16 @@
-<p>navigationbar works!</p>
-<button (click)="randomLog()">klik me</button>
+
+<nav>
+
+  <button type="button" mat-button (click)="drawer.toggle()">
+  Toggle sidenav
+</button>
+
+  <mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="sidenav" mode="side">
+    <p>Auto-resizing sidenav</p>
+    Toggle extra text
+  </mat-drawer>
+
+
+
+</mat-drawer-container></nav>

@@ -27,6 +27,7 @@ import { AuthService } from './auth.service';
 import {MatTableModule} from "@angular/material/table";
 import { WasteTableComponent } from './pages/waste-page/waste-components/waste-table/waste-table.component';
 import { FormsModule } from '@angular/forms';
+import {MatSidenavModule} from "@angular/material/sidenav";
 
 
 @NgModule({
@@ -38,15 +39,16 @@ import { FormsModule } from '@angular/forms';
     WasteTableComponent,
     LoginComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    MatCardModule,
-    HttpClientModule,
-    MatTableModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        MatCardModule,
+        HttpClientModule,
+        MatTableModule,
+        MatSidenavModule,
+    ],
   providers: [AuthService],
   bootstrap: [AppComponent]
 })

@@ -1,11 +1,18 @@
 .app-container{
   height: 100vh;
+  display: grid;
+  grid-template-areas:
+    //'navigation navigation navigation navigation navigation navigation navigation'
+    'navigation route route route route route route ';
 
-  .nav-container{
-    height: 5vh;
+
+  .nav-container {
+    grid-area: navigation;
   }
 
   .route-container{
-    height: 95vh;
+    grid-area: route;
   }
+
+
 }

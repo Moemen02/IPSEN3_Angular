@@ -10,6 +10,8 @@ export class NavigationbarComponent implements OnInit{
 
   }
 
+  // const navVisible: false;
+
   randomLog(){
     console.log("hoi")
   }
