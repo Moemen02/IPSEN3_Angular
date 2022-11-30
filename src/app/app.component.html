@@ -1,6 +1,9 @@
-<div class="app-container">
+
+
+
+<div class="app-container" [style]="woow ? 'grid-template-columns: 15% 1fr;' : 'grid-template-columns: 0% 1fr;'">
   <div class="nav-container" *ngIf="auth.isLoggedIn | async">
-    <app-navigationbar>
+    <app-navigationbar (testing)="booleanTest($event)">
     </app-navigationbar>
 
   </div>

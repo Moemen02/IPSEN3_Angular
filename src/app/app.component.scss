@@ -2,16 +2,18 @@
   height: 100vh;
   display: grid;
   grid-template-areas:
-    //'navigation navigation navigation navigation navigation navigation navigation'
-    'navigation route route route route route route ';
+    'navigationside navigationtop'
+    '. home';
+  grid-template-rows: 5%;
+
 
 
   .nav-container {
-    grid-area: navigation;
+    grid-area: navigationside;
   }
 
   .route-container{
-    grid-area: route;
+    grid-area: home;
   }
 
 

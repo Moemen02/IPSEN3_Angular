@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-navigationbar',
@@ -6,14 +7,25 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./navigationbar.component.scss']
 })
 export class NavigationbarComponent implements OnInit{
-  ngOnInit(): void {
+@Output() testing = new EventEmitter<boolean>()
 
+  test = false
+  constructor(private router:Router) {
+  }
+
+  ngOnInit(): void {
   }
 
   // const navVisible: false;
 
-  randomLog(){
-    console.log("hoi")
+  navTo(path:string) {
+    this.router.navigate([path])
+
   }
 
+
+  toggle(){
+    this.test = !this.test
+    this.testing.next(this.test)
+  }
 }

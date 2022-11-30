@@ -1,16 +1,33 @@
 
-<nav>
+<nav class="navigation">
+  <button class="btn" (click)="toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
 
-  <button type="button" mat-button (click)="drawer.toggle()">
-  Toggle sidenav
-</button>
+<div class="sidenavClass">
+  <hr>
 
-  <mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="sidenav" mode="side">
-    <p>Auto-resizing sidenav</p>
-    Toggle extra text
-  </mat-drawer>
+  <button class="btn btn-primary" (click)="navTo('/afvalstoffen')">
+    afval
+  </button>
+
+  <hr>
+
+  <button class="btn btn-primary" (click)="navTo('/home')">
+    home
+  </button>
+</div>
 
 
 
-</mat-drawer-container></nav>
+<!--  <mat-drawer-container class="example-container" autosize>-->
+<!--  <mat-drawer #drawer class="sidenav" mode="side">-->
+<!--    <button type="button" mat-button (click)="navTo('/afvalstoffen')">-->
+<!--      Afvalstoffen-->
+<!--    </button>-->
+<!--  </mat-drawer>-->
+<!--  </mat-drawer-container>-->
+
+
+
+</nav>

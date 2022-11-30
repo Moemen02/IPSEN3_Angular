@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import { AuthService } from './auth.service';
 
 @Component({
@@ -8,6 +8,11 @@ import { AuthService } from './auth.service';
 })
 export class AppComponent {
   title = 'AfvalSorteerSysteem';
+  woow = false
 
   constructor(public auth: AuthService) {}
+
+  booleanTest(bool: boolean) {
+    this.woow = bool
+  }
 }
