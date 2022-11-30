@@ -27,6 +27,13 @@ import { AuthService } from './auth.service';
 import {MatTableModule} from "@angular/material/table";
 import { WasteTableComponent } from './pages/waste-page/waste-components/waste-table/waste-table.component';
 import { FormsModule } from '@angular/forms';
+import {MatGridListModule} from "@angular/material/grid-list";
+import { WasteAddComponent } from './pages/waste-page/waste-components/waste-add/waste-add.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatButtonModule} from "@angular/material/button";
+import {MatInputModule} from "@angular/material/input";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatSelectModule} from "@angular/material/select";
 import {MatSidenavModule} from "@angular/material/sidenav";
 
 
@@ -37,8 +44,24 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     HomeComponent,
     WastePageComponent,
     WasteTableComponent,
-    LoginComponent
+    LoginComponent,
+    WasteAddComponent
   ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        MatCardModule,
+        HttpClientModule,
+        MatTableModule,
+        MatGridListModule,
+        MatDialogModule,
+        MatButtonModule,
+        MatInputModule,
+        MatMenuModule,
+        MatSelectModule,
+    ],
     imports: [
         BrowserModule,
         AppRoutingModule,
