@@ -21,6 +21,7 @@ export class WastePageComponent{
       data: {
         article: this.article
       },
+      disableClose: true
     });
 
 
