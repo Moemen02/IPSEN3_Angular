@@ -1,5 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Router} from "@angular/router";
+import {JwtToken} from "../../models/jwtToken.model";
+import {AuthService} from "../../auth.service";
 
 @Component({
   selector: 'app-navigationbar',
@@ -8,10 +10,12 @@ import {Router} from "@angular/router";
 })
 export class NavigationbarComponent implements OnInit{
 @Input() visible = false
+
   constructor(private router:Router) {
   }
 
   ngOnInit(): void {
+
   }
 
   // const navVisible: false;

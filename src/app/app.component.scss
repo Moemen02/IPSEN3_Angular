@@ -35,13 +35,21 @@
     grid-area: navigationTop;
     display: flex;
     justify-content: right;
+    align-items: center;
 
-
+    .user-name{
+      color: white;
+      font-size: large;
+      text-align: center;
+      margin: 0;
+    }
 
     .profile-image{
       width: 35px;
-      margin-right: 40px;
+      margin: 0 40px 0 15px;
     }
+
+
 
   }
 
