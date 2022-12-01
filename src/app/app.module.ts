@@ -27,6 +27,13 @@ import { AuthService } from './auth.service';
 import {MatTableModule} from "@angular/material/table";
 import { WasteTableComponent } from './pages/waste-page/waste-components/waste-table/waste-table.component';
 import { FormsModule } from '@angular/forms';
+import {MatGridListModule} from "@angular/material/grid-list";
+import { WasteAddComponent } from './pages/waste-page/waste-components/waste-add/waste-add.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatButtonModule} from "@angular/material/button";
+import {MatInputModule} from "@angular/material/input";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatSelectModule} from "@angular/material/select";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatIconModule} from "@angular/material/icon";
 
@@ -38,7 +45,8 @@ import {MatIconModule} from "@angular/material/icon";
     HomeComponent,
     WastePageComponent,
     WasteTableComponent,
-    LoginComponent
+    LoginComponent,
+    WasteAddComponent
   ],
   imports: [
     BrowserModule,
@@ -48,8 +56,14 @@ import {MatIconModule} from "@angular/material/icon";
     MatCardModule,
     HttpClientModule,
     MatTableModule,
-    MatSidenavModule,
+    MatGridListModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatInputModule,
+    MatMenuModule,
+    MatSelectModule,
     MatIconModule,
+    MatSidenavModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
