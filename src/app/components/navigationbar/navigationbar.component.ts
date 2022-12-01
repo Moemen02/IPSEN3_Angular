@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Router} from "@angular/router";
 
 @Component({
@@ -7,9 +7,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./navigationbar.component.scss']
 })
 export class NavigationbarComponent implements OnInit{
-@Output() showNav = new EventEmitter<boolean>()
-
-  visible = false
+@Input() visible = false
   constructor(private router:Router) {
   }
 
@@ -22,11 +20,5 @@ export class NavigationbarComponent implements OnInit{
   console.log("this")
     this.router.navigate([path])
 
-  }
-
-
-  toggle(){
-    this.visible = !this.visible
-    this.showNav.next(this.visible)
   }
 }

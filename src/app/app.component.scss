@@ -4,12 +4,23 @@
   height: 100vh;
   display: grid;
   grid-template-areas:
-    'navigationside navigationtop'
-    '. home';
+    'openNav navigationTop'
+    'navigationside home';
   grid-template-rows: 5%;
   background-color: $primaryColor;
 
+  .btn-openSideNav{
+    grid-area: openNav;
+    z-index: 2;
+    display: flex;
+    position: static;
 
+    .menuIcon{
+      color: white;
+      position: absolute;
+      justify-content: left;
+    }
+  }
 
   .nav-container {
     grid-area: navigationside;
@@ -17,6 +28,21 @@
 
   .route-container{
     grid-area: home;
+    background-color: $primaryBackgroundColor;
+  }
+
+  .nav-topContainer{
+    grid-area: navigationTop;
+    display: flex;
+    justify-content: right;
+
+
+
+    .profile-image{
+      width: 35px;
+      margin-right: 40px;
+    }
+
   }
 
 

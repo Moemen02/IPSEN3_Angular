@@ -1,11 +1,21 @@
 
 
 
-<div class="app-container" [style]="woow ? 'grid-template-columns: 15% 1fr;' : 'grid-template-columns: 0% 1fr;'">
-  <div class="nav-container" *ngIf="auth.isLoggedIn | async">
-    <app-navigationbar (showNav)="booleanTest($event)">
-    </app-navigationbar>
+<div class="app-container" [style]="visible ? 'grid-template-columns: 15% 1fr;' : 'grid-template-columns: 0% 1fr;'">
 
+
+  <div class="nav-container" *ngIf="auth.isLoggedIn | async">
+    <app-navigationbar [visible]="visible">
+    </app-navigationbar>
+  </div>
+
+  <button class="btn btn-openSideNav" (click)="toggle()">
+    <mat-icon class="menuIcon">menu</mat-icon>
+  </button>
+
+  <div class="nav-topContainer">
+
+    <img class="profile-image" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Circle-icons-profile.svg" alt="Profile Image">
   </div>
 
   <ng-container>

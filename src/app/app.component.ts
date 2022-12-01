@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import { AuthService } from './auth.service';
 
 @Component({
@@ -8,11 +8,11 @@ import { AuthService } from './auth.service';
 })
 export class AppComponent {
   title = 'AfvalSorteerSysteem';
-  woow = false
+  visible = false
 
   constructor(public auth: AuthService) {}
 
-  booleanTest(bool: boolean) {
-    this.woow = bool
+  toggle(){
+    this.visible = !this.visible
   }
 }
