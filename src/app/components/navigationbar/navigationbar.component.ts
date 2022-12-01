@@ -7,9 +7,9 @@ import {Router} from "@angular/router";
   styleUrls: ['./navigationbar.component.scss']
 })
 export class NavigationbarComponent implements OnInit{
-@Output() testing = new EventEmitter<boolean>()
+@Output() showNav = new EventEmitter<boolean>()
 
-  test = false
+  visible = false
   constructor(private router:Router) {
   }
 
@@ -19,13 +19,14 @@ export class NavigationbarComponent implements OnInit{
   // const navVisible: false;
 
   navTo(path:string) {
+  console.log("this")
     this.router.navigate([path])
 
   }
 
 
   toggle(){
-    this.test = !this.test
-    this.testing.next(this.test)
+    this.visible = !this.visible
+    this.showNav.next(this.visible)
   }
 }

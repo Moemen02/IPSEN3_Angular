@@ -1,33 +1,18 @@
 
 <nav class="navigation">
-  <button class="btn" (click)="toggle()">
-    <mat-icon>menu</mat-icon>
+  <button class="btn btn-openSideNav" (click)="toggle()">
+    <mat-icon class="menuIcon">menu</mat-icon>
   </button>
 
-<div class="sidenavClass">
-  <hr>
-
-  <button class="btn btn-primary" (click)="navTo('/afvalstoffen')">
-    afval
+<div class="sidenav" *ngIf="visible">
+  <button class="btn-sidenav btn-homepage" (click)="navTo('/home')">
+    Home
+    <mat-icon class="forwardArrow">arrow_forward</mat-icon>
   </button>
-
-  <hr>
-
-  <button class="btn btn-primary" (click)="navTo('/home')">
-    home
+  <button class="btn-sidenav" (click)="navTo('/afvalstoffen')">
+    afval stoffen
+    <mat-icon class="forwardArrow">arrow_forward</mat-icon>
   </button>
 </div>
-
-
-
-<!--  <mat-drawer-container class="example-container" autosize>-->
-<!--  <mat-drawer #drawer class="sidenav" mode="side">-->
-<!--    <button type="button" mat-button (click)="navTo('/afvalstoffen')">-->
-<!--      Afvalstoffen-->
-<!--    </button>-->
-<!--  </mat-drawer>-->
-<!--  </mat-drawer-container>-->
-
-
 
 </nav>

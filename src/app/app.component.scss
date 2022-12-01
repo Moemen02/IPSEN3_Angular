@@ -1,3 +1,5 @@
+@import "src/styles";
+
 .app-container{
   height: 100vh;
   display: grid;
@@ -5,6 +7,7 @@
     'navigationside navigationtop'
     '. home';
   grid-template-rows: 5%;
+  background-color: $primaryColor;
 
 
 
