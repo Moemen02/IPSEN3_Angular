@@ -15,7 +15,13 @@
 
   <div class="nav-topContainer">
     <h1 class="user-name">{{name}}</h1>
-    <img class="profile-image" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Circle-icons-profile.svg" alt="Profile Image">
+    <button class="profile-button" mat-button [matMenuTriggerFor]="profileMenu">
+      <img class="profile-image" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Circle-icons-profile.svg">
+    </button>
+    <mat-menu class="profile-dropdown" #profileMenu="matMenu" xPosition="before">
+      <button mat-menu-item>Profiel</button>
+      <button mat-menu-item>Uitloggen</button>
+    </mat-menu>
   </div>
 
   <ng-container>

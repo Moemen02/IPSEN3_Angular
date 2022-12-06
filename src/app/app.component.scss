@@ -6,13 +6,14 @@
   grid-template-areas:
     'openNav navigationTop'
     'navigationside home';
-  grid-template-rows: 5%;
+  grid-template-rows: 7%;
   background-color: $primaryColor;
 
   .btn-openSideNav{
     grid-area: openNav;
     z-index: 2;
     display: flex;
+    align-items: center;
     position: static;
 
     .menuIcon{
@@ -44,10 +45,21 @@
       margin: 0;
     }
 
-    .profile-image{
-      width: 35px;
-      margin: 0 40px 0 15px;
+    .profile-button{
+      width: 50px;
+      height: 100%;
+      margin: 0 0 0 15px;
+
+      .profile-image{
+        width: 50px;
+        margin: 0 40px 0 15px;
+      }
+
+      .profile-dropdown{
+      }
     }
+
+
 
 
 

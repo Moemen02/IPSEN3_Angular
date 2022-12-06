@@ -11,8 +11,10 @@ import {AuthService} from "../../auth.service";
 export class NavigationbarComponent implements OnInit{
 @Input() visible = false
 
+  panelOpenState = false;
   constructor(private router:Router) {
   }
+
 
   ngOnInit(): void {
 

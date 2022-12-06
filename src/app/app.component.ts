@@ -8,7 +8,7 @@ import { AuthService } from './auth.service';
 })
 export class AppComponent implements OnInit{
   title = 'AfvalSorteerSysteem';
-  visible = false
+  visible = true
 
   name = ""
 
