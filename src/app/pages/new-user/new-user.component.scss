@@ -1,0 +1,21 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    background-color: #D9D9D9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.innerBox {
+    background-color: white;
+}
+
+.textInput {
+    padding: 10px 10px 0px 10px
+}
+
+.formRow {
+    display: flex;
+    flex-wrap: wrap;
+}
