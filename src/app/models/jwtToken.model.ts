@@ -1,4 +1,5 @@
 export class JwtToken {
+
   constructor(
     public defaultPass: boolean,
     public sub: string,

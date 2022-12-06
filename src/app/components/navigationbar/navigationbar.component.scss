@@ -1,0 +1,66 @@
+@import "src/styles";
+
+.menuIcon{
+  color: white;
+}
+
+.btn-openSideNav{
+  border: none;
+}
+
+.sidenav {
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  background-color: $primaryColor;
+  display: grid;
+  grid-template-rows: 40px 40px 120px;
+  grid-row-gap: 10px;
+  margin-top: 20px;
+
+}
+
+.btn-sidenav{
+  color: white;
+  border-radius: 0px;
+  border: 3px black;
+  background-color: #00356B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  transition: font-size 0.25s , background-color 0.25s;
+}
+
+.btn-sidenav:hover{
+  font-size: 0.95rem;
+  background-color: #004b97;
+}
+
+.btn-homepage{
+  background-color: $homeButtonColor;
+}
+
+.forwardArrow{
+  position: absolute;
+  right: 0;
+  margin-right: 7px;
+}
+
+.admin-dropdown{
+  border-radius: 0;
+  height: fit-content;
+  background-color: #00356B;
+
+  .admin-header{
+    height: 40px;
+
+  }
+
+  .admin-button{
+    height: 40px;
+  }
+}
+
+

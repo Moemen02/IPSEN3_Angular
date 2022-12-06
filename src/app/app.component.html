@@ -1,7 +1,27 @@
-<div class="app-container">
+
+
+
+<div class="app-container" [style]="visible ? 'grid-template-columns: 15% 1fr;' : 'grid-template-columns: 0% 1fr;'">
+
+
   <div class="nav-container" *ngIf="auth.isLoggedIn | async">
-    <app-navigationbar>
+    <app-navigationbar [visible]="visible">
     </app-navigationbar>
+  </div>
+
+  <button class="btn btn-openSideNav" (click)="toggle()">
+    <mat-icon class="menuIcon">menu</mat-icon>
+  </button>
+
+  <div class="nav-topContainer">
+    <h1 class="user-name">{{name}}</h1>
+    <button class="profile-button" mat-button [matMenuTriggerFor]="profileMenu">
+      <img class="profile-image" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Circle-icons-profile.svg">
+    </button>
+    <mat-menu class="profile-dropdown" #profileMenu="matMenu" xPosition="before">
+      <button mat-menu-item>Profiel</button>
+      <button mat-menu-item>Uitloggen</button>
+    </mat-menu>
   </div>
 
   <ng-container>
@@ -9,4 +29,7 @@
       <router-outlet></router-outlet>
     </div>
   </ng-container>
+
+
+
 </div>

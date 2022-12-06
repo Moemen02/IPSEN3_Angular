@@ -34,6 +34,10 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatSelectModule} from "@angular/material/select";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatIconModule} from "@angular/material/icon";
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatListModule} from "@angular/material/list";
 
 
 @NgModule({
@@ -46,21 +50,25 @@ import {MatSelectModule} from "@angular/material/select";
     LoginComponent,
     WasteAddComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        FormsModule,
-        MatCardModule,
-        HttpClientModule,
-        MatTableModule,
-        MatGridListModule,
-        MatDialogModule,
-        MatButtonModule,
-        MatInputModule,
-        MatMenuModule,
-        MatSelectModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    MatCardModule,
+    HttpClientModule,
+    MatTableModule,
+    MatGridListModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatInputModule,
+    MatMenuModule,
+    MatSelectModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatExpansionModule,
+    MatListModule,
+  ],
   providers: [AuthService],
   bootstrap: [AppComponent]
 })
