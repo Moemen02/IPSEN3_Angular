@@ -11,7 +11,8 @@ export class HttpService{
 
   headers= new HttpHeaders()
     .set('content-type', 'application/json')
-    .set('Access-Control-Allow-Origin', '*');
+    .set('Access-Control-Allow-Origin', '*')
+    .set("Authorization", "Bearer " + localStorage.getItem("auth_key"));
 
   public getData<T>(path: String): Observable<Array<T>>{
     return this.http

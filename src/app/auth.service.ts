@@ -1,9 +1,16 @@
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, Router, RouterStateSnapshot, UrlTree } from "@angular/router";
-import { BehaviorSubject, Observable, tap, Subject } from "rxjs";
-import { AuthResponse } from "./models/AuthResponse.model";
-import { JwtToken } from "./models/jwtToken.model";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Injectable} from "@angular/core";
+import {
+  ActivatedRouteSnapshot,
+  CanActivate,
+  CanActivateChild,
+  Router,
+  RouterStateSnapshot,
+  UrlTree
+} from "@angular/router";
+import {BehaviorSubject, Observable, tap} from "rxjs";
+import {AuthResponse} from "./models/AuthResponse.model";
+import {JwtToken} from "./models/jwtToken.model";
 
 const BASE_URL = "http://localhost:8080/api"
 
@@ -16,6 +23,7 @@ export class AuthService implements CanActivate, CanActivateChild {
   changePassword = this._changePassword.asObservable()
 
   token = ""
+
 
   constructor(private router: Router, private http: HttpClient) {
     const token = this.checkForKey()
@@ -48,7 +56,7 @@ export class AuthService implements CanActivate, CanActivateChild {
 
   decodeJWTToken(token: string): JwtToken {
     const object = JSON.parse(atob(token.split('.')[1]))
-    return new JwtToken(object["defaultPass"], object["sub"], object["role"], object["name"], object["iss"], object["id"], object["iat"], object["email"])
+    return new JwtToken(object["defaultPass"], object["sub"], object["role"], object["name"], object["iss"], object["id"], object["iat"], object["email"]);
   }
 
 
