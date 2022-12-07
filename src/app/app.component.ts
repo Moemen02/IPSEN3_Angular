@@ -17,6 +17,9 @@ export class AppComponent implements OnInit{
   ngOnInit() {
     const token = localStorage.getItem("auth_key")
     if (token) this.name = this.auth.decodeJWTToken(token).name
+    this.auth.isLoggedIn.subscribe((logged) => {
+      this.visible = logged
+    })
   }
 
   toggle(){
