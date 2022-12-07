@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
-import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
-import { MyErrorStateMatcher } from 'src/utils/MyErrorState';
+import { NgForm } from '@angular/forms';
+import {HttpService} from "../../services/http.service";
 
-
+import { NewUser } from 'src/app/interface/newUser';
+import { AuthResponse } from 'src/app/models/AuthResponse.model';
 
 @Component({
   selector: 'app-new-user',
@@ -11,25 +12,35 @@ import { MyErrorStateMatcher } from 'src/utils/MyErrorState';
   styleUrls: ['./new-user.component.scss']
 })
 export class NewUserComponent implements OnInit{
-  
-  formGroup = new FormGroup({
-    email:new FormControl('', [Validators.required, Validators.email]),
-    name:new FormControl('', [Validators.required]),
-    role:new FormControl('', [Validators.required])
-  })
+  constructor(private http: HttpService) {}
 
-  matcher = new MyErrorStateMatcher();
+  @ViewChild("form") ngForm:NgForm
+
+  name?:string
+  email?:string
+  role?:string
+  errorText?:string
+
 
   ngOnInit() {
 
-  
-  }
-
-  onClear() {
-    console.log("clear")
   }
 
   onSubmit() {
-    console.log("submit")
+    const newUser: NewUser = {
+      "email": this.ngForm.value.email,
+      "name": this.ngForm.value.name,
+      "role": this.ngForm.value.role
+    }
+    if (!newUser['email'] || !newUser['name'] || !newUser['role']) return
+
+    this.http.sendData<AuthResponse>("api/auth/register", newUser).subscribe((response) => {
+      this.errorText = response.message
+    }, err => {
+      if (err.error.error == "Unauthorized") {
+        this.errorText = "U heeft geen bevoegdheid voor deze bewerking."
+      }
+    })
+
   }
 }

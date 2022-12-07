@@ -1,20 +1,37 @@
-.container {
-    
+.containerNewUser {
+    margin: 30px 0px 0px 30px;
 }
 
 .formHolder {
     display: flex;
     align-items: center;
     height: 100vh;
-    justify-content: center;
     flex-direction: column;
 }
 
-.buttons {
+.buttonHolder {
     display: flex;
     justify-content: space-between;
-    margin: 0px 10px;
+    flex-wrap: wrap;
 }
+
+.buttons {
+    margin: 5px 10px 10px 10px;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    color:white;
+    font-size: 20px;
+}
+
+.button-clear {
+    background-color: #3C3B3B;
+}
+
+.button-submit {
+    background-color: #046A6A;
+}
+
 
 .title {
     text-align: center;
@@ -32,10 +49,25 @@
 }
 
 .textInput {
+    width: 100%;
     padding: 10px 10px 0px 10px
 }
 
 .formRow {
+    justify-content: center;
     display: flex;
     flex-wrap: wrap;
+}
+
+.errorText {
+    text-align: right;
+    color: red;
+    margin-right: 10px;
+}
+
+
+@media (max-width: 450px) {
+    .buttons {
+        width: 100%;
+    }
 }
