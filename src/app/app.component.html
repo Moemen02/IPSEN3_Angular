@@ -9,11 +9,11 @@
     </app-navigationbar>
   </div>
 
-  <button class="btn btn-openSideNav" (click)="toggle()">
+  <button class="btn btn-openSideNav" (click)="toggle()" *ngIf="auth.isLoggedIn | async">
     <mat-icon class="menuIcon">menu</mat-icon>
   </button>
 
-  <div class="nav-topContainer">
+  <div class="nav-topContainer" *ngIf="auth.isLoggedIn | async">
     <h1 class="user-name">{{name}}</h1>
     <button class="profile-button" mat-button [matMenuTriggerFor]="profileMenu">
       <img class="profile-image" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Circle-icons-profile.svg">
