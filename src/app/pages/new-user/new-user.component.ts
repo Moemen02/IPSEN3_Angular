@@ -24,4 +24,12 @@ export class NewUserComponent implements OnInit{
 
   
   }
+
+  onClear() {
+    console.log("clear")
+  }
+
+  onSubmit() {
+    console.log("submit")
+  }
 }
