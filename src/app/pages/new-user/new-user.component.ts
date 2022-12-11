@@ -21,6 +21,8 @@ export class NewUserComponent implements OnInit{
   role?:string
   errorText?:string
 
+  success?:boolean
+
 
   ngOnInit() {
 
@@ -35,10 +37,12 @@ export class NewUserComponent implements OnInit{
     if (!newUser['email'] || !newUser['name'] || !newUser['role']) return
 
     this.http.sendData<AuthResponse>("api/auth/register", newUser).subscribe((response) => {
+      this.success = response.success
       this.errorText = response.message
     }, err => {
       if (err.error.error == "Unauthorized" || err.error.error == "Forbidden") {
         this.errorText = "U heeft geen bevoegdheid voor deze bewerking."
+        this.success = false
       }
     })
 

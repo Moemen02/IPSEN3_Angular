@@ -40,7 +40,7 @@
           <button class="button-clear buttons" type="button" (click)="form.resetForm()">Clear</button>
           <button class="button-submit buttons" type="submit">Registreer</button>
         </div>
-        <p class="errorText">{{errorText}}</p>
+        <p class="errorText" [style.color]="success ? 'green' : 'red'">{{errorText}}</p>
       </form>
     </div>
   </div>
