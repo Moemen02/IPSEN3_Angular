@@ -37,7 +37,7 @@ export class NewUserComponent implements OnInit{
     this.http.sendData<AuthResponse>("api/auth/register", newUser).subscribe((response) => {
       this.errorText = response.message
     }, err => {
-      if (err.error.error == "Unauthorized") {
+      if (err.error.error == "Unauthorized" || err.error.error == "Forbidden") {
         this.errorText = "U heeft geen bevoegdheid voor deze bewerking."
       }
     })
