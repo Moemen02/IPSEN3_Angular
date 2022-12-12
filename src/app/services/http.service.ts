@@ -6,7 +6,7 @@ import {Observable} from "rxjs";
 
 @Injectable({providedIn: 'root'})
 export class HttpService{
-  public url = "http://localhost:8080/"
+  public url = "http://localhost:8080/api"
   constructor(private http: HttpClient) {}
 
   headers= new HttpHeaders()

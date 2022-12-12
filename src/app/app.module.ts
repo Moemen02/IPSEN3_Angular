@@ -35,6 +35,8 @@ import {MatInputModule} from "@angular/material/input";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatSelectModule} from "@angular/material/select";
 import {MatSidenavModule} from "@angular/material/sidenav";
+import { OrderComponent } from './pages/order/order.component';
+import { OrderListComponent } from './pages/order/order-list/order-list.component';
 
 
 @NgModule({
@@ -45,7 +47,9 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     WastePageComponent,
     WasteTableComponent,
     LoginComponent,
-    WasteAddComponent
+    WasteAddComponent,
+    OrderComponent,
+    OrderListComponent
   ],
   imports: [
     BrowserModule,

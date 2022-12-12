@@ -4,13 +4,14 @@ import { AuthService } from './auth.service';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from "./pages/home/home.component";
 import { WastePageComponent } from "./pages/waste-page/waste-page.component";
+import {OrderComponent} from "./pages/order/order.component";
 
 
 const routes: Routes = [
   { path: '', component: LoginComponent},
   { path: 'home', component: HomeComponent, canActivate:[AuthService] },
   { path: 'afvalstoffen', component: WastePageComponent, canActivate:[AuthService] },
-
+  { path: 'orders', component: OrderComponent, canActivate:[AuthService] },
 
   { path: '**', redirectTo: "/" },
 ];
