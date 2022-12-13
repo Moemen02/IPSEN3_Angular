@@ -2,7 +2,7 @@ export class WasteDescriptionModel{
   private _id!: number;
   private _articlenumber!: string;
   private _description!: string;
-  private _cloth_width!: number;
+  private _clothWidth!: number;
   private _type!: string;
   private _layout!: string;
   private _washcode!: string;
@@ -35,12 +35,12 @@ export class WasteDescriptionModel{
     this._description = value;
   }
 
-  get cloth_width(): number {
-    return this._cloth_width;
+  get clothWidth(): number {
+    return this._clothWidth;
   }
 
-  set cloth_width(value: number) {
-    this._cloth_width = value;
+  set clothWidth(value: number) {
+    this._clothWidth = value;
   }
 
   get type(): string {
@@ -83,11 +83,11 @@ export class WasteDescriptionModel{
     this._not_tiltable = value;
   }
 
-  get minimum_stock(): number {
+  get minimumStock(): number {
     return this._minimumStock;
   }
 
-  set minimum_stock(value: number) {
+  set minimumStock(value: number) {
     this._minimumStock = value;
   }
 }
