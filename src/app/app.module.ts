@@ -53,8 +53,7 @@ import { OrderListComponent } from './pages/order/order-list/order-list.componen
     WasteTableComponent,
     LoginComponent,
     WasteAddComponent,
-    NewUserComponent
-    WasteAddComponent,
+    NewUserComponent,
     OrderComponent,
     OrderListComponent
   ],

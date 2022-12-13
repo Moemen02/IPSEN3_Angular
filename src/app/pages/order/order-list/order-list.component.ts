@@ -23,7 +23,7 @@ export class OrderListComponent implements OnInit {
 
 
   public getAllWasteOrders(): void{
-    this.httpService.getData<WasteOrder>("/v2/waste_order")
+    this.httpService.getData<WasteOrder>("/api/v2/waste_order")
       .subscribe((_wasteOrders) =>{
         this.wasteOrders = _wasteOrders
         console.log(this.wasteOrders[0])
