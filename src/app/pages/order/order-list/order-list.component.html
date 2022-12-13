@@ -1,68 +1,7 @@
 <div class="order">
-  <div class="order-cards" *ngFor="let wasteOrders of wasteOrders">
+  <div class="order-cards" *ngFor="let wasteOrder of wasteOrders">
     <mat-accordion >
-      <mat-expansion-panel hideToggle (click)="toggleData(wasteOrders.id)">
-        <mat-expansion-panel-header class="order-cards-header">
-          <div class="card-items">
-            <div class="title">
-              <h4>Ordernummer</h4>
-            </div>
-            <div class="content">
-              <p>{{wasteOrders.id}}</p>
-            </div>
-          </div>
-          <div class="card-items">
-            <div class="title">
-              <h4>Restant meters</h4>
-            </div>
-            <div class="content">
-              <p>{{wasteOrders.wasteID.waste_descriptionID.minimumStock}}</p>
-            </div>
-          </div>
-          <div class="card-items">
-            <div class="title">
-              <h4>Stofnaam</h4>
-            </div>
-            <div class="content">
-              <p>{{wasteOrders.wasteID.waste_descriptionID.type}}</p>
-            </div>
-          </div>
-          <div class="card-items">
-            <div class="title">
-              <h4>Afgerond</h4>
-            </div>
-            <div class="content">
-              <p style="color: green" *ngIf="wasteOrders.finished">Afgerond</p>
-              <p style="color: red" *ngIf="!wasteOrders.finished">Niet afgerond</p>
-            </div>
-          </div>
-        </mat-expansion-panel-header>
-        <div class="expansion">
-          <div class="above">
-            <div class="customer-info">
-              <h4>Klant informatie</h4>
-              <div class="customer-info-item">
-                <div class="title">
-                  <h5>Klantnaam</h5>
-                </div>
-                <div class="content">
-                  <p>{{wasteOrder.id}}</p>
-                </div>
-              </div>
-              <div class="customer-info-item">
-                <div class="title">
-                  <h5>Klant adres</h5>
-                </div>
-                <div class="content">
-                  <p>Prins Johan Willen Frisolaan</p>
-                </div>
-              </div>
-          </div>
-        </div>
-          <div class="under">
-          </div>
-        </div>
-      </mat-expansion-panel>
+      <app-single-order-info [wasteOrder]="wasteOrder"></app-single-order-info>
     </mat-accordion>
   </div>
 </div>

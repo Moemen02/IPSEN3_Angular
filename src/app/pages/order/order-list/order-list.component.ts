@@ -2,9 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {WasteOrder} from "../../../models/WasteOrder.model";
 
 import {HttpService} from "../../../services/http.service";
-import {HttpClient} from "@angular/common/http";
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+
 
 
 @Component({
@@ -20,7 +18,7 @@ export class OrderListComponent implements OnInit {
 
   constructor(private httpService: HttpService) {}
   wasteOrders: WasteOrder[] = []
-  wasteOrder: WasteOrder = null
+  wasteOrder: WasteOrder
 
 
   public getAllWasteOrders(): void{
@@ -30,10 +28,4 @@ export class OrderListComponent implements OnInit {
       })
   }
 
-  public toggleData(id){
-    this.httpService.getSingleData<WasteOrder>("/api/v2/waste_order/" + id)
-      .subscribe((_wasteOrder)=>{
-        this.wasteOrder = _wasteOrder
-      })
-  }
 }

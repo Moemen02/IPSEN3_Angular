@@ -42,6 +42,7 @@ import {MatListModule} from "@angular/material/list";
 import {MatTabsModule} from "@angular/material/tabs";
 import { OrderComponent } from './pages/order/order.component';
 import { OrderListComponent } from './pages/order/order-list/order-list.component';
+import { SingleOrderInfoComponent } from './pages/order/order-list/single-order-info/single-order-info/single-order-info.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { OrderListComponent } from './pages/order/order-list/order-list.componen
     WasteAddComponent,
     NewUserComponent,
     OrderComponent,
-    OrderListComponent
+    OrderListComponent,
+    SingleOrderInfoComponent
   ],
   imports: [
     BrowserModule,
