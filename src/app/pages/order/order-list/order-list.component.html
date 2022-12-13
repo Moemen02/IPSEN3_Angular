@@ -1,0 +1,15 @@
+
+<p>meoemn is super cool</p>
+<div *ngFor="let wasteOrders of wasteOrders">
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        OrderID
+      </mat-panel-title>
+      <mat-panel-description>
+        <p>{{wasteOrders.id}}</p>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>{{wasteOrders.customerID}}</p>
+  </mat-expansion-panel>
+</div>
