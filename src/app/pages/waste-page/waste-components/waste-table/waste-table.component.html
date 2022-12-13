@@ -5,7 +5,7 @@
         <mat-expansion-panel-header class="waste-cards-header">
           <div class="card-item">
             <div class="title">
-              <p>eancode</p>
+              <h4>Eancode</h4>
             </div>
             <div class="content">
               <p>{{waste.waste_dataID.eancode}}</p>
@@ -13,7 +13,7 @@
           </div>
           <div class="card-item">
             <div class="title">
-              <p>Kleur</p>
+              <h4>Kleur</h4>
             </div>
             <div class="content">
               <p>{{waste.waste_dataID.color}}</p>
@@ -21,10 +21,19 @@
           </div>
           <div class="card-item">
             <div class="title">
-              <p>Type</p>
+              <h4>Beschrijving</h4>
             </div>
             <div class="content">
-              <p>{{waste.waste_dataID.eancode}}</p>
+              <p>{{waste.waste_descriptionID.description}}</p>
+            </div>
+          </div>
+          <div class="card-item">
+            <div class="title">
+              <h4>Op voorraad</h4>
+            </div>
+            <div class="content">
+              <p style="color: green" *ngIf="waste.waste_dataID.stockRL">Op voorraad</p>
+              <p style="color: red" *ngIf="!waste.waste_dataID.stockRL">Geen voorraad</p>
             </div>
           </div>
         </mat-expansion-panel-header>
