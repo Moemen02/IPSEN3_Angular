@@ -26,26 +26,26 @@
       grid-template-rows: 10% 1fr;
       grid-gap: 2%;
 
-      .waste-content-header{
-        width: 100%;
-      }
 
       .waste-content-container{
-        display: grid;
-        width: 100%;
-        grid-template-columns: 15% 1fr;
-
-        .container-selection{
-          .select-btn{
-            width: 100%;
-            background-color: $primaryBackgroundColor;
-          }
-          //grid-template-columns: repeat(1, 1fr);
-        }
-
-        .changing-container{
-
-        }
+        //display: grid;
+        //width: 100%;
+        //grid-template-rows: 10% 1fr;
+        //
+        //.container-selection{
+        //  display: grid;
+        //  grid-template-columns: 1fr 1fr;
+        //  .select-btn{
+        //    width: 100%;
+        //    height: 100%;
+        //    background-color: $primaryBackgroundColor;
+        //  }
+        //  //grid-template-columns: repeat(1, 1fr);
+        //}
+        //
+        //.changing-container{
+        //
+        //}
 
       }
     }

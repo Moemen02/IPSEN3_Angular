@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpService} from "../../../../services/http.service";
-import { Waste } from "../../../../models/waste.model";
+import { Waste } from "../../../../models/Waste/waste.model";
 
 @Component({
   selector: 'app-waste-table',
@@ -8,7 +8,8 @@ import { Waste } from "../../../../models/waste.model";
   styleUrls: ['./waste-table.component.scss']
 })
 export class WasteTableComponent implements OnInit{
-  displayedColumns: string[] = ['eancode', 'description', 'color', 'vPrice', 'aPrice', 'actions'];
+  displayedColumns: string[] = ['eancode', 'description', 'color', 'stock', 'aPrice', 'actions'];
+  panelOpenState = false;
 
   ngOnInit() {
     this.getArticles();
@@ -24,7 +25,7 @@ export class WasteTableComponent implements OnInit{
     this.httpService.getData<Waste>("/api/v2/waste")
       .subscribe((_waste)=>{
         this.wastes = _waste
-        console.log(_waste)
+        console.log(this.wastes[0])
       })
   }
 

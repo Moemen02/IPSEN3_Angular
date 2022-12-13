@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpService} from "../../services/http.service";
-import {ArticleDetailModel} from "../../models/article-detail.model";
+import {WasteDataModel} from "../../models/Waste/waste-data.model";
 import {MatDialog, MatDialogConfig, MatDialogRef} from "@angular/material/dialog";
 import {WasteAddComponent} from "./waste-components/waste-add/waste-add.component";
-import { Waste } from "../../models/waste.model";
+import { Waste } from "../../models/Waste/waste.model";
 
 @Component({
   selector: 'app-waste-page',
