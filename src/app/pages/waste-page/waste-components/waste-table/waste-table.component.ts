@@ -21,14 +21,14 @@ export class WasteTableComponent implements OnInit{
 
 
   public getArticles(): void{
-    this.httpService.getData<Article>("api/article")
+    this.httpService.getData<Article>("/api/article")
       .subscribe((_aricles)=>{
         this.articles = _aricles
       })
   }
 
   getArticle(): void{
-    this.httpService.getSingleData<Article>("api/article/1")
+    this.httpService.getSingleData<Article>("/api/article/1")
       .subscribe((_aricle)=>{
         this.singleArticle = _aricle
       })
