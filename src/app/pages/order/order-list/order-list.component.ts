@@ -20,13 +20,20 @@ export class OrderListComponent implements OnInit {
 
   constructor(private httpService: HttpService) {}
   wasteOrders: WasteOrder[] = []
+  wasteOrder: WasteOrder = null
 
 
   public getAllWasteOrders(): void{
     this.httpService.getData<WasteOrder>("/api/v2/waste_order")
       .subscribe((_wasteOrders) =>{
         this.wasteOrders = _wasteOrders
-        console.log(this.wasteOrders[0])
+      })
+  }
+
+  public toggleData(id){
+    this.httpService.getSingleData<WasteOrder>("/api/v2/waste_order/" + id)
+      .subscribe((_wasteOrder)=>{
+        this.wasteOrder = _wasteOrder
       })
   }
 }
