@@ -8,21 +8,4 @@ export class AuthResponse {
     this.message = message
     this.success = success
   }
-
-
-  public get getToken() : string {
-    return this.jwtToken
-  }
-
-
-  public get getMessage() : string {
-    return this.message
-  }
-
-
-  public get isSuccess() : boolean {
-    return this.success
-  }
-
-
 }
