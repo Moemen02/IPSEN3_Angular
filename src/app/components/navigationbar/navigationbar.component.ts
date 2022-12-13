@@ -23,8 +23,6 @@ export class NavigationbarComponent implements OnInit{
   // const navVisible: false;
 
   navTo(path:string) {
-  console.log("this")
     this.router.navigate([path])
-
   }
 }

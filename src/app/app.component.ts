@@ -1,5 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { AuthService } from './auth.service';
+import {Router} from "@angular/router";
+
+
 
 @Component({
   selector: 'app-root',
@@ -12,7 +15,10 @@ export class AppComponent implements OnInit{
 
   name = ""
 
-  constructor(public auth: AuthService) {}
+
+
+  constructor(public auth: AuthService, private router: Router) {}
+
 
   ngOnInit() {
     const token = localStorage.getItem("auth_key")
@@ -25,4 +31,15 @@ export class AppComponent implements OnInit{
   toggle(){
     this.visible = !this.visible
   }
+  navTo(path:string) {
+    this.router.navigate([path])
+  }
+
+  removeJWT(){
+    localStorage.setItem("auth_key", "")
+    location.reload()
+  }
 }
+
+
+
