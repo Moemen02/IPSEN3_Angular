@@ -1,12 +1,12 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {resetParseTemplateAsSourceFileForTest} from "@angular/compiler-cli/src/ngtsc/typecheck/diagnostics";
-import {Article} from "../models/article.model";
 import {Observable} from "rxjs";
+import { environment } from "../environments/environment";
 
 @Injectable({providedIn: 'root'})
 export class HttpService{
-  public url = "http://localhost:8080/api"
+  public url = environment.apiURL
   constructor(private http: HttpClient) {}
 
   headers= new HttpHeaders()
@@ -23,5 +23,10 @@ export class HttpService{
     return this.http
       .get<T>(this.url+path, {'headers':this.headers})
   }
-}
 
+  public sendData<T>(path:string, data:any): Observable<T>{
+    return this.http.post<T>(this.url + path, data, {
+      'headers':this.headers
+    })
+  }
+}
