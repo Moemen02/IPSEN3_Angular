@@ -5,7 +5,7 @@ export class WasteDataModel {
   private _id: number;
   private _patternWIdth!: number;
   private _patternLength!: number;
-  private _productGroup!: string;
+  private _productgroup!: string;
   private _stockRL!: boolean;
   private _supplier!: string;
 
@@ -58,12 +58,12 @@ export class WasteDataModel {
     this._patternLength = value;
   }
 
-  get productGroup(): string {
-    return this._productGroup;
+  get productgroup(): string {
+    return this._productgroup;
   }
 
-  set productGroup(value: string) {
-    this._productGroup = value;
+  set productgroup(value: string) {
+    this._productgroup = value;
   }
 
   get stockRL(): boolean {

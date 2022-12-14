@@ -1,44 +1,10 @@
 <div class="waste-cards">
-  <div class="waste-card" *ngFor="let waste of wastes">
+  <div id="search-bar">
+    <input placeholder="Zoek een afvalstof" [(ngModel)]="searchText" type="text">
+  </div>
+  <div class="waste-card" *ngFor="let waste of wastes | filter: searchText">
     <mat-accordion >
-      <mat-expansion-panel hideToggle>
-        <mat-expansion-panel-header class="waste-cards-header">
-          <div class="card-item">
-            <div class="title">
-              <h4>Eancode</h4>
-            </div>
-            <div class="content">
-              <p>{{waste.waste_dataID.eancode}}</p>
-            </div>
-          </div>
-          <div class="card-item">
-            <div class="title">
-              <h4>Kleur</h4>
-            </div>
-            <div class="content">
-              <p>{{waste.waste_dataID.color}}</p>
-            </div>
-          </div>
-          <div class="card-item">
-            <div class="title">
-              <h4>Beschrijving</h4>
-            </div>
-            <div class="content">
-              <p>{{waste.waste_descriptionID.description}}</p>
-            </div>
-          </div>
-          <div class="card-item">
-            <div class="title">
-              <h4>Op voorraad</h4>
-            </div>
-            <div class="content">
-              <p style="color: green" *ngIf="waste.waste_dataID.stockRL">Op voorraad</p>
-              <p style="color: red" *ngIf="!waste.waste_dataID.stockRL">Geen voorraad</p>
-            </div>
-          </div>
-        </mat-expansion-panel-header>
-        <p>This is the primary content of the panel.</p>
-      </mat-expansion-panel>
+      <app-single-waste [waste]="waste"></app-single-waste>
     </mat-accordion>
   </div>
 </div>

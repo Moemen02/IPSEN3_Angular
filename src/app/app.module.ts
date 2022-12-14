@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 /*
   Imports for components
@@ -43,6 +45,7 @@ import {MatTabsModule} from "@angular/material/tabs";
 import { OrderComponent } from './pages/order/order.component';
 import { OrderListComponent } from './pages/order/order-list/order-list.component';
 import { SingleOrderInfoComponent } from './pages/order/order-list/single-order-info/single-order-info/single-order-info.component';
+import {SingleWasteComponent} from "./pages/waste-page/waste-components/single-waste/single-waste.component";
 
 
 @NgModule({
@@ -54,6 +57,8 @@ import { SingleOrderInfoComponent } from './pages/order/order-list/single-order-
     WasteTableComponent,
     LoginComponent,
     WasteAddComponent,
+    NewUserComponent,
+    SingleWasteComponent,
     NewUserComponent,
     OrderComponent,
     OrderListComponent,
@@ -79,6 +84,7 @@ import { SingleOrderInfoComponent } from './pages/order/order-list/single-order-
     MatExpansionModule,
     MatListModule,
     MatTabsModule,
+    Ng2SearchPipeModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
