@@ -1,37 +1,44 @@
-<table mat-table [dataSource]="articles" class="mat-elevation-z8 waste-table">
-
-  <ng-container matColumnDef="eancode">
-    <th mat-header-cell *matHeaderCellDef> Eancode </th>
-    <td mat-cell *matCellDef="let article"> {{article.eancode}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="description">
-    <th mat-header-cell *matHeaderCellDef> Beschrijving </th>
-    <td class="waste-table-row" mat-cell *matCellDef="let element"> beschrijving </td>
-  </ng-container>
-
-  <ng-container matColumnDef="color">
-    <th mat-header-cell *matHeaderCellDef> Kleur </th>
-    <td mat-cell *matCellDef="let article"> {{article.color}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="vPrice">
-    <th mat-header-cell *matHeaderCellDef> v.price </th>
-    <td mat-cell *matCellDef="let article"> v.price </td>
-  </ng-container>
-
-  <ng-container matColumnDef="aPrice">
-    <th mat-header-cell *matHeaderCellDef> a.price </th>
-    <td mat-cell *matCellDef="let article"> a.price </td>
-  </ng-container>
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef>  </th>
-    <td mat-cell *matCellDef="let article">
-      <button class="btn btn-danger">verwijder</button>
-      <button  class="btn btn-primary">open</button>
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+<div class="waste-cards">
+  <div class="waste-card" *ngFor="let waste of wastes">
+    <mat-accordion >
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header class="waste-cards-header">
+          <div class="card-item">
+            <div class="title">
+              <h4>Eancode</h4>
+            </div>
+            <div class="content">
+              <p>{{waste.waste_dataID.eancode}}</p>
+            </div>
+          </div>
+          <div class="card-item">
+            <div class="title">
+              <h4>Kleur</h4>
+            </div>
+            <div class="content">
+              <p>{{waste.waste_dataID.color}}</p>
+            </div>
+          </div>
+          <div class="card-item">
+            <div class="title">
+              <h4>Beschrijving</h4>
+            </div>
+            <div class="content">
+              <p>{{waste.waste_descriptionID.description}}</p>
+            </div>
+          </div>
+          <div class="card-item">
+            <div class="title">
+              <h4>Op voorraad</h4>
+            </div>
+            <div class="content">
+              <p style="color: green" *ngIf="waste.waste_dataID.stockRL">Op voorraad</p>
+              <p style="color: red" *ngIf="!waste.waste_dataID.stockRL">Geen voorraad</p>
+            </div>
+          </div>
+        </mat-expansion-panel-header>
+        <p>This is the primary content of the panel.</p>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>

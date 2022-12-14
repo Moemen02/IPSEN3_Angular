@@ -39,6 +39,10 @@ import { NewUserComponent } from './pages/new-user/new-user.component';
 import {MatIconModule} from "@angular/material/icon";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatListModule} from "@angular/material/list";
+import {MatTabsModule} from "@angular/material/tabs";
+import { OrderComponent } from './pages/order/order.component';
+import { OrderListComponent } from './pages/order/order-list/order-list.component';
+import { SingleOrderInfoComponent } from './pages/order/order-list/single-order-info/single-order-info/single-order-info.component';
 
 
 @NgModule({
@@ -50,7 +54,10 @@ import {MatListModule} from "@angular/material/list";
     WasteTableComponent,
     LoginComponent,
     WasteAddComponent,
-    NewUserComponent
+    NewUserComponent,
+    OrderComponent,
+    OrderListComponent,
+    SingleOrderInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -71,6 +78,7 @@ import {MatListModule} from "@angular/material/list";
     MatSidenavModule,
     MatExpansionModule,
     MatListModule,
+    MatTabsModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
