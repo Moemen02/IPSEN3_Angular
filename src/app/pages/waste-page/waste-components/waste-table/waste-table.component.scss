@@ -4,8 +4,18 @@
   display: grid;
   grid-template-columns: 1fr;
 
-  .waste-card{
+  #search-bar{
+    margin-top: 1%;
+    width: 100%;
 
+    input{
+      width: 100%;
+      height: 3rem;
+      border-radius: 10px;
+    }
+  }
+
+  .waste-card{
     margin-top: 1%;
     margin-bottom: 1%;
   }

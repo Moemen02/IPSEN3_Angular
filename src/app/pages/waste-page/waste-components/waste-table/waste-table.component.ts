@@ -9,6 +9,8 @@ import { Waste } from "../../../../models/Waste/waste.model";
 })
 export class WasteTableComponent implements OnInit{
 
+  searchText;
+
   ngOnInit() {
     this.getArticles();
   }

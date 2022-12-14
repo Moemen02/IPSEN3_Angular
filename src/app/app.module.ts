@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 /*
   Imports for components
@@ -75,6 +77,7 @@ import {SingleWasteComponent} from "./pages/waste-page/waste-components/single-w
     MatExpansionModule,
     MatListModule,
     MatTabsModule,
+    Ng2SearchPipeModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

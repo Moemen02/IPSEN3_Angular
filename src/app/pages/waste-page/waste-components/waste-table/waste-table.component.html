@@ -1,5 +1,8 @@
 <div class="waste-cards">
-  <div class="waste-card" *ngFor="let waste of wastes">
+  <div id="search-bar">
+    <input placeholder="Zoek een afvalstof" [(ngModel)]="searchText" type="text">
+  </div>
+  <div class="waste-card" *ngFor="let waste of wastes | filter: searchText">
     <mat-accordion >
       <app-single-waste [waste]="waste"></app-single-waste>
     </mat-accordion>
