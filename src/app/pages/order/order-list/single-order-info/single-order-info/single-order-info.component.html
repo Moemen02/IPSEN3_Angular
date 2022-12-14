@@ -1,0 +1,116 @@
+
+ <mat-expansion-panel hideToggle>
+   <mat-expansion-panel-header class="order-cards-header">
+     <div class="card-items">
+       <div class="title">
+         <h6>Ordernummer</h6>
+       </div>
+       <div class="content">
+         <p>{{wasteOrder.id}}</p>
+       </div>
+     </div>
+     <div class="card-items">
+       <div class="title">
+         <h6>Restant meters</h6>
+       </div>
+       <div class="content">
+         <p>{{wasteOrder.wasteID.waste_descriptionID.minimumStock}}</p>
+       </div>
+     </div>
+     <div class="card-items">
+       <div class="title">
+         <h6>Stofnaam</h6>
+       </div>
+       <div class="content">
+         <p>{{wasteOrder.wasteID.waste_descriptionID.type}}</p>
+       </div>
+     </div>
+     <div class="card-items">
+       <div class="title">
+         <h6>Afgerond</h6>
+       </div>
+       <div class="content">
+         <p style="color: green" *ngIf="wasteOrder.finished">Afgerond</p>
+         <p style="color: red" *ngIf="!wasteOrder.finished">Niet afgerond</p>
+       </div>
+     </div>
+   </mat-expansion-panel-header>
+
+   <div class="expansion-container">
+
+     <div class="left">
+       <h5>Voorbeeld label</h5>
+       <img src="assets/label-voorbeeld.png" alt="label-voorbeeld" width="300" height="400">
+     </div>
+
+     <div class="right">
+
+       <div class="above">
+
+         <div class="customer-info">
+
+           <h5>Klant informatie</h5>
+
+           <div class="customer-info-item">
+             <div class="title">
+               <p>Klantnaam</p>
+             </div>
+             <div class="content">
+               <p>Gerard</p>
+             </div>
+           </div>
+
+           <div class="customer-info-item">
+             <div class="title">
+               <p>Klant adres</p>
+             </div>
+             <div class="content">
+               <p>Prins Johan Willen Frisolaan</p>
+             </div>
+           </div>
+
+         </div>
+
+         <div class="location-info">
+           <h5>Locatie informatie</h5>
+           <div class="location-info-item">
+             <div class="title">
+                 <p>Locatie</p>
+             </div>
+             <div class="content">
+               <p>A2</p>
+             </div>
+           </div>
+
+           <div class="location-info-item">
+             <div class="title">
+               <p>Waste locatie</p>
+             </div>
+             <div class="content">
+               <p>C5</p>
+             </div>
+           </div>
+         </div>
+
+       </div>
+
+       <div class="under">
+         <div class="waste-info">
+           <h5>Waste info</h5>
+           <div class="waste-info-item">
+             <div class="title">
+               <p>Klantnaam</p>
+             </div>
+             <div class="content">
+               <p>Gerard</p>
+             </div>
+           </div>
+         </div>
+         </div>
+
+       <button class="print-label">PRINT LABEL</button>
+     </div>
+
+   </div>
+ </mat-expansion-panel>
+
