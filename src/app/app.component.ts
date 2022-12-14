@@ -39,6 +39,7 @@ export class AppComponent implements OnInit{
     localStorage.setItem("auth_key", "")
     location.reload()
   }
+
 }
 
 
