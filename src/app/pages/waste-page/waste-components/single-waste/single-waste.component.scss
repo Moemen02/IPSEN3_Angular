@@ -26,3 +26,30 @@
     }
   }
 }
+
+.expansion-panel{
+  display: grid;
+  grid-template-columns: 35% 1fr;
+  grid-gap: 20px;
+  width: 100%;
+  padding: 2%;
+
+  .left-panel{
+    .left-info{
+      display: grid;
+      grid-template-columns: 40% 1fr;
+    }
+  }
+
+  .right-panel{
+
+    .right-panel-data{
+
+      .right-panel-expension{
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+
+    }
+  }
+}
