@@ -58,7 +58,7 @@ import {SingleWasteComponent} from "./pages/waste-page/waste-components/single-w
     LoginComponent,
     WasteAddComponent,
     NewUserComponent,
-    SingleWasteComponent
+    SingleWasteComponent,
     NewUserComponent,
     OrderComponent,
     OrderListComponent,
