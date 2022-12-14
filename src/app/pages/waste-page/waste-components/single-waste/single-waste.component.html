@@ -1,0 +1,38 @@
+<mat-expansion-panel hideToggle>
+  <mat-expansion-panel-header class="waste-cards-header">
+    <div class="card-item">
+      <div class="title">
+        <h4>Eancode</h4>
+      </div>
+      <div class="content">
+        <p>{{waste.waste_dataID.eancode}}</p>
+      </div>
+    </div>
+    <div class="card-item">
+      <div class="title">
+        <h4>Kleur</h4>
+      </div>
+      <div class="content">
+        <p>{{waste.waste_dataID.color}}</p>
+      </div>
+    </div>
+    <div class="card-item">
+      <div class="title">
+        <h4>Beschrijving</h4>
+      </div>
+      <div class="content">
+        <p>{{waste.waste_descriptionID.description}}</p>
+      </div>
+    </div>
+    <div class="card-item">
+      <div class="title">
+        <h4>Op voorraad</h4>
+      </div>
+      <div class="content">
+        <p style="color: green" *ngIf="waste.waste_dataID.stockRL">Op voorraad</p>
+        <p style="color: red" *ngIf="!waste.waste_dataID.stockRL">Geen voorraad</p>
+      </div>
+    </div>
+  </mat-expansion-panel-header>
+  <p>{{waste.waste_descriptionID.articlenumber}}</p>
+</mat-expansion-panel>

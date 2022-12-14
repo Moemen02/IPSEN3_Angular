@@ -8,11 +8,8 @@ import { Waste } from "../../../../models/Waste/waste.model";
   styleUrls: ['./waste-table.component.scss']
 })
 export class WasteTableComponent implements OnInit{
-  displayedColumns: string[] = ['eancode', 'description', 'color', 'stock', 'aPrice', 'actions'];
-  panelOpenState = false;
 
   ngOnInit() {
-    this.getArticles();
     this.getArticles();
   }
 
@@ -25,7 +22,6 @@ export class WasteTableComponent implements OnInit{
     this.httpService.getData<Waste>("/api/v2/waste")
       .subscribe((_waste)=>{
         this.wastes = _waste
-        console.log(this.wastes[0])
       })
   }
 

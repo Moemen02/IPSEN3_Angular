@@ -40,6 +40,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatListModule} from "@angular/material/list";
 import {MatTabsModule} from "@angular/material/tabs";
+import {SingleWasteComponent} from "./pages/waste-page/waste-components/single-waste/single-waste.component";
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import {MatTabsModule} from "@angular/material/tabs";
     WasteTableComponent,
     LoginComponent,
     WasteAddComponent,
-    NewUserComponent
+    NewUserComponent,
+    SingleWasteComponent
   ],
   imports: [
     BrowserModule,
