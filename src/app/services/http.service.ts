@@ -15,7 +15,6 @@ export class HttpService{
     .set("Authorization", "Bearer " + localStorage.getItem("auth_key"));
 
   public getData<T>(path: String): Observable<Array<T>>{
-    console.log(this.url)
     return this.http
       .get<T[]>(this.url+path, {'headers':this.headers})
   }

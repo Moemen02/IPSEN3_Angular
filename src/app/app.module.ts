@@ -42,6 +42,9 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatListModule} from "@angular/material/list";
 import {MatTabsModule} from "@angular/material/tabs";
+import { OrderComponent } from './pages/order/order.component';
+import { OrderListComponent } from './pages/order/order-list/order-list.component';
+import { SingleOrderInfoComponent } from './pages/order/order-list/single-order-info/single-order-info/single-order-info.component';
 import {SingleWasteComponent} from "./pages/waste-page/waste-components/single-waste/single-waste.component";
 
 
@@ -56,6 +59,10 @@ import {SingleWasteComponent} from "./pages/waste-page/waste-components/single-w
     WasteAddComponent,
     NewUserComponent,
     SingleWasteComponent
+    NewUserComponent,
+    OrderComponent,
+    OrderListComponent,
+    SingleOrderInfoComponent
   ],
   imports: [
     BrowserModule,
