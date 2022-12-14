@@ -39,6 +39,7 @@ import { NewUserComponent } from './pages/new-user/new-user.component';
 import {MatIconModule} from "@angular/material/icon";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatListModule} from "@angular/material/list";
+import {MatFormFieldModule} from "@angular/material/form-field";
 
 
 @NgModule({
@@ -71,6 +72,7 @@ import {MatListModule} from "@angular/material/list";
     MatSidenavModule,
     MatExpansionModule,
     MatListModule,
+    MatFormFieldModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
