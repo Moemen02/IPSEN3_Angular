@@ -12,15 +12,15 @@
           <mat-form-field class="textInput">
             <mat-label>Email</mat-label>
             <input name="email" matInput [ngModel]="email.value" placeholder="gebruiker@vanDerLelie.com" email required #email="ngModel">
-            <mat-error *ngIf="!email.valid && email.touched && email.value">Voer een geldig e-mail adres in</mat-error>
-            <mat-error *ngIf="!email.value">Email is <strong>verplicht</strong></mat-error>
+            <mat-error name="emailInv" *ngIf="!email.valid && email.touched && email.value">Voer een geldig e-mail adres in</mat-error>
+            <mat-error name="emailRec" *ngIf="!email.value">Email is <strong>verplicht</strong></mat-error>
           </mat-form-field>
 
 
           <mat-form-field class="textInput">
             <mat-label>Naam</mat-label>
             <input type="text" matInput name="name" placeholder="Naam" [ngModel]="name.value" required #name="ngModel">
-            <mat-error *ngIf="!name.value">
+            <mat-error name="nameRec" *ngIf="!name.value">
               Naam is <strong>verplicht</strong>
             </mat-error>
           </mat-form-field>
@@ -32,7 +32,7 @@
               <mat-option value="MEDEWERKER">Medewerker</mat-option>
               <mat-option value="ADMIN">Admin</mat-option>
             </mat-select>
-            <mat-error *ngIf="!role.value">Rol is <strong>verplicht</strong></mat-error>
+            <mat-error name="roleRec" *ngIf="!role.value">Rol is <strong>verplicht</strong></mat-error>
           </mat-form-field>
 
         </div>
