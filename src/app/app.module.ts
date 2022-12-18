@@ -46,6 +46,7 @@ import { OrderComponent } from './pages/order/order.component';
 import { OrderListComponent } from './pages/order/order-list/order-list.component';
 import { SingleOrderInfoComponent } from './pages/order/order-list/single-order-info/single-order-info/single-order-info.component';
 import {SingleWasteComponent} from "./pages/waste-page/waste-components/single-waste/single-waste.component";
+import { CategoryWasteComponent } from './pages/waste-page/waste-components/category-waste/category-waste.component';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import {SingleWasteComponent} from "./pages/waste-page/waste-components/single-w
     NewUserComponent,
     OrderComponent,
     OrderListComponent,
-    SingleOrderInfoComponent
+    SingleOrderInfoComponent,
+    CategoryWasteComponent
   ],
   imports: [
     BrowserModule,
