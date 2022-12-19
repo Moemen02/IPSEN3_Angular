@@ -9,9 +9,11 @@
 
       <mat-form-field appearance="fill" class="input conditionsInput">
         <mat-label>Samenstellingen</mat-label>
-        <mat-select required [ngModel]="role.value" name="role" #role="ngModel">
-          <mat-option class="holder" *ngFor="let comp of compositions" [value]="comp.name">{{comp.name}} <button (click)="removeComposition(comp)" class="removeButton"></button></mat-option>
-          <mat-option value="addNew" (click)="newComposition()"><span style="color: #046A6A;">+ Nieuwe samenstelling</span></mat-option>
+        <mat-select required [ngModel]="comp.value" name="comp" #comp="ngModel">
+          <mat-option class="holder" *ngFor="let comp of compositions" [value]="comp.name">{{comp.name}} <button
+              (click)="removeComposition(comp)" class="removeButton"></button></mat-option>
+          <mat-option value="addNew" (click)="newComposition()"><span style="color: #046A6A;">+ Nieuwe
+              samenstelling</span></mat-option>
         </mat-select>
       </mat-form-field>
 
@@ -73,13 +75,52 @@
 
 
       <p class="errorText">{{errorText}}</p>
-      <button class="button-submit buttons" type="submit">Samenstelling Toevoegen</button>
+
+      <div class="buttonsHolder">
+        <button class="button-back buttons" (click)="goBack()" type="button">Terug</button>
+        <button class="button-submit buttons" style="width: 100%;" type="submit">Samenstelling Toevoegen</button>
+      </div>
 
     </form>
 
   </div>
 
   <div class="info">
+
+    <div *ngIf="selectedComp && !makeNewComp" class="tableInfo">
+      <table class="generalInfo">
+        <tr>
+          <td><strong>Naam</strong></td>
+          <td>{{selectedComp.name}}</td>
+        </tr>
+        <tr>
+          <td><strong>Kleur</strong></td>
+          <td>{{selectedComp.color}}</td>
+        </tr>
+      </table>
+
+      <table class="conditionsInfo">
+        <tr>
+          <th>Percentage</th>
+          <th>Type Stof</th>
+          <th>Vergelijking</th>
+        </tr>
+        <tr *ngFor="let condition of selectedComp.conditions">
+          <td>{{condition.amount}}%</td>
+          <td>{{condition.type}}</td>
+          <td *ngIf="condition.condition == 'SameThan'">Gelijk aan</td>
+          <td *ngIf="condition.condition == 'GreaterThan'">Groter dan</td>
+          <td *ngIf="condition.condition == 'SmallerThan'">Kleiner dan</td>
+        </tr>
+
+      </table>
+
+    </div>
+
+
+    <div class="stockInfo">
+      
+    </div>
 
   </div>
 

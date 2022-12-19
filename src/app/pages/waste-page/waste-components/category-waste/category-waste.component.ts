@@ -1,3 +1,4 @@
+import { JsonPipe } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormArray, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Composition, condition } from 'src/app/models/Waste/composition.model';
@@ -12,12 +13,10 @@ export class CategoryWasteComponent implements OnInit {
   @ViewChild("formComp") ngFormComp: NgForm
 
   compositions: Composition[] = []
-
-  makeNewComp = false
-
-  errorText = " "
-
   conditionForm: FormGroup
+  makeNewComp = false
+  errorText = " "
+  selectedComp:Composition
 
   ngOnInit(): void {
     this.conditionForm = new FormGroup({
@@ -25,13 +24,20 @@ export class CategoryWasteComponent implements OnInit {
       "color": new FormControl(null, [Validators.required]),
       "conditions": new FormArray([])
     })
-
-    this.compositions.push(new Composition("samenstelling 1", 2323, [new condition(12, "Stof", "GreaterThan")]))
+    const comps = localStorage.getItem("comps")
+    if (comps) this.compositions = JSON.parse(comps)
+    this.selectedComp = this.compositions[0]
   }
 
 
   onSubmitComp() {
-
+    if (this.ngFormComp.status === "VALID") {
+      this.compositions.map(comp => {
+        if (comp.name === this.ngFormComp.value.comp) {
+          this.selectedComp = comp
+        }
+      })
+    } 
   }
 
   removeComposition(comp: Composition) {
@@ -61,7 +67,15 @@ export class CategoryWasteComponent implements OnInit {
       console.log(this.compositions)
       this.conditionForm.reset()
       this.makeNewComp = false
+
+      localStorage.setItem("comps", JSON.stringify(this.compositions))
     }
+  }
+
+  goBack() {
+    this.makeNewComp = false
+    this.conditionForm.reset()
+
   }
 
 

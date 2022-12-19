@@ -72,6 +72,15 @@
     }
     
 }
+.buttonsHolder {
+    display: flex;
+}
+
+.button-back {
+    width: 50%;
+    margin-right: 10px;
+    background-color: #3C3B3B;
+}
 
 .errorText {
     margin: 0px;
@@ -110,4 +119,25 @@ input.number {
     height: 56px;
     width: 30px;
     border-radius: 3px;
+}
+
+.info {
+    display: flex;
+}
+
+.stockInfo {
+    flex: 1;       
+}
+
+.tableInfo {
+    flex: 1;
+}
+
+.generalInfo {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.conditionsInfo {
+    width: 100%;
 }
