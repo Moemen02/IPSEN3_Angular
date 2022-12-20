@@ -123,10 +123,7 @@
 
   
   <div class="items" *ngIf="similarWasteData">
-    <hr>
-    
-    <mat-paginator [length]="fullPageLength" [pageSize]="50" aria-label="Select page" (page)="nextPage($event)">
-    </mat-paginator>
+    <app-pager [total]="fullPageLength" (buttonPress)="nextPage($event)"></app-pager>
 
     <div class="waste-card" *ngFor="let waste of similarWasteData">
       <p>{{waste.composition}} - {{waste.eancode}}</p>

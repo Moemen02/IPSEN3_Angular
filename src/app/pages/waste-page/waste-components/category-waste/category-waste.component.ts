@@ -36,15 +36,15 @@ export class CategoryWasteComponent implements OnInit {
 
 
     this.cws.inComingData.subscribe(data => {
+      this.currentPage = 0
       this.fullPageLength = data.headers.getAll('full_list_length')[0]
-      console.log(data.body)
       this.similarWasteData = data.body
     })
 
   }
 
-  nextPage(event) {
-    this.cws.sendComposition(this.selectedComp, event.pageIndex)
+  nextPage(page:number) {
+    this.cws.sendComposition(this.selectedComp, page)
   }
 
 
@@ -65,8 +65,6 @@ export class CategoryWasteComponent implements OnInit {
   removeComposition(comp: Composition) {
     const index = this.compositions.indexOf(comp)
     this.compositions.splice(index, 1)
-    console.log(index)
-    console.log(this.compositions)
   }
 
 
@@ -97,7 +95,6 @@ export class CategoryWasteComponent implements OnInit {
   goBack() {
     this.makeNewComp = false
     this.conditionForm.reset()
-
   }
 
 

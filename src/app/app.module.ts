@@ -48,6 +48,7 @@ import { SingleOrderInfoComponent } from './pages/order/order-list/single-order-
 import { SingleWasteComponent } from "./pages/waste-page/waste-components/single-waste/single-waste.component";
 import { CategoryWasteComponent } from './pages/waste-page/waste-components/category-waste/category-waste.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { PagerComponent } from './components/pager/pager.component';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     OrderComponent,
     OrderListComponent,
     SingleOrderInfoComponent,
-    CategoryWasteComponent
+    CategoryWasteComponent,
+    PagerComponent
   ],
   imports: [
     BrowserModule,

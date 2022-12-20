@@ -11,6 +11,5 @@ export class SingleWasteComponent implements OnInit{
   @Input() waste: Waste;
 
   ngOnInit(){
-    console.log(this.waste)
   }
 }
