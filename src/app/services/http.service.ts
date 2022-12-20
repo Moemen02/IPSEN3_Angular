@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {resetParseTemplateAsSourceFileForTest} from "@angular/compiler-cli/src/ngtsc/typecheck/diagnostics";
-import {Observable} from "rxjs";
+import {Observable, map} from "rxjs";
 import { environment } from "../environments/environment";
 
 @Injectable({providedIn: 'root'})
@@ -27,6 +27,14 @@ export class HttpService{
   public sendData<T>(path:string, data:any): Observable<T>{
     return this.http.post<T>(this.url + path, data, {
       'headers':this.headers
+    })
+  }
+
+  public sendPostPage(path:string, data:any, page:number): Observable<any>{
+    return this.http.post(this.url + path, data, {
+      'headers':this.headers,
+      "params": {"page": page},
+      observe: "response"
     })
   }
 }

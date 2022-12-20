@@ -1,7 +1,8 @@
-import { JsonPipe } from '@angular/common';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormArray, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-import { Composition, condition } from 'src/app/models/Waste/composition.model';
+import { FormArray, FormControl, FormGroup, NgForm, Validators } from '@angular/forms'
+import { WasteDataModel } from 'src/app/models/Waste/waste-data.model'
+import { Composition } from 'src/app/models/Waste/composition.model'
+import { CategoryWasteService } from './category-waste.service'
+import { Component, OnInit, ViewChild } from '@angular/core'
 
 @Component({
   selector: 'app-category-waste',
@@ -9,24 +10,41 @@ import { Composition, condition } from 'src/app/models/Waste/composition.model';
   styleUrls: ['./category-waste.component.scss']
 })
 export class CategoryWasteComponent implements OnInit {
-
   @ViewChild("formComp") ngFormComp: NgForm
 
   compositions: Composition[] = []
+  selectedComp: Composition
   conditionForm: FormGroup
   makeNewComp = false
+  fullPageLength = 0
+  currentPage = 0
   errorText = " "
-  selectedComp:Composition
+
+  similarWasteData: WasteDataModel[]
+
+  constructor(private cws: CategoryWasteService) { }
+
 
   ngOnInit(): void {
     this.conditionForm = new FormGroup({
       "name": new FormControl(null, [Validators.required]),
-      "color": new FormControl(null, [Validators.required]),
+      "color": new FormControl(null, [Validators.required, Validators.pattern(/^[0-9]\d*$/)]),
       "conditions": new FormArray([])
     })
     const comps = localStorage.getItem("comps")
     if (comps) this.compositions = JSON.parse(comps)
-    this.selectedComp = this.compositions[0]
+
+
+    this.cws.inComingData.subscribe(data => {
+      this.fullPageLength = data.headers.getAll('full_list_length')[0]
+      console.log(data.body)
+      this.similarWasteData = data.body
+    })
+
+  }
+
+  nextPage(event) {
+    this.cws.sendComposition(this.selectedComp, event.pageIndex)
   }
 
 
@@ -37,7 +55,11 @@ export class CategoryWasteComponent implements OnInit {
           this.selectedComp = comp
         }
       })
-    } 
+      if (this.selectedComp) {
+        console.log(this.selectedComp)
+        this.cws.sendComposition(this.selectedComp, 0)
+      }
+    }
   }
 
   removeComposition(comp: Composition) {
@@ -56,13 +78,13 @@ export class CategoryWasteComponent implements OnInit {
         this.errorText = "U moet minimaal 1 voorwaarde toevoegen"
         return
       }
-      
+
       const comp = new Composition(
         this.conditionForm.value.name,
         this.conditionForm.value.color,
         this.conditionForm.value.conditions,
       )
-      
+
       this.compositions.push(comp)
       console.log(this.compositions)
       this.conditionForm.reset()
@@ -108,6 +130,6 @@ export class CategoryWasteComponent implements OnInit {
   }
 
   ConditionsArray(index: number) {
-    return this.Conditions.at(index)as FormGroup;
+    return this.Conditions.at(index) as FormGroup;
   }
 }  

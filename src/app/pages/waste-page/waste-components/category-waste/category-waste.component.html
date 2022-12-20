@@ -32,10 +32,7 @@
 
       <mat-form-field class="inputNewComp">
         <mat-label>Kleur</mat-label>
-        <mat-select required formControlName="color">
-          <mat-option value="samenstelling_1">groen</mat-option>
-          <mat-option value="addNew">blauw</mat-option>
-        </mat-select>
+        <input matInput required type="number" formControlName="color">
       </mat-form-field>
 
 
@@ -119,12 +116,21 @@
 
 
     <div class="stockInfo">
-      
+
     </div>
 
   </div>
 
-  <div class="items">
+  
+  <div class="items" *ngIf="similarWasteData">
+    <hr>
+    
+    <mat-paginator [length]="fullPageLength" [pageSize]="50" aria-label="Select page" (page)="nextPage($event)">
+    </mat-paginator>
+
+    <div class="waste-card" *ngFor="let waste of similarWasteData">
+      <p>{{waste.composition}} - {{waste.eancode}}</p>
+    </div>
 
   </div>
 </div>
