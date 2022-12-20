@@ -3,6 +3,7 @@ import { WasteDataModel } from 'src/app/models/Waste/waste-data.model'
 import { Composition } from 'src/app/models/Waste/composition.model'
 import { CategoryWasteService } from './category-waste.service'
 import { Component, OnInit, ViewChild } from '@angular/core'
+import { Category } from 'src/app/models/Waste/category.model'
 
 @Component({
   selector: 'app-category-waste',
@@ -20,7 +21,9 @@ export class CategoryWasteComponent implements OnInit {
   currentPage = 0
   errorText = " "
 
-  similarWasteData: WasteDataModel[]
+  totalWeight = 0
+
+  similarWasteData: Category[]
 
   constructor(private cws: CategoryWasteService) { }
 
@@ -39,6 +42,10 @@ export class CategoryWasteComponent implements OnInit {
       this.currentPage = 0
       this.fullPageLength = data.headers.getAll('full_list_length')[0]
       this.similarWasteData = data.body
+      
+      this.similarWasteData.map(data => {
+        this.totalWeight += data.weight
+      })
     })
 
   }
@@ -56,7 +63,6 @@ export class CategoryWasteComponent implements OnInit {
         }
       })
       if (this.selectedComp) {
-        console.log(this.selectedComp)
         this.cws.sendComposition(this.selectedComp, 0)
       }
     }
@@ -65,6 +71,7 @@ export class CategoryWasteComponent implements OnInit {
   removeComposition(comp: Composition) {
     const index = this.compositions.indexOf(comp)
     this.compositions.splice(index, 1)
+    localStorage.setItem("comps", JSON.stringify(this.compositions))
   }
 
 
@@ -100,7 +107,6 @@ export class CategoryWasteComponent implements OnInit {
 
   newComposition() {
     this.ngFormComp.reset()
-    console.log("new samenstelling")
     this.makeNewComp = true
   }
 
@@ -114,7 +120,6 @@ export class CategoryWasteComponent implements OnInit {
   }
 
   removeRule(index: number) {
-    const form = this.conditionForm.get('conditions') as FormArray;
     (<FormArray>this.conditionForm.get("conditions")).removeAt(index)
   }
 
@@ -129,4 +134,4 @@ export class CategoryWasteComponent implements OnInit {
   ConditionsArray(index: number) {
     return this.Conditions.at(index) as FormGroup;
   }
-}  
+}

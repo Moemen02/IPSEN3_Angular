@@ -2,7 +2,8 @@ export class Composition {
   constructor(
     public name: string,
     public color: number,
-    public conditions:condition[]
+    public conditions:condition[],
+    public stockType?: number
   ) { }
 }
 

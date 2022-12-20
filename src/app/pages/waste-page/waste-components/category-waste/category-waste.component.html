@@ -82,9 +82,9 @@
 
   </div>
 
-  <div class="info">
+  <div class="info" *ngIf="selectedComp && !makeNewComp" >
 
-    <div *ngIf="selectedComp && !makeNewComp" class="tableInfo">
+    <div class="tableInfo">
       <table class="generalInfo">
         <tr>
           <td><strong>Naam</strong></td>
@@ -116,6 +116,17 @@
 
 
     <div class="stockInfo">
+      
+      <table class="generalInfo">
+        <tr>
+          <td><strong>Gewicht</strong></td>
+          <td>{{totalWeight}}</td>
+        </tr>
+        <tr>
+          <td><strong>SKU's</strong></td>
+          <td>{{fullPageLength}}</td>
+        </tr>
+      </table>
 
     </div>
 
