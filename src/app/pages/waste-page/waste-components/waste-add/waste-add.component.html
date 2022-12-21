@@ -65,11 +65,12 @@
           <input matInput type="text" name="composition" id="composition" formControlName="composition">
         </mat-form-field>
       </mat-grid-tile>
+
       <mat-grid-tile>
         <mat-form-field appearance="fill">
           <mat-label>Klant</mat-label>
-          <mat-select>
-            <mat-option *ngFor="let customer of customers" id="customer" [value]="customer" formControlName="customer">
+          <mat-select formControlName="customer">
+            <mat-option *ngFor="let customer of customers" id="customer" [value]="customer" >
               {{ customer }}
             </mat-option>
           </mat-select>
@@ -78,8 +79,8 @@
       <mat-grid-tile>
         <mat-form-field>
           <mat-label>Tiltable</mat-label>
-          <mat-select>
-            <mat-option *ngFor="let tiltoption of not_tiltable.ableToTilt" id="not_tiltable" [value]="not_tiltable.tiltValues" formControlName="not_tiltable" >{{ tiltoption }}</mat-option>
+          <mat-select formControlName="not_tiltable">
+            <mat-option *ngFor="let tiltoption of not_tiltable.ableToTilt" id="not_tiltable" [value]="not_tiltable.tiltValues" >{{ tiltoption }}</mat-option>
           </mat-select>
         </mat-form-field>
       </mat-grid-tile>
@@ -112,8 +113,11 @@
       <mat-grid-tile>
         <mat-form-field>
           <mat-label>Is een Voorraad Artikel</mat-label>
-          <mat-select>
-            <mat-option *ngFor="let stockRLoption of stockRL.ifStockIsArticle" [value]="stockRL.stockRLValues" formControlName="stockRL">{{ stockRLoption }}</mat-option>
+          <mat-select formControlName="stockRL">
+            <mat-option
+              *ngFor="let stockRLoption of stockRL.ifStockIsArticle" [value]="stockRL.stockRLValues">
+              {{ stockRLoption }}
+            </mat-option>
           </mat-select>
         </mat-form-field>
       </mat-grid-tile>
