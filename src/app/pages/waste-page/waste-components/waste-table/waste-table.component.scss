@@ -1,18 +1,22 @@
 @import "src/styles";
 
-.waste-table{
-  background-color: $primaryBackgroundColor;
-  padding-bottom: 1em;
+.waste-cards{
+  display: grid;
+  grid-template-columns: 1fr;
 
-  th, td{
-    color: black;
+  #search-bar{
+    margin-top: 1%;
+    width: 100%;
+
+    input{
+      width: 100%;
+      height: 3rem;
+      border-radius: 10px;
+    }
   }
 
-  .waste-table-row{
-    padding-bottom: 1em;
-  }
-
-  .mat-mdc-row:hover .mat-mdc-cell {
-    border-color: black;
+  .waste-card{
+    margin-top: 1%;
+    margin-bottom: 1%;
   }
 }
