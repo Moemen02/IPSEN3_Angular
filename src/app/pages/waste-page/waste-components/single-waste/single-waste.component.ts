@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Waste} from "../../../../models/Waste/waste.model";
+import {Article} from "../../../../models/Waste/article.model";
 
 @Component({
   selector: 'app-single-waste',
@@ -8,7 +8,7 @@ import {Waste} from "../../../../models/Waste/waste.model";
 })
 export class SingleWasteComponent implements OnInit{
 
-  @Input() waste: Waste;
+  @Input() waste: Article;
 
   ngOnInit(){
     console.log(this.waste)

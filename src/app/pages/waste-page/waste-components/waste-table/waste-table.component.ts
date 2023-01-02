@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpService} from "../../../../services/http.service";
-import { Waste } from "../../../../models/Waste/waste.model";
+import { Article } from "../../../../models/Waste/article.model";
 
 @Component({
   selector: 'app-waste-table',
@@ -16,13 +16,14 @@ export class WasteTableComponent implements OnInit{
   }
 
   constructor(private httpService: HttpService) {}
-  wastes: Waste[] = []
-  singleArticle: Waste | undefined
+  wastes: Article[] = []
+  singleArticle: Article | undefined
 
 
   public getArticles(): void{
-    this.httpService.getData<Waste>("/api/v2/waste")
+    this.httpService.getData<Article>("/api/v2/waste")
       .subscribe((_waste)=>{
+        console.log(_waste)
         this.wastes = _waste
       })
   }

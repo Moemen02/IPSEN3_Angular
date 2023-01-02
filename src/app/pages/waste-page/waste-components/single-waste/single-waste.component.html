@@ -5,7 +5,7 @@
         <h4>Eancode</h4>
       </div>
       <div class="content">
-        <p>{{waste.waste_dataID.eancode}}</p>
+        <p>{{waste.article_dataID.eancode}}</p>
       </div>
     </div>
     <div class="card-item">
@@ -13,7 +13,7 @@
         <h4>Kleur</h4>
       </div>
       <div class="content">
-        <p>{{waste.waste_dataID.color}}</p>
+        <p>{{waste.article_dataID.color}}</p>
       </div>
     </div>
     <div class="card-item">
@@ -21,7 +21,7 @@
         <h4>Beschrijving</h4>
       </div>
       <div class="content">
-        <p>{{waste.waste_descriptionID.description}}</p>
+        <p>{{waste.article_descriptionID.description}}</p>
       </div>
     </div>
     <div class="card-item">
@@ -29,8 +29,8 @@
         <h4>Op voorraad</h4>
       </div>
       <div class="content">
-        <p style="color: green" *ngIf="waste.waste_dataID.stockRL">Op voorraad</p>
-        <p style="color: red" *ngIf="!waste.waste_dataID.stockRL">Geen voorraad</p>
+        <p style="color: green" *ngIf="waste.article_dataID.stockRL">Op voorraad</p>
+        <p style="color: red" *ngIf="!waste.article_dataID.stockRL">Geen voorraad</p>
       </div>
     </div>
   </mat-expansion-panel-header>
@@ -38,15 +38,15 @@
     <div class="left-panel">
       <div class="left-info">
         <p>Leverancier</p>
-        <p>{{waste.waste_dataID.supplier}}</p>
+        <p>{{waste.article_dataID.supplier}}</p>
       </div>
       <div class="left-info">
         <p>Product groep</p>
-        <p>{{waste.waste_dataID.productgroup}}</p>
+        <p>{{waste.article_dataID.productgroup}}</p>
       </div>
       <div class="left-info">
         <p>Gewicht</p>
-        <p>{{waste.waste_descriptionID.weight}}</p>
+        <p>{{waste.article_descriptionID.weight}}</p>
       </div>
       <div class="left-info">
         <p>Locatie</p>
