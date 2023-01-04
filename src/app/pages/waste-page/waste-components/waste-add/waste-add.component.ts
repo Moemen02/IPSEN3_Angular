@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 
 @Component({
@@ -25,28 +25,36 @@ export class WasteAddComponent {
   }
 
   inputData: FormGroup = new FormGroup({
-    'color': new FormControl(null),
-    'productgroup': new FormControl(null),
-    'weight': new FormControl(null),
-    'layout': new FormControl(null),
-    'supplier': new FormControl(null),
-    'pattern_width': new FormControl(null),
-    'washcode': new FormControl(null),
-    'type': new FormControl(null),
-    'pattern_length': new FormControl(null),
-    'composition': new FormControl(null),
-    'customer': new FormControl(null),
-    'not_tiltable': new FormControl( null),
-    'article_number': new FormControl(null),
-    'eancode': new FormControl(null),
-    'cloth_width': new FormControl(null),
-    'minimum_stock': new FormControl(null),
-    'stockRL': new FormControl(null),
-    'description': new FormControl(null)
+    'wasteData': new FormGroup({
+      'color': new FormControl(null, Validators.required),
+      'productgroup': new FormControl(null, Validators.required),
+      'supplier': new FormControl(null, Validators.required),
+      'pattern_width': new FormControl(null, [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
+      'pattern_length': new FormControl(null, [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
+      'composition': new FormControl(null, Validators.required),
+      'eancode': new FormControl(null, Validators.required),
+      'stockRL': new FormControl(null, Validators.required)
+    }),
+    'wasteDescription': new FormGroup({
+      'weight': new FormControl(null, [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
+      'layout': new FormControl(null, Validators.required),
+      'washcode': new FormControl(null, Validators.required),
+      'type': new FormControl(null, Validators.required),
+      'not_tiltable': new FormControl( null, Validators.required),
+      'article_number': new FormControl(null, Validators.required),
+      'cloth_width': new FormControl(null, [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
+      'minimum_stock': new FormControl(null, Validators.required),
+      'description': new FormControl(null, Validators.required)
+    }),
+    'customer': new FormControl(null, Validators.required)
   });
 
   onSubmit() {
     console.log(this.inputData.value);
+    this.onCancel();
+  }
+
+  onCancel() {
     this.inputData.reset();
   }
 

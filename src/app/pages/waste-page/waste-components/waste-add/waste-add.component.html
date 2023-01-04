@@ -1,71 +1,126 @@
 <h2 mat-dialog-title>Afval Toevoegen</h2>
 <form (ngSubmit)="onSubmit()" [formGroup]="inputData">
-  <mat-dialog-content >
+  <mat-dialog-content>
     <mat-grid-list cols="3" rowHeight="75px">
-      <mat-grid-tile colspan="1">
-        <mat-form-field >
-          <mat-label>Kleur</mat-label>
-          <input matInput type="text" name="color" id="color" formControlName="color">
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile colspan="1">
-        <mat-form-field>
-          <mat-label>Productgroep</mat-label>
-          <input matInput type="text" name="productgroup" id="productgroup" formControlName="productgroup">
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile colspan="1">
-        <mat-form-field>
-          <mat-label>Gewicht</mat-label>
-          <input matInput type="number" name="weight" id="weight" formControlName="weight">
-        </mat-form-field>
-      </mat-grid-tile>
+      <div formGroupName="wasteData">
+        <mat-grid-tile colspan="1">
+          <mat-form-field >
+            <mat-label>Kleur</mat-label>
+            <input matInput type="text" name="color" id="color" formControlName="color">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1">
+          <mat-form-field>
+            <mat-label>Productgroep</mat-label>
+            <input matInput type="text" name="productgroup" id="productgroup" formControlName="productgroup">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1">
+          <mat-form-field>
+            <mat-label>Compositie</mat-label>
+            <input matInput type="text" name="composition" id="composition" formControlName="composition">
+          </mat-form-field>
+        </mat-grid-tile>
 
-      <mat-grid-tile>
-        <mat-form-field>
-          <mat-label>Layout</mat-label>
-          <input matInput type="text" name="layout" id="layout" formControlName="layout">
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field>
-          <mat-label>Leverancier</mat-label>
-          <input matInput type="text" name="supplier" id="supplier" formControlName="supplier">
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field>
-          <mat-label>Patroon Breedte</mat-label>
-          <input matInput type="number" name="pattern_width" id="pattern_width" formControlName="pattern_width">
-        </mat-form-field>
-      </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>Leverancier</mat-label>
+            <input matInput type="text" name="supplier" id="supplier" formControlName="supplier">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>Patroon Lengte</mat-label>
+            <input matInput type="number" name="pattern_length" id="pattern_length" formControlName="pattern_length">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>Patroon Breedte</mat-label>
+            <input matInput type="number" name="pattern_width" id="pattern_width" formControlName="pattern_width">
+          </mat-form-field>
+        </mat-grid-tile>
 
-      <mat-grid-tile>
-        <mat-form-field>
-          <mat-label>Wascode</mat-label>
-          <input matInput type="text" name="washcode" id="washcode" formControlName="washcode">
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field>
-          <mat-label>Soort</mat-label>
-          <input matInput type="text" name="type" id="type" formControlName="type">
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field>
-          <mat-label>Patroon Lengte</mat-label>
-          <input matInput type="number" name="pattern_length" id="pattern_length" formControlName="pattern_length">
-        </mat-form-field>
-      </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>Is een Voorraad Artikel</mat-label>
+            <mat-select formControlName="stockRL">
+              <mat-option
+                *ngFor="let stockRLoption of stockRL.ifStockIsArticle; let i = index" [value]="stockRL.stockRLValues[i]">
+                {{ stockRLoption }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>Eancode</mat-label>
+            <input matInput type="text" name="eancode" id="eancode" formControlName="eancode">
+          </mat-form-field>
+        </mat-grid-tile>
+      </div>
+      <div formGroupName="wasteDescription">
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>Layout</mat-label>
+            <input matInput type="text" name="layout" id="layout" formControlName="layout">
+          </mat-form-field>
+        </mat-grid-tile>
 
-      <mat-grid-tile>
-        <mat-form-field>
-          <mat-label>Compositie</mat-label>
-          <input matInput type="text" name="composition" id="composition" formControlName="composition">
-        </mat-form-field>
-      </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>Gewicht</mat-label>
+            <input matInput type="number" name="weight" id="weight" formControlName="weight">
+          </mat-form-field>
+        </mat-grid-tile>
 
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>Wascode</mat-label>
+            <input matInput type="text" name="washcode" id="washcode" formControlName="washcode">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>Tiltable</mat-label>
+            <mat-select formControlName="not_tiltable">
+              <mat-option *ngFor="let tiltoption of not_tiltable.ableToTilt; let i = index" id="not_tiltable" [value]="not_tiltable.tiltValues[i]" >{{ tiltoption }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>Artikelnummer</mat-label>
+            <input matInput type="text" name="article_number" id="article_number" formControlName="article_number">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>Soort</mat-label>
+            <input matInput type="text" name="type" id="type" formControlName="type">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>Stof Breedte</mat-label>
+            <input matInput type="number" name="cloth_width" id="cloth_width" formControlName="cloth_width">
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>Minimale Voorraad</mat-label>
+            <input matInput type="number" name="minimum_stock" id="minimum_stock" formControlName="minimum_stock">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>Beschrijving</mat-label>
+            <input matInput type="text" name="description" id="description" formControlName="description">
+          </mat-form-field>
+        </mat-grid-tile>
+      </div>
       <mat-grid-tile>
         <mat-form-field appearance="fill">
           <mat-label>Klant</mat-label>
@@ -76,57 +131,6 @@
           </mat-select>
         </mat-form-field>
       </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field>
-          <mat-label>Tiltable</mat-label>
-          <mat-select formControlName="not_tiltable">
-            <mat-option *ngFor="let tiltoption of not_tiltable.ableToTilt" id="not_tiltable" [value]="not_tiltable.tiltValues" >{{ tiltoption }}</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </mat-grid-tile>
-
-      <mat-grid-tile>
-        <mat-form-field>
-          <mat-label>Artikelnummer</mat-label>
-          <input matInput type="text" name="article_number" id="article_number" formControlName="article_number">
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field>
-          <mat-label>Eancode</mat-label>
-          <input matInput type="text" name="eancode" id="eancode" formControlName="eancode">
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile colspan="1">
-        <mat-form-field>
-          <mat-label>Stof Breedte</mat-label>
-          <input matInput type="number" name="cloth_width" id="cloth_width" formControlName="cloth_width">
-        </mat-form-field>
-      </mat-grid-tile>
-
-      <mat-grid-tile>
-        <mat-form-field>
-          <mat-label>Minimale Voorraad</mat-label>
-          <input matInput type="number" name="minimum_stock" id="minimum_stock" formControlName="minimum_stock">
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field>
-          <mat-label>Is een Voorraad Artikel</mat-label>
-          <mat-select formControlName="stockRL">
-            <mat-option
-              *ngFor="let stockRLoption of stockRL.ifStockIsArticle" [value]="stockRL.stockRLValues">
-              {{ stockRLoption }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field>
-          <mat-label>Beschrijving</mat-label>
-          <input matInput type="text" name="description" id="description" formControlName="description">
-        </mat-form-field>
-      </mat-grid-tile>
 
       <mat-grid-tile colspan="3">
         <span *ngIf="inputData.valid && inputData.touched">Het Afvalstof is toegevoegd!</span>
@@ -134,7 +138,7 @@
     </mat-grid-list>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
-    <button mat-raised-button color="warn" mat-dialog-close="false">Cancel</button>
-    <button mat-raised-button color="primary" mat-dialog-close="true" type="submit">Confirm</button>
+    <button mat-raised-button color="warn" mat-dialog-close="false" (click)="onCancel()">Close</button>
+    <button mat-raised-button color="primary" mat-dialog-close="true" type="submit" [disabled]="!inputData.valid">Confirm</button>
   </mat-dialog-actions>
 </form>
