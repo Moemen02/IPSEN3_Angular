@@ -12,7 +12,7 @@
         <mat-select required [ngModel]="comp.value" name="comp" #comp="ngModel">
           <mat-option class="holder" *ngFor="let comp of compositions" [value]="comp.name">{{comp.name}} <button
               (click)="removeComposition(comp)" class="removeButton"></button></mat-option>
-          <mat-option value="addNew" (click)="newComposition()"><span style="color: #046A6A;">+ Nieuwe
+          <mat-option value="addNew" (click)="newComposition()"><span class="newComper" style="color: #046A6A;">+ Nieuwe
               samenstelling</span></mat-option>
         </mat-select>
       </mat-form-field>
@@ -26,13 +26,13 @@
 
       <mat-form-field class="inputNewComp">
         <mat-label>Naam samenstelling</mat-label>
-        <input matInput required formControlName="name">
+        <input matInput required formControlName="name" name="name">
       </mat-form-field>
 
 
       <mat-form-field class="inputNewComp">
         <mat-label>Kleur</mat-label>
-        <input matInput required type="number" formControlName="color">
+        <input matInput required type="number" name="color" formControlName="color">
       </mat-form-field>
 
 
@@ -44,21 +44,21 @@
 
           <mat-form-field class="inputPercent conditionsInputComp">
             <mat-label>%</mat-label>
-            <input matInput required type="number" class="number" placeholder="0" formControlName="amount">
+            <input matInput required type="number" class="number" name="procNumber" placeholder="0" formControlName="amount">
             <span matTextSuffix>%</span>
           </mat-form-field>
 
           <mat-form-field class="input conditionsInputComp">
             <mat-label>Type stof</mat-label>
-            <input matInput required formControlName="type">
+            <input matInput required formControlName="type" name="type">
           </mat-form-field>
 
-          <mat-form-field appearance="fill" class="input conditionsInputComp">
+          <mat-form-field appearance="fill" class="input conditionsInputComp allcomps">
             <mat-label>Vergelijking</mat-label>
             <mat-select required formControlName="condition">
-              <mat-option value="GreaterThan">Groter dan</mat-option>
-              <mat-option value="SmallerThan">Kleiner dan</mat-option>
-              <mat-option value="SameThan">Gelijk aan</mat-option>
+              <mat-option class="GreaterThan" value="GreaterThan">Groter dan</mat-option>
+              <mat-option class="SmallerThan" value="SmallerThan">Kleiner dan</mat-option>
+              <mat-option class="SameThan" value="SameThan">Gelijk aan</mat-option>
             </mat-select>
           </mat-form-field>
 
@@ -82,7 +82,7 @@
 
   </div>
 
-  <div class="info" *ngIf="selectedComp && !makeNewComp" >
+  <div class="info" *ngIf="selectedComp && !makeNewComp">
 
     <div class="tableInfo">
       <table class="generalInfo">
@@ -116,7 +116,7 @@
 
 
     <div class="stockInfo">
-      
+
       <table class="generalInfo">
         <tr>
           <td><strong>Gewicht</strong></td>
@@ -132,12 +132,14 @@
 
   </div>
 
-  
+
   <div class="items" *ngIf="similarWasteData">
     <app-pager [total]="fullPageLength" (buttonPress)="nextPage($event)"></app-pager>
 
     <div class="waste-card" *ngFor="let waste of similarWasteData">
-      <p>{{waste.composition}} - {{waste.eancode}}</p>
+      <mat-accordion>
+        <app-single-comp [waste]="waste"></app-single-comp>
+      </mat-accordion>
     </div>
 
   </div>
