@@ -40,9 +40,10 @@ export class CategoryWasteComponent implements OnInit {
 
     this.cws.inComingData.subscribe(data => {
       this.currentPage = 0
+      this.totalWeight = 0
       this.fullPageLength = data.headers.getAll('full_list_length')[0]
       this.similarWasteData = data.body
-      
+
       this.similarWasteData.map(data => {
         this.totalWeight += data.weight
       })
