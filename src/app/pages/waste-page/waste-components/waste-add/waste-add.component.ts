@@ -1,5 +1,8 @@
 import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {WasteDataModel} from "../../../../models/Waste/waste-data.model";
+import {Waste} from "../../../../models/Waste/waste.model";
+import {WasteDescriptionModel} from "../../../../models/Waste/waste-description.model";
 
 
 @Component({
@@ -8,6 +11,8 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./waste-add.component.scss']
 })
 export class WasteAddComponent {
+  private articleData: WasteDataModel;
+  private articleDescription: WasteDescriptionModel;
   customers: string[] = [
     'Henk',
     'Lorens',
@@ -25,7 +30,7 @@ export class WasteAddComponent {
   }
 
   inputData: FormGroup = new FormGroup({
-    'wasteData': new FormGroup({
+    'articleData': new FormGroup({
       'color': new FormControl(null, Validators.required),
       'productgroup': new FormControl(null, Validators.required),
       'supplier': new FormControl(null, Validators.required),
@@ -35,7 +40,7 @@ export class WasteAddComponent {
       'eancode': new FormControl(null, Validators.required),
       'stockRL': new FormControl(null, Validators.required)
     }),
-    'wasteDescription': new FormGroup({
+    'articleDescription': new FormGroup({
       'weight': new FormControl(null, [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
       'layout': new FormControl(null, Validators.required),
       'washcode': new FormControl(null, Validators.required),
@@ -43,7 +48,7 @@ export class WasteAddComponent {
       'not_tiltable': new FormControl( null, Validators.required),
       'article_number': new FormControl(null, Validators.required),
       'cloth_width': new FormControl(null, [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
-      'minimum_stock': new FormControl(null, Validators.required),
+      'minimum_stock': new FormControl(null, [Validators.required, Validators.pattern(/^[0-9]+[0-9]*$/)]),
       'description': new FormControl(null, Validators.required)
     }),
     'customer': new FormControl(null, Validators.required)
@@ -51,6 +56,10 @@ export class WasteAddComponent {
 
   onSubmit() {
     console.log(this.inputData.value);
+    console.log(this.inputData.controls['articleData'].value);
+    console.log(this.inputData.controls['articleDescription'].value);
+    this.articleData = this.inputData.controls['articleData'].value;
+    this.articleDescription = this.inputData.controls['articleDescription'].value;
     this.onCancel();
   }
 

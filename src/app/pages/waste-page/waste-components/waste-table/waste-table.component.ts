@@ -21,7 +21,7 @@ export class WasteTableComponent implements OnInit{
 
 
   public getArticles(): void{
-    this.httpService.getData<Waste>("/api/v2/waste")
+    this.httpService.getData<Waste>("/api/v2/article")
       .subscribe((_waste)=>{
         this.wastes = _waste
       })

@@ -3,8 +3,8 @@ import {WasteDescriptionModel} from "./waste-description.model";
 
 export class Waste {
   private _id!: number
-  private _waste_dataID!: WasteDataModel;
-  private _waste_descriptionID!: WasteDescriptionModel;
+  private _article_dataID!: WasteDataModel;
+  private _article_descriptionID!: WasteDescriptionModel;
   private _UsageID!: string;
 
 
@@ -16,20 +16,20 @@ export class Waste {
     this._id = value;
   }
 
-  get waste_dataID(): WasteDataModel {
-    return this._waste_dataID;
+  get article_dataID(): WasteDataModel {
+    return this._article_dataID;
   }
 
-  set waste_dataID(value: WasteDataModel) {
-    this._waste_dataID = value;
+  set article_dataID(value: WasteDataModel) {
+    this._article_dataID = value;
   }
 
-  get waste_descriptionID(): WasteDescriptionModel {
-    return this._waste_descriptionID;
+  get article_descriptionID(): WasteDescriptionModel {
+    return this._article_descriptionID;
   }
 
-  set waste_descriptionID(value: WasteDescriptionModel) {
-    this._waste_descriptionID = value;
+  set article_descriptionID(value: WasteDescriptionModel) {
+    this._article_descriptionID = value;
   }
 
   get UsageID(): string {
