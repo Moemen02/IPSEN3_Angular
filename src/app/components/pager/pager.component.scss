@@ -1,0 +1,35 @@
+.mainHolder {
+    width: 100%;
+    height: 50px;
+    margin: 10px 0px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-top: 1px lightgray solid;
+    border-bottom: 1px lightgray solid;
+}
+
+.arrow {
+    color: gray;
+    font-size: 30px;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+}
+
+.pagesAmount {
+    display: flex;
+    align-items: center;
+}
+
+.pageInfo {
+    margin-right: 5%;
+    display: flex;
+    align-items: center;
+
+    p {
+        margin: 3px 10px 0px 0px;
+    }
+}

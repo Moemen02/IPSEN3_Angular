@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {HttpService} from "../../../../services/http.service";
+import { Component, OnInit } from '@angular/core';
+import { HttpService } from "../../../../services/http.service";
 import { Waste } from "../../../../models/Waste/waste.model";
 
 @Component({
@@ -7,32 +7,24 @@ import { Waste } from "../../../../models/Waste/waste.model";
   templateUrl: './waste-table.component.html',
   styleUrls: ['./waste-table.component.scss']
 })
-export class WasteTableComponent implements OnInit{
-  displayedColumns: string[] = ['eancode', 'description', 'color', 'stock', 'aPrice', 'actions'];
-  panelOpenState = false;
+export class WasteTableComponent implements OnInit {
+  searchText: string;
+  listLength = 0
 
   ngOnInit() {
-    this.getArticles();
-    this.getArticles();
+    this.getArticles(0);
   }
 
-  constructor(private httpService: HttpService) {}
+  constructor(private httpService: HttpService) { }
   wastes: Waste[] = []
   singleArticle: Waste | undefined
 
 
-  public getArticles(): void{
-    this.httpService.getData<Waste>("/api/v2/waste")
-      .subscribe((_waste)=>{
-        this.wastes = _waste
-        console.log(this.wastes[0])
+  public getArticles(page: number): void {
+    this.httpService.getDataPage("/api/v2/waste", page)
+      .subscribe((_waste) => {
+        this.listLength = _waste.headers.get("full_list_length")
+        this.wastes = _waste.body
       })
   }
-
-  // getArticle(): void{
-  //   this.httpService.getSingleData<Article>("/api/article/1")
-  //     .subscribe((_aricle)=>{
-  //       this.singleArticle = _aricle
-  //     })
-  // }
 }

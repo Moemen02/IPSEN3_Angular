@@ -26,6 +26,7 @@ export class AuthService implements CanActivate, CanActivateChild {
   token = ""
 
 
+
   constructor(private router: Router, private http: HttpClient) {
     const token = this.checkForKey()
     this._isLoggedIn.next(token)

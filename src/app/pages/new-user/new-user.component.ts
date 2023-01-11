@@ -36,7 +36,7 @@ export class NewUserComponent implements OnInit{
     }
     if (!newUser['email'] || !newUser['name'] || !newUser['role']) return
 
-    this.http.sendData<AuthResponse>("api/auth/register", newUser).subscribe((response) => {
+    this.http.sendData<AuthResponse>("/api/auth/register", newUser).subscribe((response) => {
       this.success = response.success
       this.errorText = response.message
     }, err => {
