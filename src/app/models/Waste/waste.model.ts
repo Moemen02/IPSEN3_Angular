@@ -1,11 +1,12 @@
 import {WasteDataModel} from "./waste-data.model";
 import {WasteDescriptionModel} from "./waste-description.model";
+import {Usage} from "../Usage.model";
 
 export class Waste {
   private _id!: number
-  private _waste_dataID!: WasteDataModel;
-  private _waste_descriptionID!: WasteDescriptionModel;
-  private _UsageID!: string;
+  private _article_dataID!: WasteDataModel;
+  private _article_descriptionID!: WasteDescriptionModel;
+  private _UsageID!: Usage;
 
 
   get id(): number {
@@ -16,27 +17,27 @@ export class Waste {
     this._id = value;
   }
 
-  get waste_dataID(): WasteDataModel {
-    return this._waste_dataID;
+  get article_dataID(): WasteDataModel {
+    return this._article_dataID;
   }
 
-  set waste_dataID(value: WasteDataModel) {
-    this._waste_dataID = value;
+  set article_dataID(value: WasteDataModel) {
+    this._article_dataID = value;
   }
 
-  get waste_descriptionID(): WasteDescriptionModel {
-    return this._waste_descriptionID;
+  get article_descriptionID(): WasteDescriptionModel {
+    return this._article_descriptionID;
   }
 
-  set waste_descriptionID(value: WasteDescriptionModel) {
-    this._waste_descriptionID = value;
+  set article_descriptionID(value: WasteDescriptionModel) {
+    this._article_descriptionID = value;
   }
 
-  get UsageID(): string {
+  get usageID(): Usage {
     return this._UsageID;
   }
 
-  set UsageID(value: string) {
+  set usageID(value: Usage) {
     this._UsageID = value;
   }
 }
