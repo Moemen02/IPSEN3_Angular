@@ -3,7 +3,7 @@ import {HttpService} from "../../services/http.service";
 import {WasteDataModel} from "../../models/Waste/waste-data.model";
 import {MatDialog, MatDialogConfig, MatDialogRef} from "@angular/material/dialog";
 import {WasteAddComponent} from "./waste-components/waste-add/waste-add.component";
-import { Waste } from "../../models/Waste/waste.model";
+import { Article } from "../../models/Waste/article.model";
 
 @Component({
   selector: 'app-waste-page',
@@ -12,7 +12,7 @@ import { Waste } from "../../models/Waste/waste.model";
 })
 
 export class WastePageComponent{
-  private article!: Waste;
+  private article!: Article;
   constructor(public dialog: MatDialog) {
   }
   openAddArticle() {

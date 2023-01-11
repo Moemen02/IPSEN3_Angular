@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpService } from "../../../../services/http.service";
-import { Waste } from "../../../../models/Waste/waste.model";
+import {Component, OnInit} from '@angular/core';
+import {HttpService} from "../../../../services/http.service";
+import { Article } from "../../../../models/Waste/article.model";
 
 @Component({
   selector: 'app-waste-table',
@@ -15,9 +15,9 @@ export class WasteTableComponent implements OnInit {
     this.getArticles(0);
   }
 
-  constructor(private httpService: HttpService) { }
-  wastes: Waste[] = []
-  singleArticle: Waste | undefined
+  constructor(private httpService: HttpService) {}
+  wastes: Article[] = []
+  singleArticle: Article | undefined
 
 
   public getArticles(page: number): void {
@@ -27,4 +27,11 @@ export class WasteTableComponent implements OnInit {
         this.wastes = _waste.body
       })
   }
+
+  // getArticle(): void{
+  //   this.httpService.getSingleData<Article>("/api/article/1")
+  //     .subscribe((_aricle)=>{
+  //       this.singleArticle = _aricle
+  //     })
+  // }
 }
