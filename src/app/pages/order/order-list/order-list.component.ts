@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {WasteOrder} from "../../../models/WasteOrder.model";
+import {ArticleOrderModel} from "../../../models/ArticleOrder.model";
 
 import {HttpService} from "../../../services/http.service";
 
@@ -17,14 +17,20 @@ export class OrderListComponent implements OnInit {
   }
 
   constructor(private httpService: HttpService) {}
-  wasteOrders: WasteOrder[] = []
-  wasteOrder: WasteOrder
+  wasteOrders: ArticleOrderModel[] = []
+  wasteOrder: ArticleOrderModel
 
 
   public getAllWasteOrders(): void{
-    this.httpService.getData<WasteOrder>("/api/v2/waste_order")
+    this.httpService.getData<ArticleOrderModel>("/api/v2/article_order")
       .subscribe((_wasteOrders) =>{
-        this.wasteOrders = _wasteOrders
+        for (let i = 0; i < _wasteOrders.length; i++) {
+          if (!_wasteOrders[i].finished){
+            this.wasteOrders.push(_wasteOrders[i]);
+
+          }
+        }
+
       })
   }
 
