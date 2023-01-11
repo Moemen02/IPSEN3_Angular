@@ -7,12 +7,12 @@ import { Article } from "../../../../models/Waste/article.model";
   templateUrl: './waste-table.component.html',
   styleUrls: ['./waste-table.component.scss']
 })
-export class WasteTableComponent implements OnInit{
-
-  searchText;
+export class WasteTableComponent implements OnInit {
+  searchText: string;
+  listLength = 0
 
   ngOnInit() {
-    this.getArticles();
+    this.getArticles(0);
   }
 
   constructor(private httpService: HttpService) {}
@@ -20,11 +20,11 @@ export class WasteTableComponent implements OnInit{
   singleArticle: Article | undefined
 
 
-  public getArticles(): void{
-    this.httpService.getData<Article>("/api/v2/waste/1/8")
-      .subscribe((_waste)=>{
-        console.log(_waste)
-        this.wastes = _waste
+  public getArticles(page: number): void {
+    this.httpService.getDataPage("/api/v2/waste", page)
+      .subscribe((_waste) => {
+        this.listLength = _waste.headers.get("full_list_length")
+        this.wastes = _waste.body
       })
   }
 
