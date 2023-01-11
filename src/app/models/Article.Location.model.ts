@@ -1,12 +1,13 @@
-import {Waste} from "./Waste/waste.model";
+
 import {Usage} from "./Usage.model";
 import {Location} from "./Location.model";
+import {Article} from "./Waste/article.model";
 
 
 export class ArticleLocationModel {
   private _id!: number;
   private _locationID!: Location;
-  private _articleID!: Waste;
+  private _articleID!: Article;
   private _usageID!: Usage;
 
 
@@ -26,11 +27,11 @@ export class ArticleLocationModel {
     this._locationID = value;
   }
 
-  get articleID(): Waste {
+  get articleID(): Article {
     return this._articleID;
   }
 
-  set articleID(value: Waste) {
+  set articleID(value: Article) {
     this._articleID = value;
   }
 

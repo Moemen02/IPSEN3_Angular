@@ -1,11 +1,12 @@
 import {WasteDataModel} from "./waste-data.model";
 import {WasteDescriptionModel} from "./waste-description.model";
+import {Usage} from "../Usage.model";
 
 export class Article {
   private _id!: number
   private _article_dataID!: WasteDataModel;
   private _article_descriptionID!: WasteDescriptionModel;
-  private _usageID!: number;
+  private _usageID!: Usage;
 
 
   get id(): number {
@@ -32,11 +33,11 @@ export class Article {
     this._article_descriptionID = value;
   }
 
-  get usageID(): number {
+  get usageID(): Usage {
     return this._usageID;
   }
 
-  set usageID(value: number) {
+  set usageID(value: Usage) {
     this._usageID = value;
   }
 }

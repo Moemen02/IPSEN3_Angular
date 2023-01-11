@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {WasteOrder} from "../../../../../models/WasteOrder.model";
-import {ArticleLocationModel} from "../../../../../models/Article.Location.model";
+import {ArticleOrderModel} from "../../../../../models/ArticleOrder.model";import {ArticleLocationModel} from "../../../../../models/Article.Location.model";
 
 @Component({
   selector: 'app-single-order-info',
@@ -12,5 +11,5 @@ export class SingleOrderInfoComponent implements OnInit{
   ngOnInit() {
   }
 
-  @Input() wasteOrder: WasteOrder
+  @Input() wasteOrder: ArticleOrderModel
 }
