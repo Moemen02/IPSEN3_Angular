@@ -1,9 +1,9 @@
-import {Waste} from "./Waste/waste.model";
+import {Article} from "./Waste/article.model";
 import {Customer} from "./customer.model";
 
 export class WasteOrder {
   private _id!: number
-  private _articleID!: Waste;
+  private _wasteID!: Article;
   private _customerID!: Customer;
   private _finished!: boolean;
 
@@ -15,12 +15,12 @@ export class WasteOrder {
     this._id = value;
   }
 
-  get articleID(): Waste {
-    return this._articleID;
+  get wasteID(): Article {
+    return this._wasteID;
   }
 
-  set articleID(value: Waste) {
-    this._articleID = value;
+  set wasteID(value: Article) {
+    this._wasteID = value;
   }
 
   get finished(): boolean {
