@@ -1,8 +1,8 @@
-import {Waste} from "./Waste/waste.model";
+import {Article} from "./Waste/article.model";
 
 export class WasteOrder {
   private _id!: number
-  private _wasteID!: Waste;
+  private _wasteID!: Article;
   private _customerID!: number;
   private _finished!: boolean;
 
@@ -14,11 +14,11 @@ export class WasteOrder {
     this._id = value;
   }
 
-  get wasteID(): Waste {
+  get wasteID(): Article {
     return this._wasteID;
   }
 
-  set wasteID(value: Waste) {
+  set wasteID(value: Article) {
     this._wasteID = value;
   }
 
