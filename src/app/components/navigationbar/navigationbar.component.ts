@@ -1,4 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Router} from "@angular/router";
+import {JwtToken} from "../../models/jwtToken.model";
+import {AuthService} from "../../auth.service";
 
 @Component({
   selector: 'app-navigationbar',
@@ -6,14 +9,22 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./navigationbar.component.scss']
 })
 export class NavigationbarComponent implements OnInit{
+@Input() visible = false
+
+  panelOpenState = false;
+  constructor(private router:Router) {
+  }
+
+
   ngOnInit(): void {
 
   }
 
   // const navVisible: false;
 
-  randomLog(){
-    console.log("hoi")
-  }
+  navTo(path:string) {
+  console.log("this")
+    this.router.navigate([path])
 
+  }
 }

@@ -1,0 +1,51 @@
+<!-- <div class="main">
+
+
+  <table>
+      <tr>
+        <td><p>{{waste.composition}}</p></td>
+        <td><p>{{waste.eancode}}</p></td>
+        <td><p>{{waste.weight}}</p></td>
+        <td><p>{{waste.type}}</p></td>
+      </tr>
+  </table>
+  
+
+</div> -->
+
+<mat-expansion-panel hideToggle>
+  <mat-expansion-panel-header class="waste-cards-header">
+    <div class="card-item">
+      <div class="title">
+        <h4>Samenstelling</h4>
+      </div>
+      <div class="content">
+        <p>{{waste.composition}}</p>
+      </div>
+    </div>
+    <div class="card-item">
+      <div class="title">
+        <h4>Eancode</h4>
+      </div>
+      <div class="content">
+        <p>{{waste.eancode}}</p>
+      </div>
+    </div>
+    <div class="card-item">
+      <div class="title">
+        <h4>Gewicht</h4>
+      </div>
+      <div class="content">
+        <p>{{waste.weight}}</p>
+      </div>
+    </div>
+    <div class="card-item">
+      <div class="title">
+        <h4>Beschrijving</h4>
+      </div>
+      <div class="content">
+        <p>{{waste.description}}</p>
+      </div>
+    </div>
+  </mat-expansion-panel-header>
+</mat-expansion-panel>

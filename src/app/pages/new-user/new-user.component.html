@@ -1,0 +1,47 @@
+<div class="containerNewUser">
+  <div class="innerBox">
+
+    <br>
+    <div class="formHolder">
+      <div class="title">
+        <h1 class="titleText">Nieuwe gebruiker</h1>
+      </div>
+
+      <form class="formContainer" (ngSubmit)="onSubmit()" #form="ngForm">
+        <div class="formRow">
+          <mat-form-field class="textInput">
+            <mat-label>Email</mat-label>
+            <input name="email" matInput [ngModel]="email.value" placeholder="gebruiker@vanDerLelie.com" email required #email="ngModel">
+            <mat-error name="emailInv" *ngIf="!email.valid && email.touched && email.value">Voer een geldig e-mail adres in</mat-error>
+            <mat-error name="emailRec" *ngIf="!email.value">Email is <strong>verplicht</strong></mat-error>
+          </mat-form-field>
+
+
+          <mat-form-field class="textInput">
+            <mat-label>Naam</mat-label>
+            <input type="text" matInput name="name" placeholder="Naam" [ngModel]="name.value" required #name="ngModel">
+            <mat-error name="nameRec" *ngIf="!name.value">
+              Naam is <strong>verplicht</strong>
+            </mat-error>
+          </mat-form-field>
+
+
+          <mat-form-field appearance="fill" class="textInput">
+            <mat-label>Rol</mat-label>
+            <mat-select required [ngModel]="role.value" name="role" #role="ngModel">
+              <mat-option value="MEDEWERKER">Medewerker</mat-option>
+              <mat-option value="ADMIN">Admin</mat-option>
+            </mat-select>
+            <mat-error name="roleRec" *ngIf="!role.value">Rol is <strong>verplicht</strong></mat-error>
+          </mat-form-field>
+
+        </div>
+        <div class="buttonHolder">
+          <button class="button-clear buttons" type="button" (click)="form.resetForm()">Clear</button>
+          <button class="button-submit buttons" type="submit">Registreer</button>
+        </div>
+        <p class="errorText" [style.color]="success ? 'green' : 'red'">{{errorText}}</p>
+      </form>
+    </div>
+  </div>
+</div>

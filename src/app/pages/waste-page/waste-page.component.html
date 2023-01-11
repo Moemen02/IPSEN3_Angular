@@ -1,5 +1,6 @@
 <div class="waste-page">
   <div class="waste-container">
+
     <div class="waste-header">
       <mat-card class="header-card">
         <mat-grid-list cols="5" rowHeight="100px">
@@ -8,21 +9,33 @@
               <h2>Afvalstoffen</h2>
             </mat-card-content>
           </mat-grid-tile>
+
           <mat-grid-tile colspan="3"></mat-grid-tile>
+
           <mat-grid-tile colspan="1">
             <mat-card-content>
               <button mat-raised-button color="primary" (click)="openAddArticle()">Toevoegen</button>
             </mat-card-content>
           </mat-grid-tile>
+
         </mat-grid-list>
       </mat-card>
     </div>
+
     <div class="waste-content">
-      <mat-card class="content-card">
-        <mat-card-content>
-          <app-waste-table></app-waste-table>
-        </mat-card-content>
-      </mat-card>
+      <div class="waste-content-container">
+
+        <mat-tab-group>
+          <mat-tab label="Categorie samenstellen">
+            <app-category-waste></app-category-waste>
+          </mat-tab>
+          <mat-tab label="Alle afvalstoffen">
+            <app-waste-table></app-waste-table>
+          </mat-tab>
+        </mat-tab-group>
+
+        </div>
+
     </div>
   </div>
 </div>

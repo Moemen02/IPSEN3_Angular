@@ -1,16 +1,29 @@
 
-<nav>
+<nav class="navigation">
+<div class="sidenav" *ngIf="visible">
+  <button class="btn-sidenav btn-homepage" (click)="navTo('/home')">
+    Home
+    <mat-icon class="forwardArrow">arrow_forward</mat-icon>
+  </button>
 
-  <button type="button" mat-button (click)="drawer.toggle()">
-  Toggle sidenav
-</button>
+  <button class="btn-sidenav" (click)="navTo('/afvalstoffen')">
+    afval stoffen
+    <mat-icon class="forwardArrow">arrow_forward</mat-icon>
+  </button>
 
-  <mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="sidenav" mode="side">
-    <p>Auto-resizing sidenav</p>
-    Toggle extra text
-  </mat-drawer>
+  <mat-expansion-panel class="admin-dropdown" (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header class="admin-header">
+      <mat-panel-title class="hello" style="color: white; display: block; margin-right: 0">
+        Admin
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+      <button class="btn-sidenav admin-button" (click)="navTo('/new-user')">
+        Gebruiker aanmaken
+        <mat-icon class="forwardArrow">arrow_forward</mat-icon>
+      </button>
 
+  </mat-expansion-panel>
+</div>
 
-
-</mat-drawer-container></nav>
+</nav>

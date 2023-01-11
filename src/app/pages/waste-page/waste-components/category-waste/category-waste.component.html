@@ -1,0 +1,146 @@
+<div class="wasteContainer">
+
+
+  <div class="inputFields">
+
+
+    <form class="chooseComp" (ngSubmit)="onSubmitComp()" #formComp="ngForm" *ngIf="!makeNewComp">
+
+
+      <mat-form-field appearance="fill" class="input conditionsInput">
+        <mat-label>Samenstellingen</mat-label>
+        <mat-select required [ngModel]="comp.value" name="comp" #comp="ngModel">
+          <mat-option class="holder" *ngFor="let comp of compositions" [value]="comp.name">{{comp.name}} <button
+              (click)="removeComposition(comp)" class="removeButton"></button></mat-option>
+          <mat-option value="addNew" (click)="newComposition()"><span class="newComper" style="color: #046A6A;">+ Nieuwe
+              samenstelling</span></mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+      <button class="button-submit buttons" type="submit">Zoek</button>
+
+    </form>
+
+    <form class="newComp" (ngSubmit)="onSubmitNewComp()" *ngIf="makeNewComp" [formGroup]="conditionForm">
+
+      <mat-form-field class="inputNewComp">
+        <mat-label>Naam samenstelling</mat-label>
+        <input matInput required formControlName="name" name="name">
+      </mat-form-field>
+
+
+      <mat-form-field class="inputNewComp">
+        <mat-label>Kleur</mat-label>
+        <input matInput required type="number" name="color" formControlName="color">
+      </mat-form-field>
+
+
+      <h2 class="conditionsTitle">Voorwaardes</h2>
+      <div class="conditions" *ngFor="let conditions of Conditions.controls; let i = index">
+
+        <div [formGroup]="ConditionsArray(i)" style="display: flex;">
+
+
+          <mat-form-field class="inputPercent conditionsInputComp">
+            <mat-label>%</mat-label>
+            <input matInput required type="number" class="number" name="procNumber" placeholder="0" formControlName="amount">
+            <span matTextSuffix>%</span>
+          </mat-form-field>
+
+          <mat-form-field class="input conditionsInputComp">
+            <mat-label>Type stof</mat-label>
+            <input matInput required formControlName="type" name="type">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="input conditionsInputComp allcomps">
+            <mat-label>Vergelijking</mat-label>
+            <mat-select required formControlName="condition">
+              <mat-option class="GreaterThan" value="GreaterThan">Groter dan</mat-option>
+              <mat-option class="SmallerThan" value="SmallerThan">Kleiner dan</mat-option>
+              <mat-option class="SameThan" value="SameThan">Gelijk aan</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <button class="button-delete" type="button" (click)="removeRule(i)">X</button>
+
+        </div>
+
+      </div>
+
+      <button class="addRule" type="button" (click)="addNewRule()">+ Voorwaarde</button>
+
+
+      <p class="errorText">{{errorText}}</p>
+
+      <div class="buttonsHolder">
+        <button class="button-back buttons" (click)="goBack()" type="button">Terug</button>
+        <button class="button-submit buttons" style="width: 100%;" type="submit">Samenstelling Toevoegen</button>
+      </div>
+
+    </form>
+
+  </div>
+
+  <div class="info" *ngIf="selectedComp && !makeNewComp">
+
+    <div class="tableInfo">
+      <table class="generalInfo">
+        <tr>
+          <td><strong>Naam</strong></td>
+          <td>{{selectedComp.name}}</td>
+        </tr>
+        <tr>
+          <td><strong>Kleur</strong></td>
+          <td>{{selectedComp.color}}</td>
+        </tr>
+      </table>
+
+      <table class="conditionsInfo">
+        <tr>
+          <th>Percentage</th>
+          <th>Type Stof</th>
+          <th>Vergelijking</th>
+        </tr>
+        <tr *ngFor="let condition of selectedComp.conditions">
+          <td>{{condition.amount}}%</td>
+          <td>{{condition.type}}</td>
+          <td *ngIf="condition.condition == 'SameThan'">Gelijk aan</td>
+          <td *ngIf="condition.condition == 'GreaterThan'">Groter dan</td>
+          <td *ngIf="condition.condition == 'SmallerThan'">Kleiner dan</td>
+        </tr>
+
+      </table>
+
+    </div>
+
+
+    <div class="stockInfo">
+
+      <table class="generalInfo">
+        <tr>
+          <td><strong>Gewicht</strong></td>
+          <td>{{totalWeight}}</td>
+        </tr>
+        <tr>
+          <td><strong>SKU's</strong></td>
+          <td>{{fullPageLength}}</td>
+        </tr>
+      </table>
+
+    </div>
+
+  </div>
+
+
+  <div class="items" *ngIf="similarWasteData">
+    <app-pager [total]="fullPageLength" (buttonPress)="nextPage($event)"></app-pager>
+
+    <div class="waste-card" *ngFor="let waste of similarWasteData">
+      <mat-accordion>
+        <app-single-comp [waste]="waste"></app-single-comp>
+      </mat-accordion>
+    </div>
+
+  </div>
+</div>
