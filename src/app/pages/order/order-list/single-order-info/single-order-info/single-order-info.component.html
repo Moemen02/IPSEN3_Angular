@@ -1,5 +1,5 @@
 <mat-expansion-panel hideToggle>
-  <mat-expansion-panel-header class="waste-cards-header">
+  <mat-expansion-panel-header class="waste-cards-header" (click)="getLabel()">
     <div class="card-item">
       <div class="title">
         <h4>Ordernummer</h4>
@@ -37,7 +37,10 @@
   <div class="expansion-panel">
     <div class="left-panel">
       <h5>Voorbeeld label</h5>
-      <img src="assets/label-voorbeeld.png" alt="label-voorbeeld" width="300" height="400">
+      <div *ngIf="content === 'noLabel'">
+        <h1>no label to show</h1>
+      </div>
+      <img *ngIf="img !== null && content !== 'noLabel'" [src]="img" alt="label-voorbeeld" width="300" height="400"/>
       <button class="print-label">PRINT LABEL</button>
     </div>
 
