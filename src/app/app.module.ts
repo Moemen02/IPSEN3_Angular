@@ -50,7 +50,7 @@ import { CategoryWasteComponent } from './pages/waste-page/waste-components/cate
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { PagerComponent } from './components/pager/pager.component';
 import { SingleCompComponent } from './pages/waste-page/waste-components/category-waste/single-comp/single-comp.component';
-import { LabelCreationComponent } from './pages/order/order-list/single-order-info/single-order-info/label-creation/label-creation.component';
+
 
 
 @NgModule({
@@ -71,7 +71,7 @@ import { LabelCreationComponent } from './pages/order/order-list/single-order-in
     CategoryWasteComponent,
     PagerComponent,
     SingleCompComponent,
-    LabelCreationComponent
+
   ],
   imports: [
     BrowserModule,
