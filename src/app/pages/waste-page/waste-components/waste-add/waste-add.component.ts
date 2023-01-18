@@ -11,8 +11,7 @@ import {WasteDescriptionModel} from "../../../../models/Waste/waste-description.
   styleUrls: ['./waste-add.component.scss']
 })
 export class WasteAddComponent {
-  private articleData: WasteDataModel;
-  private articleDescription: WasteDescriptionModel;
+  private article: Waste;
   customers: string[] = [
     'Henk',
     'Lorens',
@@ -34,8 +33,8 @@ export class WasteAddComponent {
       'color': new FormControl(null, Validators.required),
       'productgroup': new FormControl(null, Validators.required),
       'supplier': new FormControl(null, Validators.required),
-      'pattern_width': new FormControl(null, [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
-      'pattern_length': new FormControl(null, [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
+      'pattern_width': new FormControl(null, [Validators.required, Validators.pattern(/^[0-9]+[0-9]*$/)]),
+      'pattern_length': new FormControl(null, [Validators.required, Validators.pattern(/^[0-9]+[0-9]*$/)]),
       'composition': new FormControl(null, Validators.required),
       'eancode': new FormControl(null, Validators.required),
       'stockRL': new FormControl(null, Validators.required)
@@ -58,8 +57,8 @@ export class WasteAddComponent {
     console.log(this.inputData.value);
     console.log(this.inputData.controls['articleData'].value);
     console.log(this.inputData.controls['articleDescription'].value);
-    this.articleData = this.inputData.controls['articleData'].value;
-    this.articleDescription = this.inputData.controls['articleDescription'].value;
+    this.article.article_dataID = this.inputData.controls['articleData'].value;
+    this.article.article_descriptionID = this.inputData.controls['articleDescription'].value;
     this.onCancel();
   }
 
