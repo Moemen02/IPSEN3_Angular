@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Article} from "../../../../models/Waste/article.model";
+import {HttpService} from "../../../../services/http.service";
+import {WasteDataModel} from "../../../../models/Waste/waste-data.model";
 
 
 @Component({
@@ -9,6 +11,8 @@ import {Article} from "../../../../models/Waste/article.model";
   styleUrls: ['./waste-add.component.scss']
 })
 export class WasteAddComponent {
+  constructor(private http: HttpService) {
+  }
   private article = new Article;
   customers: string[] = [
     'Henk',
@@ -52,8 +56,11 @@ export class WasteAddComponent {
   });
 
   onSubmit() {
-    this.article.article_dataID = this.inputData.controls['articleData'].value
+    this.article.article_dataID = this.inputData.controls['articleData'].value;
     this.article.article_descriptionID = this.inputData.controls['articleDescription'].value;
+    this.http.sendData<Article>("/api/v2/article", this.article).subscribe(data => {
+      console.log(data);
+    } );
     this.onCancel();
   }
 
