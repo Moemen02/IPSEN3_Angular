@@ -1,0 +1,16 @@
+<div class="mainHolder">
+  
+  <div class="pageInfo">
+
+    <div class="pagesAmount">
+      <p>Pagina {{currentPage * 25}} - {{(currentPage + 1) * 25}} van {{total}}</p>
+    </div>
+
+    <div class="buttons" >
+      <mat-icon [style]="this.currentPage > 0 ? 'color:gray' : 'color:white'" class="arrow" (click)="goDown()">keyboard_arrow_left</mat-icon>
+      <mat-icon [style]="(this.currentPage +1)* 25 < this.total ? 'color:gray' : 'color:white'" class="arrow" (click)="goUp()">keyboard_arrow_right</mat-icon>
+      
+    </div>
+  </div>
+
+</div>
