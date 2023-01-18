@@ -1,8 +1,6 @@
 import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {WasteDataModel} from "../../../../models/Waste/waste-data.model";
-import {Waste} from "../../../../models/Waste/waste.model";
-import {WasteDescriptionModel} from "../../../../models/Waste/waste-description.model";
+import {Article} from "../../../../models/Waste/article.model";
 
 
 @Component({
@@ -11,7 +9,7 @@ import {WasteDescriptionModel} from "../../../../models/Waste/waste-description.
   styleUrls: ['./waste-add.component.scss']
 })
 export class WasteAddComponent {
-  private article: Waste;
+  private article = new Article;
   customers: string[] = [
     'Henk',
     'Lorens',
@@ -54,10 +52,7 @@ export class WasteAddComponent {
   });
 
   onSubmit() {
-    console.log(this.inputData.value);
-    console.log(this.inputData.controls['articleData'].value);
-    console.log(this.inputData.controls['articleDescription'].value);
-    this.article.article_dataID = this.inputData.controls['articleData'].value;
+    this.article.article_dataID = this.inputData.controls['articleData'].value
     this.article.article_descriptionID = this.inputData.controls['articleDescription'].value;
     this.onCancel();
   }

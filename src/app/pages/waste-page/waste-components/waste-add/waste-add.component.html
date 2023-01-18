@@ -72,7 +72,7 @@
           <mat-form-field>
             <mat-label>Layout</mat-label>
             <input matInput type="text" name="layout" id="layout" formControlName="layout">
-            <mat-error *ngIf="!inputData.get('articleData.layout').valid && inputData.get('articleData.layout').touched">Layout is <b>verplicht</b></mat-error>
+            <mat-error *ngIf="!inputData.get('articleDescription.layout').valid && inputData.get('articleDescription.layout').touched">Layout is <b>verplicht</b></mat-error>
           </mat-form-field>
         </mat-grid-tile>
 
@@ -80,7 +80,7 @@
           <mat-form-field>
             <mat-label>Gewicht</mat-label>
             <input matInput type="number" name="weight" id="weight" formControlName="weight">
-            <mat-error *ngIf="!inputData.get('articleData.weight').valid && inputData.get('articleData.weight').touched">Gewicht is <b>verplicht</b></mat-error>
+            <mat-error *ngIf="!inputData.get('articleDescription.weight').valid && inputData.get('articleDescription.weight').touched">Gewicht is <b>verplicht</b></mat-error>
           </mat-form-field>
         </mat-grid-tile>
 
@@ -88,7 +88,7 @@
           <mat-form-field>
             <mat-label>Wascode</mat-label>
             <input matInput type="text" name="washcode" id="washcode" formControlName="washcode">
-            <mat-error *ngIf="!inputData.get('articleData.washcode').valid && inputData.get('articleData.washcode').touched">Wascode is <b>verplicht</b></mat-error>
+            <mat-error *ngIf="!inputData.get('articleDescription.washcode').valid && inputData.get('articleDescription.washcode').touched">Wascode is <b>verplicht</b></mat-error>
           </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile>
@@ -97,7 +97,7 @@
             <mat-select formControlName="not_tiltable">
               <mat-option *ngFor="let tiltoption of not_tiltable.ableToTilt; let i = index" id="not_tiltable" [value]="not_tiltable.tiltValues[i]" >{{ tiltoption }}</mat-option>
             </mat-select>
-            <mat-error *ngIf="!inputData.get('articleData.not_tiltable').valid && inputData.get('articleData.not_tiltable').touched">Kantelbaarheid aangeven is <b>verplicht</b></mat-error>
+            <mat-error *ngIf="!inputData.get('articleDescription.not_tiltable').valid && inputData.get('articleDescription.not_tiltable').touched">Kantelbaarheid aangeven is <b>verplicht</b></mat-error>
           </mat-form-field>
         </mat-grid-tile>
 
@@ -105,21 +105,21 @@
           <mat-form-field>
             <mat-label>Artikelnummer</mat-label>
             <input matInput type="text" name="article_number" id="article_number" formControlName="article_number">
-            <mat-error *ngIf="!inputData.get('articleData.article_number').valid && inputData.get('articleData.article_number').touched">Artikelnummer is <b>verplicht</b></mat-error>
+            <mat-error *ngIf="!inputData.get('articleDescription.article_number').valid && inputData.get('articleDescription.article_number').touched">Artikelnummer is <b>verplicht</b></mat-error>
           </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile>
           <mat-form-field>
             <mat-label>Soort</mat-label>
             <input matInput type="text" name="type" id="type" formControlName="type">
-            <mat-error *ngIf="!inputData.get('articleData.type').valid && inputData.get('articleData.type').touched">Soort is <b>verplicht</b></mat-error>
+            <mat-error *ngIf="!inputData.get('articleDescription.type').valid && inputData.get('articleDescription.type').touched">Soort is <b>verplicht</b></mat-error>
           </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile>
           <mat-form-field>
             <mat-label>Stof Breedte</mat-label>
             <input matInput type="number" name="cloth_width" id="cloth_width" formControlName="cloth_width">
-            <mat-error *ngIf="!inputData.get('articleData.cloth_width').valid && inputData.get('articleData.cloth_width').touched">Stof Breedte is <b>verplicht</b></mat-error>
+            <mat-error *ngIf="!inputData.get('articleDescription.cloth_width').valid && inputData.get('articleDescription.cloth_width').touched">Stof Breedte is <b>verplicht</b></mat-error>
           </mat-form-field>
         </mat-grid-tile>
 
@@ -127,14 +127,14 @@
           <mat-form-field>
             <mat-label>Minimale Voorraad</mat-label>
             <input matInput type="number" name="minimum_stock" id="minimum_stock" formControlName="minimum_stock">
-            <mat-error *ngIf="!inputData.get('articleData.minimum_stock').valid && inputData.get('articleData.minimum_stock').touched">Layout is <b>verplicht</b></mat-error>
+            <mat-error *ngIf="!inputData.get('articleDescription.minimum_stock').valid && inputData.get('articleDescription.minimum_stock').touched">Layout is <b>verplicht</b></mat-error>
           </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile>
           <mat-form-field>
             <mat-label>Beschrijving</mat-label>
             <input matInput type="text" name="description" id="description" formControlName="description">
-            <mat-error *ngIf="!inputData.get('articleData.description').valid && inputData.get('articleData.description').touched">Beschrijving is <b>verplicht</b></mat-error>
+            <mat-error *ngIf="!inputData.get('articleDescription.description').valid && inputData.get('articleDescription.description').touched">Beschrijving is <b>verplicht</b></mat-error>
           </mat-form-field>
         </mat-grid-tile>
       </div>
@@ -146,7 +146,7 @@
               {{ customer }}
             </mat-option>
           </mat-select>
-          <mat-error *ngIf="!inputData.get('articleData.customer').valid && inputData.get('articleData.customer').touched">Klant is <b>verplicht</b></mat-error>
+          <mat-error *ngIf="!inputData.get('customer').valid && inputData.get('customer').touched">Klant is <b>verplicht</b></mat-error>
         </mat-form-field>
       </mat-grid-tile>
 
