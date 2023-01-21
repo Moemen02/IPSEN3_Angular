@@ -1,4 +1,4 @@
-export class WasteDescriptionModel{
+export class ArticleDescription {
   private _id!: number;
   private _articlenumber!: string;
   private _description!: string;

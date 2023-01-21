@@ -2,7 +2,8 @@ import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Article} from "../../../../models/Waste/article.model";
 import {HttpService} from "../../../../services/http.service";
-import {WasteDataModel} from "../../../../models/Waste/waste-data.model";
+import {ArticleData} from "../../../../models/Waste/article-data.model";
+import {ArticleDescription} from "../../../../models/Waste/article-description.model";
 
 
 @Component({
@@ -13,6 +14,8 @@ import {WasteDataModel} from "../../../../models/Waste/waste-data.model";
 export class WasteAddComponent {
   constructor(private http: HttpService) {
   }
+  private articleData = new ArticleData;
+  private articleDescription = new ArticleDescription;
   private article = new Article;
   customers: string[] = [
     'Henk',
@@ -56,10 +59,22 @@ export class WasteAddComponent {
   });
 
   onSubmit() {
-    this.article.article_dataID = this.inputData.controls['articleData'].value;
-    this.article.article_descriptionID = this.inputData.controls['articleDescription'].value;
-    this.http.sendData<Article>("/api/v2/article", this.article).subscribe(data => {
+    this.articleData = this.inputData.controls['articleData'].value;
+    this.articleDescription = this.inputData.controls['articleDescription'].value;
+    this.http.sendData<ArticleData>("/api/v2/article_data", this.articleData).subscribe(data => {
+      return  data;
+    });
+    console.log(this.articleData);
+    this.http.sendData<ArticleDescription>("/api/v2/article_description", this.articleDescription).subscribe(data => {
+      return data;
+    });
+    console.log(this.articleDescription);
+    //TODO Think of how to get the id's of the newly created articleData and articleDescription
+    const addArticle: Article = this.article;
+    this.http.sendData<Article>("/api/v2/article", addArticle).subscribe(data => {
       console.log(data);
+      JSON.stringify(data);
+      return data;
     } );
     this.onCancel();
   }

@@ -127,7 +127,7 @@
           <mat-form-field>
             <mat-label>Minimale Voorraad</mat-label>
             <input matInput type="number" name="minimum_stock" id="minimum_stock" formControlName="minimum_stock">
-            <mat-error *ngIf="!inputData.get('articleDescription.minimum_stock').valid && inputData.get('articleDescription.minimum_stock').touched">Layout is <b>verplicht</b></mat-error>
+            <mat-error *ngIf="!inputData.get('articleDescription.minimum_stock').valid && inputData.get('articleDescription.minimum_stock').touched">Minimale Voorraad is <b>verplicht</b></mat-error>
           </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile>

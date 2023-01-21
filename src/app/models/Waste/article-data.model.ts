@@ -1,4 +1,4 @@
-export class WasteDataModel {
+export class ArticleData {
   private _color!: string;
   private _composition!: string;
   private _eancode!: string;
