@@ -1,4 +1,4 @@
-<mat-expansion-panel hideToggle>
+<mat-expansion-panel hideToggle [expanded]="numInList==0">
   <mat-expansion-panel-header class="waste-cards-header">
     <div class="card-item">
       <div class="title">
@@ -38,12 +38,12 @@
     <div class="left-panel">
       <h5>Voorbeeld label</h5>
       <img src="assets/label-voorbeeld.png" alt="label-voorbeeld" width="300" height="400">
-      <button class="print-label">PRINT LABEL</button>
+      <button (click)="removeOrder(numInList, wasteOrder)" class="print-label">PRINT LABEL</button>
     </div>
 
     <div class="right-panel">
       <div class="right-panel-data">
-        <mat-expansion-panel class="afval-panel-expension">
+        <mat-expansion-panel class="afval-panel-expension" expanded>
           <mat-expansion-panel-header>
             <mat-panel-title>
               Afvalstof info

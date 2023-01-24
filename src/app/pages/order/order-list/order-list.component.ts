@@ -20,6 +20,10 @@ export class OrderListComponent implements OnInit {
   wasteOrders: ArticleOrderModel[] = []
   wasteOrder: ArticleOrderModel
 
+  public remove($event: { inpNum: number; article: ArticleOrderModel }){
+    this.wasteOrders.splice($event.inpNum, 1)
+  }
+
 
   public getAllWasteOrders(): void{
     this.httpService.getData<ArticleOrderModel>("/api/v2/article_order")
