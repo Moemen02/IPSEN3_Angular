@@ -9,6 +9,7 @@ import { Article } from "../../../../models/Waste/article.model";
 })
 export class WasteTableComponent implements OnInit {
   searchText: string;
+  loading = true
   listLength = 0
 
   ngOnInit() {
@@ -21,10 +22,12 @@ export class WasteTableComponent implements OnInit {
 
 
   public getArticles(page: number): void {
+    this.loading = true;
     this.httpService.getDataPage("/api/v2/waste", page)
       .subscribe((_waste) => {
         this.listLength = _waste.headers.get("full_list_length")
         this.wastes = _waste.body
+        this.loading = false;
       })
   }
 
