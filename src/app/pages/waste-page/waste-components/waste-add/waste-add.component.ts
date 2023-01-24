@@ -4,6 +4,7 @@ import {Article} from "../../../../models/Waste/article.model";
 import {HttpService} from "../../../../services/http.service";
 import {ArticleData} from "../../../../models/Waste/article-data.model";
 import {ArticleDescription} from "../../../../models/Waste/article-description.model";
+import {firstValueFrom} from "rxjs";
 
 
 @Component({
@@ -14,9 +15,14 @@ import {ArticleDescription} from "../../../../models/Waste/article-description.m
 export class WasteAddComponent {
   constructor(private http: HttpService) {
   }
+
   private articleData = new ArticleData;
   private articleDescription = new ArticleDescription;
   private article = new Article;
+
+  wasteDataID = 0
+  wasteDescripton = 0
+
   customers: string[] = [
     'Henk',
     'Lorens',
@@ -24,13 +30,13 @@ export class WasteAddComponent {
   ];
 
   not_tiltable = {
-    'ableToTilt' : ['Kantelbaar', 'Onkantelbaar'],
-    'tiltValues' : [false, true]
+    'ableToTilt': ['Kantelbaar', 'Onkantelbaar'],
+    'tiltValues': [false, true]
   }
 
   stockRL = {
-    'ifStockIsArticle' : ['Ja', 'Nee'],
-    'stockRLValues' : [true, false]
+    'ifStockIsArticle': ['Ja', 'Nee'],
+    'stockRLValues': [true, false]
   }
 
   inputData: FormGroup = new FormGroup({
@@ -49,7 +55,7 @@ export class WasteAddComponent {
       'layout': new FormControl(null, Validators.required),
       'washcode': new FormControl(null, Validators.required),
       'type': new FormControl(null, Validators.required),
-      'not_tiltable': new FormControl( null, Validators.required),
+      'not_tiltable': new FormControl(null, Validators.required),
       'article_number': new FormControl(null, Validators.required),
       'cloth_width': new FormControl(null, [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
       'minimum_stock': new FormControl(null, [Validators.required, Validators.pattern(/^[0-9]+[0-9]*$/)]),
@@ -58,26 +64,21 @@ export class WasteAddComponent {
     'customer': new FormControl(null, Validators.required)
   });
 
-  onSubmit() {
+
+  async onSubmit() {
     this.articleData = this.inputData.controls['articleData'].value;
     this.articleDescription = this.inputData.controls['articleDescription'].value;
-    this.http.sendData<ArticleData>("/api/v2/article_data", this.articleData).subscribe(data => {
-      return  data;
-    });
-    console.log(this.articleData);
-    this.http.sendData<ArticleDescription>("/api/v2/article_description", this.articleDescription).subscribe(data => {
-      return data;
-    });
-    console.log(this.articleDescription);
-    //TODO Think of how to get the id's of the newly created articleData and articleDescription
-    const addArticle: Article = this.article;
-    this.http.sendData<Article>("/api/v2/article", addArticle).subscribe(data => {
-      console.log(data);
-      JSON.stringify(data);
-      return data;
-    } );
+
+    const data = await firstValueFrom(this.http.sendData<ArticleData>("/api/v2/article_data", this.articleData))
+    const desc = await firstValueFrom(this.http.sendData<ArticleDescription>("/api/v2/article_description", this.articleDescription))
+
+    this.article.article_dataID = data
+    this.article.article_descriptionID = desc
+
+    this.http.sendData<Article>("/api/v2/article", this.article).subscribe(data => {} );
     this.onCancel();
   }
+
 
   onCancel() {
     this.inputData.reset();
