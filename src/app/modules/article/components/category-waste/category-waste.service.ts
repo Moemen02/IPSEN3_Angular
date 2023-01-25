@@ -1,4 +1,4 @@
-import { Composition } from "src/app/modules/article/models/composition.model";
+import { Composition } from "src/app/modules/core/models/composition.model";
 import { HttpService } from "src/app/services/http.service";
 import {Injectable} from "@angular/core";
 import { Subject } from "rxjs";

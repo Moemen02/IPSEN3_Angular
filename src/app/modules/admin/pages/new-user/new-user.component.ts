@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { NgForm } from '@angular/forms';
-import {HttpService} from "../../services/http.service";
+import {HttpService} from "../../../../services/http.service";
 
 import { NewUser } from 'src/app/interface/newUser';
-import { AuthResponse } from 'src/app/models/AuthResponse.model';
+import { AuthResponse } from 'src/app/modules/core/models/AuthResponse.model';
 
 @Component({
   selector: 'app-new-user',

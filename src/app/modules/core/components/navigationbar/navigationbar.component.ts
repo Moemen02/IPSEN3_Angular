@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Router} from "@angular/router";
 import {JwtToken} from "../../models/jwtToken.model";
-import {AuthService} from "../../auth.service";
+import {AuthService} from "../../../../auth.service";
 
 @Component({
   selector: 'app-navigationbar',

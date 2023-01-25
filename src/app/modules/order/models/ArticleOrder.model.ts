@@ -1,5 +1,5 @@
-import {Article} from "./article.model";
-import {Customer} from "../../../models/customer.model";
+import {Article} from "../../article/models/article.model";
+import {Customer} from "../../core/models/customer.model";
 
 export class ArticleOrderModel {
   private _id!: number

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthResponse } from 'src/app/models/AuthResponse.model';
-import { AuthService } from '../../auth.service';
+import { AuthResponse } from 'src/app/modules/core/models/AuthResponse.model';
+import { AuthService } from '../../../../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -75,7 +75,7 @@ export class LoginComponent {
       return
     }
 
-    
+
 
     if (this.isNewPasswordValid) {
       this.authService.updatePassword(this.email, this.password, this.newPassword).subscribe((data) => {

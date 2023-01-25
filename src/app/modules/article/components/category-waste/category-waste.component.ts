@@ -1,9 +1,9 @@
 import { FormArray, FormControl, FormGroup, NgForm, Validators } from '@angular/forms'
 import { ArticleData } from 'src/app/modules/article/models/article-data.model'
-import { Composition } from 'src/app/modules/article/models/composition.model'
+import { Composition } from 'src/app/modules/core/models/composition.model'
 import { CategoryWasteService } from './category-waste.service'
 import { Component, OnInit, ViewChild } from '@angular/core'
-import { Category } from 'src/app/modules/article/models/category.model'
+import { Category } from 'src/app/modules/core/models/category.model'
 
 @Component({
   selector: 'app-category-waste',

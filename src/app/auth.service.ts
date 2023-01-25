@@ -9,8 +9,8 @@ import {
   UrlTree
 } from "@angular/router";
 import {BehaviorSubject, Observable, tap} from "rxjs";
-import {AuthResponse} from "./models/AuthResponse.model";
-import {JwtToken} from "./models/jwtToken.model";
+import {AuthResponse} from "./modules/core/models/AuthResponse.model";
+import {JwtToken} from "./modules/core/models/jwtToken.model";
 import { environment } from "./environments/environment";
 
 const BASE_URL = environment.apiURL + "/api"

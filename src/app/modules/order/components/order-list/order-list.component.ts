@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {ArticleOrderModel} from "../../../modules/article/models/ArticleOrder.model";
-
-import {HttpService} from "../../../services/http.service";
+import {ArticleOrderModel} from "../../models/ArticleOrder.model";
+import {HttpService} from "../../../../services/http.service";
 
 
 

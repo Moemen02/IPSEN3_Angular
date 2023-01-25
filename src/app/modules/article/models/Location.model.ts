@@ -1,4 +1,4 @@
-import {Category_location} from "./Category_location.model";
+import {Category_location} from "../../core/models/Category_location.model";
 
 export class Location{
   private _id!: number;
