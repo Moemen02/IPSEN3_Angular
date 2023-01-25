@@ -1,8 +1,9 @@
-import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
+import {Component, Input, OnInit, Output, EventEmitter, AfterViewInit} from '@angular/core';
 import {ArticleOrderModel} from "../../../models/ArticleOrder.model";import {ArticleLocationModel} from "../../../../article/models/Article.Location.model";
 import {Article} from "../../../../article/models/article.model";
 import {HttpService} from "../../../../../services/http.service";
 import {Label} from "../../../../label/models/Label.model";
+import {Subject, timeout} from "rxjs";
 
 @Component({
   selector: 'app-single-order-info',
@@ -10,6 +11,7 @@ import {Label} from "../../../../label/models/Label.model";
   styleUrls: ['./single-order-info.component.scss']
 })
 export class SingleOrderInfoComponent implements OnInit{
+  @Input() changing: Subject<boolean>;
 
   toOpen = true
   img = ""
@@ -18,6 +20,9 @@ export class SingleOrderInfoComponent implements OnInit{
   constructor(private httpService: HttpService) {}
 
   ngOnInit() {
+    setTimeout(() => {
+      this.getLabel()
+    }, 200 * this.numInList)
   }
 
   getLabel() {

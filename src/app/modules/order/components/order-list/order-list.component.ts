@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ArticleOrderModel} from "../../models/ArticleOrder.model";
 import {HttpService} from "../../../../services/http.service";
+import {Subject} from "rxjs";
 
 
 
@@ -10,6 +11,8 @@ import {HttpService} from "../../../../services/http.service";
   styleUrls: ['./order-list.component.scss']
 })
 export class OrderListComponent implements OnInit {
+
+  changingValue: Subject<boolean> = new Subject();
 
   ngOnInit() {
     this.getAllWasteOrders();
@@ -21,6 +24,7 @@ export class OrderListComponent implements OnInit {
 
   public remove($event: { inpNum: number; article: ArticleOrderModel }){
     this.wasteOrders.splice($event.inpNum, 1)
+    this.changingValue.next(true)
   }
 
 
