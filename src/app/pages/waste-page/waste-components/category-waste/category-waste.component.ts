@@ -1,5 +1,5 @@
 import { FormArray, FormControl, FormGroup, NgForm, Validators } from '@angular/forms'
-import { WasteDataModel } from 'src/app/models/Waste/waste-data.model'
+import { ArticleData } from 'src/app/models/Waste/article-data.model'
 import { Composition } from 'src/app/models/Waste/composition.model'
 import { CategoryWasteService } from './category-waste.service'
 import { Component, OnInit, ViewChild } from '@angular/core'

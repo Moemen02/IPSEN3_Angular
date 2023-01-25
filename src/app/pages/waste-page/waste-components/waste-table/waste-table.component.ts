@@ -22,6 +22,7 @@ export class WasteTableComponent implements OnInit {
 
 
   public getArticles(page: number): void {
+
     this.loading = true;
     this.httpService.getDataPage("/api/v2/waste", page)
       .subscribe((_waste) => {
