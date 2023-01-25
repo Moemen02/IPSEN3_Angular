@@ -1,0 +1,12 @@
+@import "../../../../../styles";
+
+.order {
+  display: grid;
+  grid-template-columns: 1fr;
+
+
+  .order-cards {
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+}

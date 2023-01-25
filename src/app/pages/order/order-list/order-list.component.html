@@ -1,7 +1,0 @@
-<div class="order" >
-  <div class="order-cards" *ngFor="let wasteOrder of wasteOrders; let i = index">
-    <mat-accordion>
-      <app-single-order-info (newItemEvent)="remove($event)" [wasteOrder]="wasteOrder" [numInList]="i"></app-single-order-info>
-    </mat-accordion>
-  </div>
-</div>
