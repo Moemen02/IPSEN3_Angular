@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpService} from "../../services/http.service";
-import {WasteDataModel} from "../../models/Waste/waste-data.model";
+import {ArticleData} from "../../models/Waste/article-data.model";
 import {MatDialog, MatDialogConfig, MatDialogRef} from "@angular/material/dialog";
 import {WasteAddComponent} from "./waste-components/waste-add/waste-add.component";
 import { Article } from "../../models/Waste/article.model";
@@ -26,7 +26,6 @@ export class WastePageComponent{
 
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed: ' + result);
       this.article = result;
     });
   }

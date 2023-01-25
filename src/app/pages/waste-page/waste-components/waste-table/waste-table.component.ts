@@ -21,7 +21,7 @@ export class WasteTableComponent implements OnInit {
 
 
   public getArticles(page: number): void {
-    this.httpService.getDataPage("/api/v2/waste", page)
+    this.httpService.getDataPage("/api/v2/article", page)
       .subscribe((_waste) => {
         this.listLength = _waste.headers.get("full_list_length")
         this.wastes = _waste.body
