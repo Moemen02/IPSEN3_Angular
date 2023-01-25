@@ -80,8 +80,7 @@ export class WasteAddComponent {
     this.articleData = this.inputData.controls['articleData'].value;
     this.articleData.composition = this.inputData.get('articleData.composition.composition_percentage').value + "% " + this.inputData.get('articleData.composition.composition_category').value;
     this.articleDescription = this.inputData.controls['articleDescription'].value;
-    console.log(this.articleData);
-    console.log(this.articleDescription);
+
     const data = await firstValueFrom(this.http.sendData<ArticleData>("/api/v2/article_data", this.articleData))
     const desc = await firstValueFrom(this.http.sendData<ArticleDescription>("/api/v2/article_description", this.articleDescription))
 
