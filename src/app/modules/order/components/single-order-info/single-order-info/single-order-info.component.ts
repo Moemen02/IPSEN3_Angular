@@ -3,6 +3,7 @@ import {ArticleOrderModel} from "../../../models/ArticleOrder.model";import {Art
 import {Article} from "../../../../article/models/article.model";
 import {HttpService} from "../../../../../services/http.service";
 import {Label} from "../../../../label/models/Label.model";
+import {Category_location} from "../../../../core/models/Category_location.model";
 
 @Component({
   selector: 'app-single-order-info',
@@ -18,6 +19,7 @@ export class SingleOrderInfoComponent implements OnInit{
   constructor(private httpService: HttpService) {}
 
   ngOnInit() {
+    this.getLocation()
   }
 
   getLabel() {
@@ -34,6 +36,7 @@ export class SingleOrderInfoComponent implements OnInit{
 
   }
 
+  categoryLocation: Category_location
   @Input() wasteOrder: ArticleOrderModel
   @Input() numInList: number;
   @Output() newItemEvent = new EventEmitter<{ inpNum: number, article: ArticleOrderModel }>;
@@ -43,4 +46,13 @@ export class SingleOrderInfoComponent implements OnInit{
       this.newItemEvent.emit({inpNum: num, article: article})
     })
   }
+
+  public getLocation():void {
+    this.httpService.getSingleData<Category_location>("/api/v2/article_order/" + this.wasteOrder.id + "/moemen")
+      .subscribe( (_categoryLocation) => {
+        this.categoryLocation = _categoryLocation;
+
+      })
+
+    }
 }

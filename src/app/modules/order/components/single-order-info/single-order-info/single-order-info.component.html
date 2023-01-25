@@ -117,7 +117,7 @@
 
         </mat-expansion-panel>
 
-        <mat-expansion-panel class="right-panel-expension">
+        <mat-expansion-panel class="right-panel-expension" expanded>
           <mat-expansion-panel-header>
             <mat-panel-title>
               Klant info
@@ -138,7 +138,7 @@
 
         </mat-expansion-panel>
 
-        <mat-expansion-panel class="right-panel-expension">
+        <mat-expansion-panel class="right-panel-expension" expanded>
           <mat-expansion-panel-header>
             <mat-panel-title>
               Locatie Info
@@ -147,7 +147,12 @@
 
             </mat-panel-description>
           </mat-expansion-panel-header>
-          <p>In progress</p>
+          <div class="info-panel-container-location">
+
+            <p class="titel">Locatie</p>
+            <p class="content" *ngIf="categoryLocation">{{categoryLocation.location_type}}</p>
+
+          </div>
         </mat-expansion-panel>
 
       </div>
