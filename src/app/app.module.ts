@@ -52,6 +52,7 @@ import { PagerComponent } from './components/pager/pager.component';
 import { SingleCompComponent } from './pages/waste-page/waste-components/category-waste/single-comp/single-comp.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +70,8 @@ import { SingleCompComponent } from './pages/waste-page/waste-components/categor
     SingleOrderInfoComponent,
     CategoryWasteComponent,
     PagerComponent,
-    SingleCompComponent
+    SingleCompComponent,
+
   ],
   imports: [
     BrowserModule,
