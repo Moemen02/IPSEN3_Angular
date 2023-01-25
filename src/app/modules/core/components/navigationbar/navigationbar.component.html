@@ -18,11 +18,16 @@
         Admin
       </mat-panel-title>
     </mat-expansion-panel-header>
-      <button class="btn-sidenav admin-button" (click)="navTo('/new-user')">
-        Gebruiker aanmaken
-        <mat-icon class="forwardArrow">arrow_forward</mat-icon>
-      </button>
-
+      <div class="dropdown-items">
+        <button class="btn-sidenav admin-button" (click)="navTo('/new-user')">
+          Gebruiker aanmaken
+          <mat-icon class="forwardArrow">arrow_forward</mat-icon>
+        </button>
+        <button class="btn-sidenav admin-button" (click)="navTo('/orders/log')">
+          Order log
+          <mat-icon class="forwardArrow">arrow_forward</mat-icon>
+        </button>
+      </div>
   </mat-expansion-panel>
 </div>
 
