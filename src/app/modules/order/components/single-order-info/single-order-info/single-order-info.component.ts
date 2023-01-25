@@ -15,6 +15,8 @@ export class SingleOrderInfoComponent implements OnInit{
 
   toOpen = true
   img = ""
+  pdf = ""
+  name = ""
   content = ""
 
   constructor(private httpService: HttpService) {}
@@ -23,6 +25,13 @@ export class SingleOrderInfoComponent implements OnInit{
     setTimeout(() => {
       this.getLabel()
     }, 200 * this.numInList)
+  }
+
+  openPDF() {
+    const link = document.createElement("a");
+    link.href = this.pdf;
+    link.download = `label ${this.name}.pdf`
+    link.click();
   }
 
   getLabel() {
@@ -34,7 +43,12 @@ export class SingleOrderInfoComponent implements OnInit{
     }
     this.httpService.getData<any>("/api/v2/label/data/" + this.wasteOrder.id).subscribe(e => {
       if (e["content"] === "noLabel") this.content = e["content"]
-      else this.img = "data:image/png;base64, " + e["content"]
+      else {
+        console.log(e)
+        this.name = e["name"]
+        this.pdf = "data:application/pdf;base64, " + e["pdf"]
+        this.img = "data:image/png;base64, " + e["content"]
+      }
     })
 
   }

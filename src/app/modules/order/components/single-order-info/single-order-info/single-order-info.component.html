@@ -41,6 +41,7 @@
       </div>
       <img *ngIf="img !== null && content !== 'noLabel'" [src]="img" alt="label-voorbeeld" width="300" height="400"/>
       <button (click)="removeOrder(numInList, wasteOrder)" class="print-label">PRINT LABEL</button>
+      <button (click)="openPDF()" class="print-label">OPEN PDF</button>
     </div>
 
     <div class="right-panel">
