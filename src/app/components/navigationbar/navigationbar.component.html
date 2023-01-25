@@ -1,12 +1,12 @@
 
 <nav class="navigation">
 <div class="sidenav" *ngIf="visible">
-  <button class="btn-sidenav btn-homepage" (click)="navTo('/home')">
+  <button class="btn-sidenav" [ngClass]="activeRoute === '/home' && 'btn-active'" (click)="navTo('/home')" >
     Home
     <mat-icon class="forwardArrow">arrow_forward</mat-icon>
   </button>
 
-  <button class="btn-sidenav" (click)="navTo('/afvalstoffen')">
+  <button class="btn-sidenav" [ngClass]="activeRoute === '/afvalstoffen' && 'btn-active'" (click)="navTo('/afvalstoffen')">
     afval stoffen
     <mat-icon class="forwardArrow">arrow_forward</mat-icon>
   </button>
@@ -18,7 +18,7 @@
         Admin
       </mat-panel-title>
     </mat-expansion-panel-header>
-      <button class="btn-sidenav admin-button" (click)="navTo('/new-user')">
+      <button class="btn-sidenav admin-button" [ngClass]="activeRoute === '/new-user' && 'btn-active'" (click)="navTo('/new-user')">
         Gebruiker aanmaken
         <mat-icon class="forwardArrow">arrow_forward</mat-icon>
       </button>
