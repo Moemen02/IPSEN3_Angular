@@ -1,8 +1,8 @@
-import { Composition } from "src/app/models/Waste/composition.model";
+import { Composition } from "src/app/modules/article/models/composition.model";
 import { HttpService } from "src/app/services/http.service";
 import {Injectable} from "@angular/core";
 import { Subject } from "rxjs";
-import { ArticleData } from "src/app/models/Waste/article-data.model";
+import { ArticleData } from "src/app/modules/article/models/article-data.model";
 
 
 @Injectable({providedIn: 'root'})

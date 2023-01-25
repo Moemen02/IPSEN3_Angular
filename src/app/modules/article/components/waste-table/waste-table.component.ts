@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpService} from "../../../../services/http.service";
-import { Article } from "../../../../models/Waste/article.model";
+import { Article } from "../../models/article.model";
 
 @Component({
   selector: 'app-waste-table',

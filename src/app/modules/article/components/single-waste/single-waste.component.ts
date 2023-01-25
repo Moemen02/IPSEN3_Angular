@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Article} from "../../../../models/Waste/article.model";
+import {Article} from "../../models/article.model";
 
 @Component({
   selector: 'app-single-waste',

@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthService } from './auth.service';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from "./pages/home/home.component";
-import { WastePageComponent } from "./pages/waste-page/waste-page.component";
+import { WastePageComponent } from "./modules/article/pages/waste-page/waste-page.component";
 import {OrderComponent} from "./pages/order/order.component";
 import { NewUserComponent } from './pages/new-user/new-user.component';
 

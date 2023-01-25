@@ -1,6 +1,6 @@
 import {ArticleData} from "./article-data.model";
 import {ArticleDescription} from "./article-description.model";
-import {Usage} from "../Usage.model";
+import {Usage} from "../../../models/Usage.model";
 
 export class Article {
   private _id!: number

@@ -1,7 +1,7 @@
 
-import {Usage} from "./Usage.model";
-import {Location} from "./Location.model";
-import {Article} from "./Waste/article.model";
+import {Usage} from "../../../models/Usage.model";
+import {Location} from "../../../models/Location.model";
+import {Article} from "./article.model";
 
 
 export class ArticleLocationModel {

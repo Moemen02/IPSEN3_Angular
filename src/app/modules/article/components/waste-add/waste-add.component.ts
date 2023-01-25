@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Article} from "../../../../models/Waste/article.model";
+import {Article} from "../../models/article.model";
 import {HttpService} from "../../../../services/http.service";
-import {ArticleData} from "../../../../models/Waste/article-data.model";
-import {ArticleDescription} from "../../../../models/Waste/article-description.model";
+import {ArticleData} from "../../models/article-data.model";
+import {ArticleDescription} from "../../models/article-description.model";
 import {firstValueFrom} from "rxjs";
 
 

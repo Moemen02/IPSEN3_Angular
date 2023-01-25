@@ -1,6 +1,6 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
-import {ArticleOrderModel} from "../../../../../models/ArticleOrder.model";import {ArticleLocationModel} from "../../../../../models/Article.Location.model";
-import {Article} from "../../../../../models/Waste/article.model";
+import {ArticleOrderModel} from "../../../../../modules/article/models/ArticleOrder.model";import {ArticleLocationModel} from "../../../../../modules/article/models/Article.Location.model";
+import {Article} from "../../../../../modules/article/models/article.model";
 import {HttpService} from "../../../../../services/http.service";
 import {Label} from "../../../../../models/Label.model";
 

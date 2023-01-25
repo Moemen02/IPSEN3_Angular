@@ -1,4 +1,4 @@
-@import "src/styles";
+@import "../../../../../styles";
 
 
 .waste-card{
@@ -80,7 +80,7 @@ margin-bottom: 1%;
     &:hover {
        text-decoration: underline;
     }
-    
+
 }
 .buttonsHolder {
     display: flex;
@@ -136,7 +136,7 @@ input.number {
 }
 
 .stockInfo {
-    flex: 1;       
+    flex: 1;
 }
 
 .tableInfo {
