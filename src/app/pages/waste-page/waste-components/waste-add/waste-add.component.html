@@ -19,31 +19,48 @@
         </mat-grid-tile>
         <mat-grid-tile colspan="1">
           <mat-form-field>
-            <mat-label>Compositie</mat-label>
-            <input matInput type="text" name="composition" id="composition" formControlName="composition">
-            <mat-error *ngIf="!inputData.get('articleData.composition').valid && inputData.get('articleData.composition').touched">Compositie is <b>verplicht</b></mat-error>
-          </mat-form-field>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-          <mat-form-field>
             <mat-label>Leverancier</mat-label>
             <input matInput type="text" name="supplier" id="supplier" formControlName="supplier">
             <mat-error *ngIf="!inputData.get('articleData.supplier').valid && inputData.get('articleData.supplier').touched">Leverancier is <b>verplicht</b></mat-error>
           </mat-form-field>
         </mat-grid-tile>
+
+        <mat-grid-tile colspan="2">
+          <div formGroupName="composition">
+            <mat-form-field>
+              <mat-label>Compositie percentage</mat-label>
+              <input matInput type="number" name="composition_percentage" id="composition_percentage" formControlName="composition_percentage">
+              <mat-error *ngIf="!inputData.get('articleData.composition.composition_percentage').valid && inputData.get('articleData.composition.composition_percentage').value > 100 && inputData.get('articleData.composition.composition_percentage').value != null">Percentage mag niet boven <b>100</b> zitten</mat-error>
+              <mat-error *ngIf="!inputData.get('articleData.composition.composition_percentage').valid && inputData.get('articleData.composition.composition_percentage').value <= 0 && inputData.get('articleData.composition.composition_percentage').value != null">Percentage mag niet onder <b>1</b> zitten</mat-error>
+              <mat-error *ngIf="!inputData.get('articleData.composition.composition_percentage').valid && inputData.get('articleData.composition.composition_percentage').touched">Compositie is <b>verplicht</b></mat-error>
+              <span matTextSuffix>%</span>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Compositie stof</mat-label>
+              <mat-select id="composition_category" formControlName="composition_category">
+                <mat-option
+                  *ngFor="let requirement_category of requirement_categories; let i = index" [value]="requirement_category">
+                  {{ requirement_category }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="!inputData.get('articleData.composition.composition_category').valid && inputData.get('articleData.composition.composition_category').touched">Compositie is <b>verplicht</b></mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
         <mat-grid-tile>
           <mat-form-field>
             <mat-label>Patroon Lengte</mat-label>
-            <input matInput type="number" name="pattern_length" id="pattern_length" formControlName="pattern_length">
-            <mat-error *ngIf="!inputData.get('articleData.pattern_length').valid && inputData.get('articleData.pattern_length').touched">Patroon Lengte is <b>verplicht</b></mat-error>
+            <input matInput type="number" name="pattern_length" id="pattern_length" formControlName="patternLength">
+            <mat-error *ngIf="!inputData.get('articleData.patternLength').valid && inputData.get('articleData.patternLength').value < 0 && inputData.get('articleData.patternLength').value != null">Patroon L. mag niet onder <b>0</b> zitten</mat-error>
+            <mat-error *ngIf="!inputData.get('articleData.patternLength').valid && inputData.get('articleData.patternLength').touched">Patroon Lengte is <b>verplicht</b></mat-error>
           </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile>
           <mat-form-field>
             <mat-label>Patroon Breedte</mat-label>
-            <input matInput type="number" name="pattern_width" id="pattern_width" formControlName="pattern_width">
-            <mat-error *ngIf="!inputData.get('articleData.pattern_width').valid && inputData.get('articleData.pattern_width').touched">Patroon Breedte is <b>verplicht</b></mat-error>
+            <input matInput type="number" name="pattern_width" id="pattern_width" formControlName="patternWidth">
+            <mat-error *ngIf="!inputData.get('articleData.patternWidth').valid && inputData.get('articleData.patternWidth').value < 0 && inputData.get('articleData.patternWidth').value != null">Patroon B. mag niet onder <b>0</b> zitten</mat-error>
+            <mat-error *ngIf="!inputData.get('articleData.patternWidth').valid && inputData.get('articleData.patternWidth').touched">Patroon Breedte is <b>verplicht</b></mat-error>
           </mat-form-field>
         </mat-grid-tile>
 
@@ -80,6 +97,7 @@
           <mat-form-field>
             <mat-label>Gewicht</mat-label>
             <input matInput type="number" name="weight" id="weight" formControlName="weight">
+            <mat-error *ngIf="!inputData.get('articleDescription.weight').valid && inputData.get('articleDescription.weight').value <= 0 && inputData.get('articleDescription.weight').value != null">Gewicht mag niet onder <b>1</b> zitten</mat-error>
             <mat-error *ngIf="!inputData.get('articleDescription.weight').valid && inputData.get('articleDescription.weight').touched">Gewicht is <b>verplicht</b></mat-error>
           </mat-form-field>
         </mat-grid-tile>
@@ -104,8 +122,8 @@
         <mat-grid-tile>
           <mat-form-field>
             <mat-label>Artikelnummer</mat-label>
-            <input matInput type="text" name="article_number" id="article_number" formControlName="article_number">
-            <mat-error *ngIf="!inputData.get('articleDescription.article_number').valid && inputData.get('articleDescription.article_number').touched">Artikelnummer is <b>verplicht</b></mat-error>
+            <input matInput type="text" name="article_number" id="article_number" formControlName="articlenumber">
+            <mat-error *ngIf="!inputData.get('articleDescription.articlenumber').valid && inputData.get('articleDescription.articlenumber').touched">Artikelnummer is <b>verplicht</b></mat-error>
           </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile>
@@ -118,16 +136,18 @@
         <mat-grid-tile>
           <mat-form-field>
             <mat-label>Stof Breedte</mat-label>
-            <input matInput type="number" name="cloth_width" id="cloth_width" formControlName="cloth_width">
-            <mat-error *ngIf="!inputData.get('articleDescription.cloth_width').valid && inputData.get('articleDescription.cloth_width').touched">Stof Breedte is <b>verplicht</b></mat-error>
+            <input matInput type="number" name="cloth_width" id="cloth_width" formControlName="clothWidth">
+            <mat-error *ngIf="!inputData.get('articleDescription.clothWidth').valid && inputData.get('articleDescription.clothWidth').value <= 0 && inputData.get('articleDescription.clothWidth').value != null">StofBreedte mag niet onder <b>1</b> zitten</mat-error>
+            <mat-error *ngIf="!inputData.get('articleDescription.clothWidth').valid && inputData.get('articleDescription.clothWidth').touched">Stof Breedte is <b>verplicht</b></mat-error>
           </mat-form-field>
         </mat-grid-tile>
 
         <mat-grid-tile>
           <mat-form-field>
             <mat-label>Minimale Voorraad</mat-label>
-            <input matInput type="number" name="minimum_stock" id="minimum_stock" formControlName="minimum_stock">
-            <mat-error *ngIf="!inputData.get('articleDescription.minimum_stock').valid && inputData.get('articleDescription.minimum_stock').touched">Minimale Voorraad is <b>verplicht</b></mat-error>
+            <input matInput type="number" name="minimum_stock" id="minimum_stock" formControlName="minimumStock">
+            <mat-error *ngIf="!inputData.get('articleDescription.minimumStock').valid && inputData.get('articleDescription.minimumStock').value < 0 && inputData.get('articleDescription.minimumStock').value != null">Min. Voorraaad mag niet onder <b>0</b> zitten</mat-error>
+            <mat-error *ngIf="!inputData.get('articleDescription.minimumStock').valid && inputData.get('articleDescription.minimumStock').touched">Minimale Voorraad is <b>verplicht</b></mat-error>
           </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile>

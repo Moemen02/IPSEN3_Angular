@@ -26,7 +26,6 @@ export class WastePageComponent{
 
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed: ' + result);
       this.article = result;
     });
   }

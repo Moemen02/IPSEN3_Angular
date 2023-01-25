@@ -3,7 +3,7 @@ export class ArticleData {
   private _composition!: string;
   private _eancode!: string;
   private _id: number;
-  private _patternWIdth!: number;
+  private _patternWidth!: number;
   private _patternLength!: number;
   private _productgroup!: string;
   private _stockRL!: boolean;
@@ -42,12 +42,12 @@ export class ArticleData {
     this._id = value;
   }
 
-  get patternWIdth(): number {
-    return this._patternWIdth;
+  get patternWidth(): number {
+    return this._patternWidth;
   }
 
-  set patternWIdth(value: number) {
-    this._patternWIdth = value;
+  set patternWidth(value: number) {
+    this._patternWidth = value;
   }
 
   get patternLength(): number {

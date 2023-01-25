@@ -29,6 +29,14 @@ export class WasteAddComponent {
     'Stacey'
   ];
 
+  requirement_categories: string[] = [
+    'CO',
+    'PL',
+    'PES',
+    'LI',
+    'TREVIRA'
+  ]
+
   not_tiltable = {
     'ableToTilt': ['Kantelbaar', 'Onkantelbaar'],
     'tiltValues': [false, true]
@@ -44,9 +52,12 @@ export class WasteAddComponent {
       'color': new FormControl(null, Validators.required),
       'productgroup': new FormControl(null, Validators.required),
       'supplier': new FormControl(null, Validators.required),
-      'pattern_width': new FormControl(null, [Validators.required, Validators.pattern(/^[0-9]+[0-9]*$/)]),
-      'pattern_length': new FormControl(null, [Validators.required, Validators.pattern(/^[0-9]+[0-9]*$/)]),
-      'composition': new FormControl(null, Validators.required),
+      'patternWidth': new FormControl(null, [Validators.required, Validators.pattern(/^[0-9]+[0-9]*$/)]),
+      'patternLength': new FormControl(null, [Validators.required, Validators.pattern(/^[0-9]+[0-9]*$/)]),
+      'composition': new FormGroup({
+        'composition_percentage': new FormControl(null, [Validators.required, Validators.pattern(/^[1-9][0-9]?$|^100$/)]),
+        'composition_category': new FormControl(null, Validators.required)
+      }),
       'eancode': new FormControl(null, Validators.required),
       'stockRL': new FormControl(null, Validators.required)
     }),
@@ -56,9 +67,9 @@ export class WasteAddComponent {
       'washcode': new FormControl(null, Validators.required),
       'type': new FormControl(null, Validators.required),
       'not_tiltable': new FormControl(null, Validators.required),
-      'article_number': new FormControl(null, Validators.required),
-      'cloth_width': new FormControl(null, [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
-      'minimum_stock': new FormControl(null, [Validators.required, Validators.pattern(/^[0-9]+[0-9]*$/)]),
+      'articlenumber': new FormControl(null, Validators.required),
+      'clothWidth': new FormControl(null, [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
+      'minimumStock': new FormControl(null, [Validators.required, Validators.pattern(/^[0-9]+[0-9]*$/)]),
       'description': new FormControl(null, Validators.required)
     }),
     'customer': new FormControl(null, Validators.required)
@@ -67,8 +78,10 @@ export class WasteAddComponent {
 
   async onSubmit() {
     this.articleData = this.inputData.controls['articleData'].value;
+    this.articleData.composition = this.inputData.get('articleData.composition.composition_percentage').value + "% " + this.inputData.get('articleData.composition.composition_category').value;
     this.articleDescription = this.inputData.controls['articleDescription'].value;
-
+    console.log(this.articleData);
+    console.log(this.articleDescription);
     const data = await firstValueFrom(this.http.sendData<ArticleData>("/api/v2/article_data", this.articleData))
     const desc = await firstValueFrom(this.http.sendData<ArticleDescription>("/api/v2/article_description", this.articleDescription))
 
@@ -78,7 +91,6 @@ export class WasteAddComponent {
     this.http.sendData<Article>("/api/v2/article", this.article).subscribe(data => {} );
     this.onCancel();
   }
-
 
   onCancel() {
     this.inputData.reset();
