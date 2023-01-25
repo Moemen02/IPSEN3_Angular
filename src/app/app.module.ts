@@ -3,6 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import {LabelModule} from "./modules/label/label.module";
+import {AdminModule} from "./modules/admin/admin.module";
+import {ArticleModule} from "./modules/article/article.module";
+import {ClientModule} from "./modules/client/client.module";
+import {LogModule} from "./modules/log/log.module";
+import {OrderModule} from "./modules/order/order.module";
 
 
 /*
@@ -94,7 +100,13 @@ import { SingleCompComponent } from './pages/waste-page/waste-components/categor
     MatExpansionModule,
     MatListModule,
     MatTabsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    LabelModule,
+    AdminModule,
+    ClientModule,
+    ArticleModule,
+    LogModule,
+    OrderModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
