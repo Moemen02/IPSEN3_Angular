@@ -1,20 +1,20 @@
 @import "src/styles";
 
 .app-container{
-  height: 100vh;
+  height: fit-content;
   display: grid;
   grid-template-areas:
     'openNav navigationTop'
     'navigationside home';
-  grid-template-rows: 7%;
   background-color: $primaryColor;
+
 
   .btn-openSideNav{
     grid-area: openNav;
-    z-index: 2;
+    z-index: 3;
     display: flex;
     align-items: center;
-    position: static;
+    position: relative;
 
     .menuIcon{
       color: white;
@@ -35,8 +35,10 @@
   .nav-topContainer{
     grid-area: navigationTop;
     display: flex;
+    padding: 10px 0;
     justify-content: right;
     align-items: center;
+    position: relative;
 
     .user-name{
       color: white;
@@ -58,12 +60,16 @@
       .profile-dropdown{
       }
     }
-
-
-
-
-
+  }
+  @media only screen and (max-width: 800px) {
+    .nav-container {
+      position: absolute;
+    }
   }
 
+  @media only screen and (max-width: 600px) {
+    .nav-topContainer{
 
+    }
+  }
 }
