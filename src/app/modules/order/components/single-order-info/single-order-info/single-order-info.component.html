@@ -13,7 +13,7 @@
         <h4>Soort</h4>
       </div>
       <div class="content">
-        <p>{{wasteOrder.articleID.usageID.type_usage}}</p>
+        <p>{{wasteOrder.articleID.usageID.type_usage == "WASTE" ? "VERKOOP" : wasteOrder.articleID.usageID.type_usage}}</p>
       </div>
     </div>
     <div class="card-item">
