@@ -103,15 +103,14 @@
         .titel {
           font-weight: bold;
         }
+      }
+      .info-panel-container-location {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 50px;
 
-        .info-panel-container-location {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          grid-column-gap: 50px;
-
-          .titel {
-            font-weight: bold;
-          }
+        .titel {
+          font-weight: bold;
         }
       }
     }

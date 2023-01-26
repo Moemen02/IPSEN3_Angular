@@ -4,6 +4,7 @@ import {Article} from "../../../../article/models/article.model";
 import {HttpService} from "../../../../../services/http.service";
 import {Label} from "../../../../label/models/Label.model";
 import {Category_location} from "../../../../core/models/Category_location.model";
+import {LocationServiceService} from "../../../../location/service/location-service.service";
 
 @Component({
   selector: 'app-single-order-info',
@@ -16,7 +17,7 @@ export class SingleOrderInfoComponent implements OnInit{
   img = ""
   content = ""
 
-  constructor(private httpService: HttpService) {}
+  constructor(private httpService: HttpService, private locationService: LocationServiceService) {}
 
   ngOnInit() {
     this.getLocation()
@@ -48,11 +49,9 @@ export class SingleOrderInfoComponent implements OnInit{
   }
 
   public getLocation():void {
-    this.httpService.getSingleData<Category_location>("/api/v2/article_order/" + this.wasteOrder.id + "/moemen")
-      .subscribe( (_categoryLocation) => {
-        this.categoryLocation = _categoryLocation;
-
+    this.locationService.getLocation(this.wasteOrder)
+      .then((response) => {
+        this.categoryLocation = response
       })
-
     }
 }
