@@ -2,6 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {LogModel} from "../../models/Log.model";
 import {HttpService} from "../../../../services/http.service";
 import {ArticleOrderModel} from "../../../order/models/ArticleOrder.model";
+import {HttpClient} from "@angular/common/http";
+import {EmployeeModel} from "../../../client/models/employee.model";
 
 @Component({
   selector: 'app-single-log-info',
@@ -12,14 +14,15 @@ export class SingleLogInfoComponent implements OnInit{
 
   @Input() log: LogModel;
 
-  employee = null;
+  employee: EmployeeModel;
   order: ArticleOrderModel;
 
-  constructor(private httpService: HttpService) {}
+  constructor(private httpService: HttpService, private http: HttpClient) {}
 
   ngOnInit(): void {
 
     this.getOrder()
+    this.getEmployee()
 
   }
 
@@ -33,7 +36,11 @@ export class SingleLogInfoComponent implements OnInit{
   }
 
   public getEmployee(){
-
+    this.httpService.getSingleData<EmployeeModel>("/api/auth/user/" + this.log.userID)
+      .subscribe((response) => {
+        this.employee = response;
+      })
   }
+
 
 }
