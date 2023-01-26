@@ -24,29 +24,30 @@
             <mat-error *ngIf="!inputData.get('articleData.supplier').valid && inputData.get('articleData.supplier').touched">Leverancier is <b>verplicht</b></mat-error>
           </mat-form-field>
         </mat-grid-tile>
-
-        <mat-grid-tile colspan="2">
-          <div formGroupName="composition">
-            <mat-form-field>
-              <mat-label>Compositie percentage</mat-label>
-              <input matInput type="number" name="composition_percentage" id="composition_percentage" formControlName="composition_percentage">
-              <mat-error *ngIf="!inputData.get('articleData.composition.composition_percentage').valid && inputData.get('articleData.composition.composition_percentage').value > 100 && inputData.get('articleData.composition.composition_percentage').value != null">Percentage mag niet boven <b>100</b> zitten</mat-error>
-              <mat-error *ngIf="!inputData.get('articleData.composition.composition_percentage').valid && inputData.get('articleData.composition.composition_percentage').value <= 0 && inputData.get('articleData.composition.composition_percentage').value != null">Percentage mag niet onder <b>1</b> zitten</mat-error>
-              <mat-error *ngIf="!inputData.get('articleData.composition.composition_percentage').valid && inputData.get('articleData.composition.composition_percentage').touched">Compositie is <b>verplicht</b></mat-error>
-              <span matTextSuffix>%</span>
-            </mat-form-field>
-            <mat-form-field>
-              <mat-label>Compositie stof</mat-label>
-              <mat-select id="composition_category" formControlName="composition_category">
-                <mat-option
-                  *ngFor="let requirement_category of requirement_categories; let i = index" [value]="requirement_category">
-                  {{ requirement_category }}
-                </mat-option>
-              </mat-select>
-              <mat-error *ngIf="!inputData.get('articleData.composition.composition_category').valid && inputData.get('articleData.composition.composition_category').touched">Compositie is <b>verplicht</b></mat-error>
-            </mat-form-field>
-          </div>
+        <div formGroupName="composition">
+        <mat-grid-tile colspan="1">
+          <mat-form-field>
+            <mat-label>Compositie percentage</mat-label>
+            <input matInput type="number" name="composition_percentage" id="composition_percentage" formControlName="composition_percentage">
+            <mat-error *ngIf="!inputData.get('articleData.composition.composition_percentage').valid && inputData.get('articleData.composition.composition_percentage').value > 100 && inputData.get('articleData.composition.composition_percentage').value != null">Percentage mag niet boven <b>100</b> zitten</mat-error>
+            <mat-error *ngIf="!inputData.get('articleData.composition.composition_percentage').valid && inputData.get('articleData.composition.composition_percentage').value <= 0 && inputData.get('articleData.composition.composition_percentage').value != null">Percentage mag niet onder <b>1</b> zitten</mat-error>
+            <mat-error *ngIf="!inputData.get('articleData.composition.composition_percentage').valid && inputData.get('articleData.composition.composition_percentage').touched">Compositie is <b>verplicht</b></mat-error>
+            <span matTextSuffix>%</span>
+          </mat-form-field>
         </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>Compositie stof</mat-label>
+            <mat-select id="composition_category" formControlName="composition_category">
+              <mat-option
+                *ngFor="let requirement_category of requirement_categories; let i = index" [value]="requirement_category">
+                {{ requirement_category }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="!inputData.get('articleData.composition.composition_category').valid && inputData.get('articleData.composition.composition_category').touched">Compositie is <b>verplicht</b></mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+      </div>
         <mat-grid-tile>
           <mat-form-field>
             <mat-label>Patroon Lengte</mat-label>
@@ -163,7 +164,7 @@
           <mat-label>Klant</mat-label>
           <mat-select formControlName="customer">
             <mat-option *ngFor="let customer of customers" id="customer" [value]="customer" >
-              {{ customer }}
+              {{ customer.name }}
             </mat-option>
           </mat-select>
           <mat-error *ngIf="!inputData.get('customer').valid && inputData.get('customer').touched">Klant is <b>verplicht</b></mat-error>
