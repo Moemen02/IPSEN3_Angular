@@ -53,6 +53,12 @@
   height: fit-content;
   background-color: #00356B;
 
+  .dropdown-items{
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
   .admin-header{
     height: 40px;
 

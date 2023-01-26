@@ -6,6 +6,7 @@ import { HomeComponent } from "./modules/client/pages/home/home.component";
 import { WastePageComponent } from "./modules/article/pages/waste-page/waste-page.component";
 import {OrderComponent} from "./modules/order/pages/order/order.component";
 import { NewUserComponent } from './modules/admin/pages/new-user/new-user.component';
+import {LogPageComponent} from "./modules/log/pages/log-page/log-page.component";
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'new-user', component: NewUserComponent, canActivate:[AuthService] },
 
   { path: 'orders', component: OrderComponent, canActivate:[AuthService] },
+  { path: 'orders/log', component: LogPageComponent, canActivate:[AuthService] },
 
   { path: '**', redirectTo: "/" },
 ];

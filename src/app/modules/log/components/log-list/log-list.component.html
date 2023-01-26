@@ -1,0 +1,12 @@
+<div class="waste-cards">
+  <div class="waste-card">
+    <div class="loading-circle absolute-circle" >
+      <div class="loader"></div>
+    </div>
+    <div *ngIf="allLogs.length">
+      <mat-accordion *ngFor="let log of allLogs" >
+        <app-single-log-info [log]="log"></app-single-log-info>
+      </mat-accordion>
+    </div>
+  </div>
+</div>

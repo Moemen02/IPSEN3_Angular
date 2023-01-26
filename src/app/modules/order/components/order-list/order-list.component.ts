@@ -1,6 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ArticleOrderModel} from "../../models/ArticleOrder.model";
 import {HttpService} from "../../../../services/http.service";
+import {Subject} from "rxjs";
+import {LogService} from "../../../log/services/log.service";
 
 
 
@@ -11,16 +13,23 @@ import {HttpService} from "../../../../services/http.service";
 })
 export class OrderListComponent implements OnInit {
 
+  changingValue: Subject<boolean> = new Subject();
+
   ngOnInit() {
     this.getAllWasteOrders();
   }
 
-  constructor(private httpService: HttpService) {}
+  constructor(private httpService: HttpService, private logService: LogService) {}
   wasteOrders: ArticleOrderModel[] = []
   wasteOrder: ArticleOrderModel
 
   public remove($event: { inpNum: number; article: ArticleOrderModel }){
     this.wasteOrders.splice($event.inpNum, 1)
+    this.changingValue.next(true)
+    this.logService.createLog($event.article)
+      .then((response) => {
+        console.log(response)
+      })
   }
 
 
