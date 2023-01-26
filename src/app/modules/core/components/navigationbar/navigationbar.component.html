@@ -12,7 +12,8 @@
   </button>
 
   <mat-expansion-panel class="admin-dropdown" (opened)="panelOpenState = true"
-                       (closed)="panelOpenState = false">
+                       (closed)="panelOpenState = false"
+  *ngIf="isAdmin" >
     <mat-expansion-panel-header class="admin-header">
       <mat-panel-title class="hello" style="color: white; display: block; margin-right: 0">
         Admin
