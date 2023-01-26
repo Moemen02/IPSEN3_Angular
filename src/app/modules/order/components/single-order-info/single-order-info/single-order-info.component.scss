@@ -37,7 +37,7 @@
   .left-panel{
 
     .print-label {
-      margin: auto;
+      margin: 25px 10px 0 0;
       font-size: 17px;
       padding: 0.5em 2em;
       border: transparent;
@@ -45,6 +45,7 @@
       background: #F4812B;
       color: white;
       border-radius: 4px;
+
     }
 
     .print-label:hover {
@@ -104,6 +105,16 @@
         }
       }
 
+    }
+  }
+}
+
+@media only screen and (max-width: 1500px) {
+  .expansion-panel{
+    .left-panel{
+      .print-label{
+        margin: 15px 0 0 0;
+      }
     }
   }
 }
