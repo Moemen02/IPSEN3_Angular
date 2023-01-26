@@ -76,6 +76,7 @@
             grid-template-columns: 1fr 1fr;
             width: 100%;
 
+
             .titel{
               font-weight: bold;
             }
@@ -95,16 +96,24 @@
 
 
       }
-      .info-panel-container_klant{
+      .info-panel-container_klant {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-column-gap: 50px;
 
-        .titel{
+        .titel {
           font-weight: bold;
         }
       }
+      .info-panel-container-location {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 50px;
 
+        .titel {
+          font-weight: bold;
+        }
+      }
     }
   }
 }

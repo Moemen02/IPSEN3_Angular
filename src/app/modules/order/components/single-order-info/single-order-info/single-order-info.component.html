@@ -13,7 +13,7 @@
         <h4>Soort</h4>
       </div>
       <div class="content">
-        <p>{{wasteOrder.articleID.usageID.type_usage}}</p>
+        <p>{{wasteOrder.articleID.usageID.type_usage == "WASTE" ? "VERKOOP" : wasteOrder.articleID.usageID.type_usage}}</p>
       </div>
     </div>
     <div class="card-item">
@@ -21,7 +21,7 @@
         <h4>Locatie</h4>
       </div>
       <div class="content">
-        <p>in progress</p>
+        <p *ngIf="categoryLocation">{{categoryLocation.location_type}}</p>
       </div>
     </div>
     <div class="card-item">
@@ -118,7 +118,7 @@
 
         </mat-expansion-panel>
 
-        <mat-expansion-panel class="right-panel-expension">
+        <mat-expansion-panel class="right-panel-expension" expanded>
           <mat-expansion-panel-header>
             <mat-panel-title>
               Klant info
@@ -139,7 +139,7 @@
 
         </mat-expansion-panel>
 
-        <mat-expansion-panel class="right-panel-expension">
+        <mat-expansion-panel class="right-panel-expension" expanded>
           <mat-expansion-panel-header>
             <mat-panel-title>
               Locatie Info
@@ -148,7 +148,12 @@
 
             </mat-panel-description>
           </mat-expansion-panel-header>
-          <p>In progress</p>
+          <div class="info-panel-container-location">
+
+            <p class="titel">Locatie</p>
+            <p class="content" *ngIf="categoryLocation">{{categoryLocation.location_type}}</p>
+
+          </div>
         </mat-expansion-panel>
 
       </div>

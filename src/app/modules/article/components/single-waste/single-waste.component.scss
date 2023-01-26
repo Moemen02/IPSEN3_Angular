@@ -45,15 +45,50 @@
 
     .right-panel-data{
 
-      .right-panel-expension{
+      .afval-panel-expension{
         margin-top: 5px;
         margin-bottom: 5px;
 
-        .right-panel-info{
-          width: 100%;
+        .info-panel-container-afval{
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-column-gap: 50px;
+
+          .under-panel-info-left{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 100%;
+
+
+            .titel{
+              font-weight: bold;
+            }
+          }
+
+          .under-panel-info-right{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 100%;
+
+            .titel{
+              font-weight: bold;
+            }
+          }
         }
+
+
+
       }
 
+      .info-panel-container-location {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 50px;
+
+        .titel {
+          font-weight: bold;
+        }
+      }
     }
   }
 }
