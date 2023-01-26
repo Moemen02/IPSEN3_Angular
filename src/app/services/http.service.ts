@@ -38,6 +38,12 @@ export class HttpService {
     })
   }
 
+  public updateData<T>(path: string, data: any): Observable<T> {
+    return this.http.put<T>(this.url + path, data, {
+      'headers': this.headers
+    })
+  }
+
   public sendPostPage(path: string, data: any, page: number): Observable<any> {
     return this.http.post(this.url + path, data, {
       'headers': this.headers,

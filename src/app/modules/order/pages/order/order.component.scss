@@ -1,0 +1,34 @@
+@import "../../../../../styles";
+
+.order-page{
+  background-color: $primaryBackgroundColor;
+  height: 100%;
+
+  .order-container{
+    display: flex;
+    flex-direction: column;
+    padding: 3% 5% 3% 5%;
+    width: 100%;
+
+    .header-section {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      background-color: #ffffff;
+
+      .header-title {
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        margin-top: 3%;
+      }
+    }
+
+    .order-cards-container{
+      display: grid;
+      padding-left: 5%;
+      padding-right: 5%;
+      background-color: #ffffff;
+      }
+  }
+}
