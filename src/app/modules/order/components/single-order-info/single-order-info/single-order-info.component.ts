@@ -4,6 +4,7 @@ import {Article} from "../../../../article/models/article.model";
 import {HttpService} from "../../../../../services/http.service";
 import {Label} from "../../../../label/models/Label.model";
 import {Subject, timeout} from "rxjs";
+import {LogService} from "../../../../log/services/log.service";
 
 @Component({
   selector: 'app-single-order-info',
