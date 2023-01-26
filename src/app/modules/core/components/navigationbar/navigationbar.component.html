@@ -6,7 +6,7 @@
     <mat-icon class="forwardArrow">arrow_forward</mat-icon>
   </button>
 
-  <button class="btn-sidenav" (click)="navTo('/afvalstoffen')">
+  <button class="btn-sidenav" *ngIf="isAdmin" (click)="navTo('/afvalstoffen')">
     afval stoffen
     <mat-icon class="forwardArrow">arrow_forward</mat-icon>
   </button>
