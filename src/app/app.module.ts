@@ -10,6 +10,7 @@ import {ClientModule} from "./modules/client/client.module";
 import {LogModule} from "./modules/log/log.module";
 import {OrderModule} from "./modules/order/order.module";
 import {CoreModule} from "./modules/core/core.module";
+import {LocationModule} from "./modules/location/location.module";
 
 
 /*
@@ -108,7 +109,8 @@ import { SingleCompComponent } from './modules/article/components/category-waste
     ArticleModule,
     LogModule,
     OrderModule,
-    CoreModule
+    CoreModule,
+    LocationModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

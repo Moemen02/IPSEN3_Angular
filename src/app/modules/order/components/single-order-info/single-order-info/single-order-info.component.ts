@@ -3,6 +3,8 @@ import {ArticleOrderModel} from "../../../models/ArticleOrder.model";import {Art
 import {Article} from "../../../../article/models/article.model";
 import {HttpService} from "../../../../../services/http.service";
 import {Label} from "../../../../label/models/Label.model";
+import {Category_location} from "../../../../core/models/Category_location.model";
+import {LocationServiceService} from "../../../../location/service/location-service.service";
 import {Subject, timeout} from "rxjs";
 import {LogService} from "../../../../log/services/log.service";
 
@@ -20,9 +22,10 @@ export class SingleOrderInfoComponent implements OnInit{
   name = ""
   content = ""
 
-  constructor(private httpService: HttpService) {}
+  constructor(private httpService: HttpService, private locationService: LocationServiceService) {}
 
   ngOnInit() {
+    this.getLocation()
     setTimeout(() => {
       this.getLabel()
     }, 200 * this.numInList)
@@ -54,6 +57,7 @@ export class SingleOrderInfoComponent implements OnInit{
 
   }
 
+  categoryLocation: Category_location
   @Input() wasteOrder: ArticleOrderModel
   @Input() numInList: number;
   @Output() newItemEvent = new EventEmitter<{ inpNum: number, article: ArticleOrderModel }>;
@@ -63,4 +67,11 @@ export class SingleOrderInfoComponent implements OnInit{
       this.newItemEvent.emit({inpNum: num, article: article})
     })
   }
+
+  public getLocation():void {
+    this.locationService.getLocation(this.wasteOrder)
+      .then((response) => {
+        this.categoryLocation = response
+      })
+    }
 }

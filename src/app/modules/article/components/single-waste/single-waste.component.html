@@ -48,19 +48,16 @@
         <p>Gewicht</p>
         <p>{{waste.article_descriptionID.weight}}</p>
       </div>
-      <div class="left-info">
+      <div *ngIf="categoryLocation" class="left-info">
         <p>Locatie</p>
-        <p>[moet nog opgehaald worden]</p>
+        <p>{{categoryLocation.location_type}}</p>
       </div>
-      <div class="left-info">
-        <p>Afgehandeld</p>
-        <p>[moet nog opgehaald worden]</p>
-      </div>
+
     </div>
 
     <div class="right-panel">
       <div class="right-panel-data">
-        <mat-expansion-panel class="right-panel-expension">
+        <mat-expansion-panel class="afval-panel-expension" expanded>
           <mat-expansion-panel-header>
             <mat-panel-title>
               Afvalstof info
@@ -69,24 +66,71 @@
 
             </mat-panel-description>
           </mat-expansion-panel-header>
-          <div class="right-panel-info">
-            <p>hier komen de info van de afvalstoffen</p>
+          <div class="info-panel-container-afval">
+            <div class="left">
+              <div class="under-panel-info-left">
+
+                <p class="titel">Leverancier</p>
+                <p class="content">{{waste.article_dataID.supplier}}</p>
+
+                <p class="titel">Eancode</p>
+                <p class="content">{{waste.article_dataID.eancode}}</p>
+
+                <p class="titel">Kleur</p>
+                <p class="content">{{waste.article_dataID.color}}</p>
+
+                <p class="titel">Patroon lengte</p>
+                <p class="content">{{waste.article_dataID.patternLength}}</p>
+
+                <p class="titel">Patroon breedte</p>
+                <p class="content">{{waste.article_dataID.patternWidth}}</p>
+
+                <p class="titel">Compositie</p>
+                <p class="content">{{waste.article_dataID.composition}}</p>
+
+                <p class="titel">stockRL</p>
+                <p class="content">{{waste.article_dataID.stockRL}}</p>
+
+                <p class="titel">Productgroep</p>
+                <p class="content">{{waste.article_dataID.productgroup}}</p>
+              </div>
+            </div>
+            <div class="right">
+              <div class="under-panel-info-right">
+
+                <p class="titel">Artikelnummer</p>
+                <p class="content">{{waste.article_descriptionID.articlenumber}}</p>
+
+                <p class="titel">Beschrijving</p>
+                <p class="content">{{waste.article_descriptionID.description}}</p>
+
+                <p class="titel">Stof breedte</p>
+                <p class="content">{{waste.article_descriptionID.clothWidth}}</p>
+
+                <p class="titel">Type</p>
+                <p class="content">{{waste.article_descriptionID.type}}</p>
+
+                <p class="titel">Layout</p>
+                <p class="content">{{waste.article_descriptionID.layout}}</p>
+
+                <p class="titel">Wascode</p>
+                <p class="content">{{waste.article_descriptionID.washcode}}</p>
+
+                <p class="titel">Gewicht</p>
+                <p class="content">{{waste.article_descriptionID.weight}}</p>
+
+                <p class="titel">Niet kantelbaar</p>
+                <p class="content">{{waste.article_descriptionID.not_tiltable}}</p>
+
+                <p class="titel">Minimum stock</p>
+                <p class="content">{{waste.article_descriptionID.minimumStock}}</p>
+              </div>
+            </div>
           </div>
+
         </mat-expansion-panel>
 
-        <mat-expansion-panel class="right-panel-expension">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              Klant info
-            </mat-panel-title>
-            <mat-panel-description>
-
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          <p>Hier komen de info van de klant</p>
-        </mat-expansion-panel>
-
-        <mat-expansion-panel class="right-panel-expension">
+        <mat-expansion-panel class="right-panel-expension" expanded>
           <mat-expansion-panel-header>
             <mat-panel-title>
               Locatie Info
@@ -95,10 +139,16 @@
 
             </mat-panel-description>
           </mat-expansion-panel-header>
-          <p>Hier komt de info van de locatie</p>
+          <div class="info-panel-container-location" >
+
+            <p class="titel">Locatie</p>
+            <p class="content" *ngIf="categoryLocation">{{categoryLocation.location_type}}</p>
+
+          </div>
         </mat-expansion-panel>
 
       </div>
+
     </div>
   </div>
 </mat-expansion-panel>
