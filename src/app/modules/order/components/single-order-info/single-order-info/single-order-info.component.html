@@ -21,7 +21,7 @@
         <h4>Locatie</h4>
       </div>
       <div class="content">
-        <p>{{categoryLocation.location_type}}</p>
+        <p *ngIf="categoryLocation">{{categoryLocation.location_type}}</p>
       </div>
     </div>
     <div class="card-item">
