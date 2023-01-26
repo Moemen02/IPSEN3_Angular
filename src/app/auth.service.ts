@@ -37,6 +37,10 @@ export class AuthService implements CanActivate, CanActivateChild {
     return !!localStorage.getItem("auth_key")
   }
 
+  getToken(): string {
+    return localStorage.getItem("auth_key")
+  }
+
 
   login(email: string, pass: string) {
 

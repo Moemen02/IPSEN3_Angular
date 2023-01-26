@@ -12,7 +12,15 @@ export class NavigationbarComponent implements OnInit{
 @Input() visible = false
 
   panelOpenState = false;
-  constructor(private router:Router) {
+
+isAdmin = false
+
+  constructor(private router:Router, private auth: AuthService) {
+    if (this.auth.decodeJWTToken(this.auth.getToken()).role === "ADMIN") {
+      this.isAdmin = true
+    } else {
+      this.isAdmin = false
+    }
   }
 
 
