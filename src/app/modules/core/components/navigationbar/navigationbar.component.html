@@ -1,0 +1,36 @@
+
+<nav class="navigation">
+<div class="sidenav" *ngIf="visible">
+  <button class="btn-sidenav btn-homepage" (click)="navTo('/home')">
+    Home
+    <mat-icon class="forwardArrow">arrow_forward</mat-icon>
+  </button>
+
+  <button class="btn-sidenav" *ngIf="isAdmin" (click)="navTo('/afvalstoffen')">
+    afval stoffen
+    <mat-icon class="forwardArrow">arrow_forward</mat-icon>
+  </button>
+
+
+  <mat-expansion-panel class="admin-dropdown" (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false"
+  *ngIf="isAdmin" >
+    <mat-expansion-panel-header class="admin-header">
+      <mat-panel-title class="hello" style="color: white; display: block; margin-right: 0">
+        Admin
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+      <div class="dropdown-items">
+        <button class="btn-sidenav admin-button" (click)="navTo('/new-user')">
+          Gebruiker aanmaken
+          <mat-icon class="forwardArrow">arrow_forward</mat-icon>
+        </button>
+        <button class="btn-sidenav admin-button" (click)="navTo('/orders/log')">
+          Order log
+          <mat-icon class="forwardArrow">arrow_forward</mat-icon>
+        </button>
+      </div>
+  </mat-expansion-panel>
+</div>
+
+</nav>

@@ -1,0 +1,164 @@
+<mat-expansion-panel hideToggle [expanded]="numInList==0">
+  <mat-expansion-panel-header class="waste-cards-header" (click)="getLabel()">
+    <div class="card-item">
+      <div class="title">
+        <h4>Ordernummer</h4>
+      </div>
+      <div class="content">
+        <p>{{wasteOrder.id}}</p>
+      </div>
+    </div>
+    <div class="card-item">
+      <div class="title">
+        <h4>Soort</h4>
+      </div>
+      <div class="content">
+        <p>{{wasteOrder.articleID.usageID.type_usage == "WASTE" ? "VERKOOP" : wasteOrder.articleID.usageID.type_usage}}</p>
+      </div>
+    </div>
+    <div class="card-item">
+      <div class="title">
+        <h4>Locatie</h4>
+      </div>
+      <div class="content">
+        <p *ngIf="categoryLocation">{{categoryLocation.location_type}}</p>
+      </div>
+    </div>
+    <div class="card-item">
+      <div class="title">
+        <h4>Afgerond</h4>
+      </div>
+      <div class="content">
+        <p style="color: green" *ngIf="wasteOrder.finished">Afgerond</p>
+        <p style="color: red" *ngIf="!wasteOrder.finished">Niet afgerond</p>
+      </div>
+    </div>
+  </mat-expansion-panel-header>
+  <div class="expansion-panel">
+    <div class="left-panel">
+      <div *ngIf="content === 'noLabel'">
+        <h1>no label to show</h1>
+      </div>
+      <img *ngIf="img !== null && content !== 'noLabel'" [src]="img" alt="label-voorbeeld" width="300" height="400"/>
+      <button *ngIf="content !== 'noLabel'" (click)="removeOrder(numInList, wasteOrder)" class="print-label">PRINT LABEL</button>
+      <button *ngIf="content !== 'noLabel'" (click)="openPDF()" class="print-label">OPEN PDF</button>
+      <button *ngIf="content === 'noLabel'" (click)="removeOrder(numInList, wasteOrder)" class="print-label">CLOSE ORDER</button>
+    </div>
+
+    <div class="right-panel">
+      <div class="right-panel-data">
+        <mat-expansion-panel class="afval-panel-expension" expanded>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Afvalstof info
+            </mat-panel-title>
+            <mat-panel-description>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div class="info-panel-container-afval">
+            <div class="left">
+              <div class="under-panel-info-left">
+
+                <p class="titel">Leverancier</p>
+                <p class="content">{{wasteOrder.articleID.article_dataID.supplier}}</p>
+
+                <p class="titel">Eancode</p>
+                <p class="content">{{wasteOrder.articleID.article_dataID.eancode}}</p>
+
+                <p class="titel">Kleur</p>
+                <p class="content">{{wasteOrder.articleID.article_dataID.color}}</p>
+
+                <p class="titel">Patroon lengte</p>
+                <p class="content">{{wasteOrder.articleID.article_dataID.patternLength}}</p>
+
+                <p class="titel">Patroon breedte</p>
+                <p class="content">{{wasteOrder.articleID.article_dataID.patternWidth}}</p>
+
+                <p class="titel">Compositie</p>
+                <p class="content">{{wasteOrder.articleID.article_dataID.composition}}</p>
+
+                <p class="titel">stockRL</p>
+                <p class="content">{{wasteOrder.articleID.article_dataID.stockRL}}</p>
+
+                <p class="titel">Productgroep</p>
+                <p class="content">{{wasteOrder.articleID.article_dataID.productgroup}}</p>
+              </div>
+            </div>
+            <div class="right">
+              <div class="under-panel-info-right">
+
+                <p class="titel">Artikelnummer</p>
+                <p class="content">{{wasteOrder.articleID.article_descriptionID.articlenumber}}</p>
+
+                <p class="titel">Beschrijving</p>
+                <p class="content">{{wasteOrder.articleID.article_descriptionID.description}}</p>
+
+                <p class="titel">Stof breedte</p>
+                <p class="content">{{wasteOrder.articleID.article_descriptionID.clothWidth}}</p>
+
+                <p class="titel">Type</p>
+                <p class="content">{{wasteOrder.articleID.article_descriptionID.type}}</p>
+
+                <p class="titel">Layout</p>
+                <p class="content">{{wasteOrder.articleID.article_descriptionID.layout}}</p>
+
+                <p class="titel">Wascode</p>
+                <p class="content">{{wasteOrder.articleID.article_descriptionID.washcode}}</p>
+
+                <p class="titel">Gewicht</p>
+                <p class="content">{{wasteOrder.articleID.article_descriptionID.weight}}</p>
+
+                <p class="titel">Niet kantelbaar</p>
+                <p class="content">{{wasteOrder.articleID.article_descriptionID.not_tiltable}}</p>
+
+                <p class="titel">Minimum stock</p>
+                <p class="content">{{wasteOrder.articleID.article_descriptionID.minimumStock}}</p>
+              </div>
+            </div>
+          </div>
+
+        </mat-expansion-panel>
+
+        <mat-expansion-panel class="right-panel-expension" expanded>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Klant info
+            </mat-panel-title>
+            <mat-panel-description>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div class="info-panel-container_klant">
+
+            <p class="titel">Naam</p>
+            <p class="content">{{wasteOrder.customerID.name}}</p>
+
+            <p class="titel">Addres</p>
+            <p class="content">{{wasteOrder.customerID.addressID.streetname + "  " + wasteOrder.customerID.addressID.postal_code + "  " + wasteOrder.customerID.addressID.housenumber}}</p>
+
+          </div>
+
+
+        </mat-expansion-panel>
+
+        <mat-expansion-panel class="right-panel-expension" expanded>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Locatie Info
+            </mat-panel-title>
+            <mat-panel-description>
+
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div class="info-panel-container-location">
+
+            <p class="titel">Locatie</p>
+            <p class="content" *ngIf="categoryLocation">{{categoryLocation.location_type}}</p>
+
+          </div>
+        </mat-expansion-panel>
+
+      </div>
+
+    </div>
+  </div>
+</mat-expansion-panel>

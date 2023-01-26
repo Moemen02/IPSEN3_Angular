@@ -1,0 +1,106 @@
+<mat-expansion-panel class="mb-3" hideToggle>
+  <mat-expansion-panel-header class="waste-cards-header">
+    <div class="card-item">
+      <div class="title">
+        <h4>Log nmr.</h4>
+      </div>
+      <div class="content">
+        <p>{{log.id}}</p>
+      </div>
+    </div>
+    <div class="card-item">
+      <div class="title">
+        <h4>Gebruiker</h4>
+      </div>
+      <div class="content">
+        <p *ngIf="employee">{{employee.name}}</p>
+      </div>
+    </div>
+    <div class="card-item">
+      <div class="title">
+        <h4>Order nummer</h4>
+      </div>
+      <div class="content">
+        <p *ngIf="!order">Er is wat mis gegaan!</p>
+        <p *ngIf="order">{{order.id}}</p>
+      </div>
+    </div>
+  </mat-expansion-panel-header>
+  <div class="expansion-panel">
+    <div class="right-panel">
+      <div class="right-panel-data">
+        <mat-expansion-panel class="right-panel-expension" expanded>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Afvalstof info
+            </mat-panel-title>
+            <mat-panel-description>
+
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div *ngIf="order" class="info-panel-container-afval">
+            <div class="left">
+              <div class="under-panel-info-left">
+
+                <p class="titel">Leverancier</p>
+                <p class="content">{{order.articleID.article_dataID.supplier}}</p>
+
+                <p class="titel">Eancode</p>
+                <p class="content">{{order.articleID.article_dataID.eancode}}</p>
+
+                <p class="titel">Kleur</p>
+                <p class="content">{{order.articleID.article_dataID.color}}</p>
+
+                <p class="titel">Patroon lengte</p>
+                <p class="content">{{order.articleID.article_dataID.patternLength}}</p>
+
+                <p class="titel">Patroon breedte</p>
+                <p class="content">{{order.articleID.article_dataID.patternWidth}}</p>
+
+                <p class="titel">Compositie</p>
+                <p class="content">{{order.articleID.article_dataID.composition}}</p>
+
+                <p class="titel">stockRL</p>
+                <p class="content">{{order.articleID.article_dataID.stockRL}}</p>
+
+                <p class="titel">Productgroep</p>
+                <p class="content">{{order.articleID.article_dataID.productgroup}}</p>
+              </div>
+            </div>
+            <div class="right">
+              <div class="under-panel-info-right">
+
+                <p class="titel">Artikelnummer</p>
+                <p class="content">{{order.articleID.article_descriptionID.articlenumber}}</p>
+
+                <p class="titel">Beschrijving</p>
+                <p class="content">{{order.articleID.article_descriptionID.description}}</p>
+
+                <p class="titel">Stof breedte</p>
+                <p class="content">{{order.articleID.article_descriptionID.clothWidth}}</p>
+
+                <p class="titel">Type</p>
+                <p class="content">{{order.articleID.article_descriptionID.type}}</p>
+
+                <p class="titel">Layout</p>
+                <p class="content">{{order.articleID.article_descriptionID.layout}}</p>
+
+                <p class="titel">Wascode</p>
+                <p class="content">{{order.articleID.article_descriptionID.washcode}}</p>
+
+                <p class="titel">Gewicht</p>
+                <p class="content">{{order.articleID.article_descriptionID.weight}}</p>
+
+                <p class="titel">Niet kantelbaar</p>
+                <p class="content">{{order.articleID.article_descriptionID.not_tiltable}}</p>
+
+                <p class="titel">Minimum stock</p>
+                <p class="content">{{order.articleID.article_descriptionID.minimumStock}}</p>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </div>
+    </div>
+  </div>
+</mat-expansion-panel>
