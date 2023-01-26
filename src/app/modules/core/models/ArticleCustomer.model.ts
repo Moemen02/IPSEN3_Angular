@@ -1,4 +1,4 @@
-import {Article} from "./Waste/article.model";
+import {Article} from "../../article/models/article.model";
 import {Customer} from "./customer.model";
 
 export class ArticleCustomer {

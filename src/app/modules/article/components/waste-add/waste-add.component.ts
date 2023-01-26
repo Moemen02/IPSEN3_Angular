@@ -5,8 +5,8 @@ import {HttpService} from "../../../../services/http.service";
 import {ArticleData} from "../../models/article-data.model";
 import {ArticleDescription} from "../../models/article-description.model";
 import {firstValueFrom} from "rxjs";
-import {Customer} from "../../../../models/customer.model";
-import {ArticleCustomer} from "../../../../models/ArticleCustomer.model";
+import {Customer} from "../../../core/models/customer.model";
+import {ArticleCustomer} from "../../../core/models/ArticleCustomer.model";
 
 
 @Component({
