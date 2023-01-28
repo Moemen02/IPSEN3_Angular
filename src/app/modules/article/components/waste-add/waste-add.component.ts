@@ -6,7 +6,7 @@ import {ArticleData} from "../../models/article-data.model";
 import {ArticleDescription} from "../../models/article-description.model";
 import {firstValueFrom} from "rxjs";
 import {Customer} from "../../../core/models/customer.model";
-import {ArticleCustomer} from "../../../core/models/ArticleCustomer.model";
+import {ArticleCustomerRec} from "../../models/ArticleCustomerRec.model";
 
 
 @Component({
@@ -26,7 +26,7 @@ export class WasteAddComponent implements OnInit{
   private articleData = new ArticleData;
   private articleDescription = new ArticleDescription;
   private article = new Article;
-  private articleWithCustomer: ArticleCustomer = new ArticleCustomer;
+  private articleWithCustomer: ArticleCustomerRec = new ArticleCustomerRec;
   private customer = new Customer;
 
   wasteDataID = 0
@@ -100,7 +100,8 @@ export class WasteAddComponent implements OnInit{
     this.article.article_descriptionID = desc;
     this.articleWithCustomer.article = this.article;
     this.articleWithCustomer.customer = this.customer;
-    this.http.sendData<ArticleCustomer>("/api/v2/article", this.articleWithCustomer);
+    console.log(JSON.stringify(this.articleWithCustomer));
+    this.http.sendData<ArticleCustomerRec>("/api/v2/article", this.articleWithCustomer);
 
     // this.articleOrder.articleID = articleId;
     // this.articleOrder.customerID = this.customer;

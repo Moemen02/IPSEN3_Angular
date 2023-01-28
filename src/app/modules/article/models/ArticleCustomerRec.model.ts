@@ -1,7 +1,7 @@
-import {Article} from "../../article/models/article.model";
-import {Customer} from "./customer.model";
+import {Article} from "./article.model";
+import {Customer} from "../../core/models/customer.model";
 
-export class ArticleCustomer {
+export class ArticleCustomerRec {
   private _article: Article;
   private _customer: Customer;
 
