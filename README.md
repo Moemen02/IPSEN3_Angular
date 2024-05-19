@@ -36,20 +36,20 @@
 
 <!-- Over project -->
 ## Afvalsorteer systeem Groep 13
-Deze readme bestand staat in hoe je het project opzet zodat u het kunt gebruiker zonder enkele problemen!
+In dit readme bestand staat weergeven hoe het project opzet mmoet worden zodat u het kunt gebruiker zonder enkele problemen!
 
 ### Gemaakt met
-Dit project is gemaakt met de volgende frameworks
+Dit project is gemaakt met de volgende frameworks:
 
-Frontend:
+Voor het frontend is er gebruik gemaakt van:
 * [![Angular][Angular.io]][Angular-url]
 
-Backend:
+Voor het backend is er gebruik gemaakt van:
 * [![Spring][Spring.io]][Spring-url]
 
 <!-- Voorbereiding project -->
 ## Voorbereiding 
-Voordat u het project kan gebruiken, moet u eerst een paar dingen downloaden zodat u gebruik kan maken van Angular en Spring.
+Voordat u het project kan gebruiken, moeten er eerst een paar worden dingen gedownload zodat u gebruik kan maken van Angular en Spring.
 
 ### MySQL installatie
 MySQL database heeft u nodig zodat u de data van de applicatie kan opslaan en ophalen.
